@@ -6,9 +6,8 @@ import {
     TextInput,
     TouchableOpacity,
     View,
-    KeyboardAvoidingView
 } from 'react-native';
-
+import {sizeWidth, sizeHeight } from '../../Utils/Size';
 const FormComponent = ({
     name,
     kind,
@@ -22,8 +21,9 @@ const FormComponent = ({
     borderColor,
     tintColorRightImage
 }) => {
+    console.log(sizeHeight(6.5))
     return (
-        <KeyboardAvoidingView style={styles.formComponentView}>
+        <View style={styles.formComponentView}>
             <View style={styles.viewNameFormAndNoti}>
                 <Text style={styles.textNameForm}>{name}</Text>
                 {notification
@@ -53,20 +53,16 @@ const FormComponent = ({
                     : null
                 }
             </View>
-        </KeyboardAvoidingView>
+        </View>
     )
 }
 
 const styles = StyleSheet.create({
-    loginFormContainer: {
-        //backgroundColor: 'cornsilk',
-        flex: 1
-    },
     formComponentView: {
-        height: 72,
+        //height: 72,
         marginHorizontal: 16,
-        //backgroundColor: 'skyblue',
-        marginTop: 24,
+        //backgroundColor: 'cornsilk',
+        marginTop: 16,
 
     },
     viewNameFormAndNoti: {
@@ -85,7 +81,8 @@ const styles = StyleSheet.create({
     viewTextInput: {
         //borderWidth: 1,
         //borderColor: '#F96B44',
-        height: 48,
+        //height: 48,
+        height: sizeHeight(6.5),
         borderRadius: 10,
         backgroundColor: '#F5F5F8',
         //alignItems: 'center',

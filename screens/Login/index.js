@@ -7,7 +7,8 @@ import {
   TextInput,
   TouchableOpacity,
   View,
-  KeyboardAvoidingView
+  KeyboardAvoidingView,
+  Dimensions
 } from 'react-native';
 import LogoComponent from './LogoComponent';
 import FormComponent from './FormComponent';
@@ -17,6 +18,8 @@ import ButtonSignAndSocial from './ButtonSignAndSocial';
 const orangeColor = '#F96B44'
 const grayColor = ''
 const blueColor = ''
+const window = Dimensions.get("window");
+const screen = Dimensions.get("screen");
 
 export default class Login extends Component {
   constructor(props) {
@@ -31,6 +34,7 @@ export default class Login extends Component {
     })
   }
 
+  
   //Function change value Switch
   changeSwitchState = () => {
     this.setState({
@@ -86,6 +90,10 @@ export default class Login extends Component {
     alert('Forgot password')
   }
   render() {
+    console.log('Height: ', screen.height)
+    console.log('Width: ', screen.width)
+    console.log('Height1: ', window.height)
+    console.log('Width1: ', window.width)
     return (
       <View style={{ flex: 1 }}>
         <LogoComponent
@@ -132,84 +140,7 @@ export default class Login extends Component {
 const styles = StyleSheet.create({
   loginFormContainer: {
     //backgroundColor: 'cornsilk',
-    flex: 1
+    marginBottom: 32,
   },
-  formComponentView: {
-    height: 72,
-    marginHorizontal: 16,
-    //backgroundColor: 'skyblue',
-    marginTop: 24,
-
-  },
-  viewNameFormAndNoti: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 8,
-  },
-  textNameForm: {
-    color: '#525C67',
-    fontSize: 14,
-  },
-  textFormNoti: {
-    fontSize: 14,
-    color: '#F96B44',
-  },
-  viewTextInput: {
-    //borderWidth: 1,
-    //borderColor: '#F96B44',
-    height: 48,
-    borderRadius: 10,
-    backgroundColor: '#F5F5F8',
-    //alignItems: 'center',
-    alignItems: 'center',
-    paddingHorizontal: 16,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  textInput: {
-    fontSize: 14,
-    width: 300,
-    //fontFamily: ''
-    //backgroundColor: 'cornsilk',
-  },
-  imgRight: {
-    width: 16,
-    height: 16,
-  },
-  viewSaveAndForgot: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginHorizontal: 16,
-    marginTop: 16,
-    //backgroundColor: 'green'
-  },
-  buttonContainer: {
-    flex: 1,
-    //backgroundColor: 'skyblue'
-    //alignItems: 'center' 
-  },
-  loginButton: {
-    height: 56,
-    marginHorizontal: 16,
-    borderRadius: 8,
-    backgroundColor: '#F96B44',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 16
-  },
-  socialLoginButton: {
-    height: 48,
-    marginHorizontal: 16,
-    borderRadius: 8,
-    backgroundColor: '#F96B44',
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'row'
-  },
-  imgSocial: {
-    width: 16,
-    height: 16,
-    marginRight: 8
-  }
+  
 });

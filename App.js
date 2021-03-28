@@ -7,9 +7,9 @@ import Register from './screens/Register'
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar style="dark" />
-      {/* <Login/> */}
-      <Register/>
+      {/* <StatusBar style={'dark'}/> */}
+      <Login/>
+      {/* <Register/> */}
     </SafeAreaView>
   );
 }

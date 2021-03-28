@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
-import {Image, StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, Text, View } from 'react-native'
+import HeaderText from './HeaderText';
 
 export default class LogoComponent extends Component {
     render() {
         return (
             <View style={styles.logoContainer}>
-                <Image style={styles.imgLogo} source={require('../../assets/logo-eatme.png')}/>
-                <View style={styles.textLogo}>
-                    <Text style={styles.textBold}>{this.props.textBold}</Text>
-                    <Text style={styles.textLight}>{this.props.textLight}</Text>
-                </View>
+                <Image style={styles.imgLogo} source={require('../../assets/logo-eatme.png')} />
+                {this.props.textBold || textLight
+                    ? <HeaderText textBold={this.props.textBold} textLight={this.props.textLight} />
+                    : null}
+
             </View>
         )
     }
@@ -19,13 +20,12 @@ const styles = StyleSheet.create({
     logoContainer: {
         justifyContent: 'center',
         alignItems: 'center',
-        padding: 32,
-        height: 200,
         //backgroundColor: 'skyblue'
     },
     imgLogo: {
         width: 208,
         height: 64,
+        marginTop: 24
     },
     textLogo: {
         marginTop: 32,
