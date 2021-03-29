@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {StyleSheet, Text, View } from 'react-native'
+import { sizeFont, sizeWidth } from '../../Utils/Size'
 
 export default class HeaderText extends Component {
     render() {
@@ -22,19 +23,19 @@ export default class HeaderText extends Component {
 
 const styles = StyleSheet.create({
     textHeader: {
-        marginTop: 16,
+        marginTop: sizeWidth(3),
         justifyContent: 'center',
         alignItems: 'center'
     },
     textBold: {
-        fontSize: 24,
+        fontSize: sizeFont(7),
         fontWeight: 'bold',
         fontFamily: 'SVN-Gilroy-Bold'
     },
     textLight: {
         color: '#525C67',
-        fontSize: 16,
-        marginTop: 8,
+        fontSize: sizeFont(4),
+        marginTop: sizeWidth(1),
         fontFamily: 'SVN-Gilroy-Regular'
     }
 })

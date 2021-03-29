@@ -3,9 +3,9 @@ import { Platform, StyleSheet, Text, KeyboardAvoidingView, View } from 'react-na
 import LogoComponent from '../Login/LogoComponent';
 import FormComponent from '../Login/FormComponent';
 import ButtonSignAndSocial from '../Login/ButtonSignAndSocial';
+import { sizeHeight, sizeWidth } from '../../Utils/Size';
 export default class Register extends Component {
     render() {
-        
         return (
             <View style={styles.container}>
                 <LogoComponent
@@ -14,7 +14,7 @@ export default class Register extends Component {
                 />
                 <KeyboardAvoidingView
                     behavior='position'
-                    keyboardVerticalOffset={40}
+                    keyboardVerticalOffset={sizeHeight(5)}
                     style={styles.formContainer}>
                     <FormComponent
                         name={'Email'} />
@@ -34,8 +34,9 @@ export default class Register extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        //backgroundColor: 'skyblue'
     },
     formContainer: {
-        marginBottom: 32
+        marginBottom: sizeWidth(4)
     }
 })

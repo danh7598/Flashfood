@@ -24,9 +24,9 @@ const styles = StyleSheet.create({
         //backgroundColor: 'skyblue'
     },
     imgLogo: {
-        width: sizeWidth(49),
-        height: sizeHeight(7),
-        marginTop: sizeHeight(2)
+        width: sizeWidth(48),
+        height: sizeWidth(15),
+        marginTop: sizeWidth(4)
     },
     
 })

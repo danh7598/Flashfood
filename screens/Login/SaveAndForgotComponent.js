@@ -9,6 +9,7 @@ import {
     View,
     KeyboardAvoidingView
 } from 'react-native';
+import { sizeFont, sizeWidth } from '../../Utils/Size';
 
 const orangeColor = '#F96B44'
 const grayColor = '#525C67'
@@ -23,7 +24,7 @@ export default class SaveAndForgotComponent extends Component {
                         value={this.props.switchValue}
                         onValueChange={this.props.onPressSwitch}
                         trackColor={{ true: orangeColor }}
-                        style={{ marginRight: 8, transform: [{ scaleX: .8 }, { scaleY: .8 }] }} />
+                        style={{ marginRight: sizeWidth(1), transform: [{ scaleX: .8 }, { scaleY: .8 }] }} />
                     <Text style={[styles.textNameForm,
                     this.props.switchValue ? { color: orangeColor} : { color: '#898B9A' }
                     ]}>Save me</Text>
@@ -41,14 +42,15 @@ const styles = StyleSheet.create({
     
     textNameForm: {
         color: grayColor,
-        fontSize: 14,
+        fontSize: sizeFont(3.5),
+        fontFamily: 'SVN-Gilroy-Medium',
     },
     viewSaveAndForgot: {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        marginHorizontal: 16,
-        marginTop: 16,
+        marginHorizontal: sizeWidth(4),
+        marginTop: sizeWidth(4),
         //backgroundColor: 'green'
     },
 });

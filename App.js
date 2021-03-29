@@ -1,10 +1,12 @@
-import { StatusBar } from 'expo-status-bar';
+
 import React, { Component } from 'react';
-import { StyleSheet, SafeAreaView } from 'react-native';
+import { StyleSheet, SafeAreaView, View, StatusBar } from 'react-native';
 //import Login from './Login'
 import * as Font from 'expo-font';
 import Login from './screens/Login'
 import Register from './screens/Register'
+import RegisterHomework from './screens/RegisterHomework';
+import LoginHomework from './screens/LoginHomework';
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -29,11 +31,14 @@ export default class App extends Component {
   render() {
     if (this.state.fontsLoaded) {
       return (
-        <SafeAreaView style={styles.container}>
-          {/* <StatusBar style={'dark'}/> */}
-          <Login />
-          {/* <Register/> */}
-        </SafeAreaView>
+        <View style={styles.container}>
+
+          <StatusBar style="auto" />
+          {/* <Login /> */}
+          <LoginHomework />
+          {/* <RegisterHomework /> */}
+          {/* <Register /> */}
+        </View>
       );
     } else {
       return null;

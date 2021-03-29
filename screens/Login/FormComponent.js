@@ -7,7 +7,7 @@ import {
     TouchableOpacity,
     View,
 } from 'react-native';
-import {sizeWidth, sizeHeight } from '../../Utils/Size';
+import { sizeWidth, sizeHeight, sizeFont } from '../../Utils/Size';
 const FormComponent = ({
     name,
     kind,
@@ -21,7 +21,7 @@ const FormComponent = ({
     borderColor,
     tintColorRightImage
 }) => {
-    console.log(sizeHeight(6.5))
+    //console.log(sizeHeight(6.5))
     return (
         <View style={styles.formComponentView}>
             <View style={styles.viewNameFormAndNoti}>
@@ -60,23 +60,25 @@ const FormComponent = ({
 const styles = StyleSheet.create({
     formComponentView: {
         //height: 72,
-        marginHorizontal: 16,
+        marginHorizontal: sizeWidth(4),
         //backgroundColor: 'cornsilk',
-        marginTop: 16,
+        marginTop: sizeWidth(4),
 
     },
     viewNameFormAndNoti: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginBottom: 8,
+        marginBottom: sizeWidth(2),
     },
     textNameForm: {
         color: '#525C67',
-        fontSize: 14,
+        fontSize: sizeFont(3.5),
+        fontFamily: 'SVN-Gilroy-Medium',
     },
     textFormNoti: {
-        fontSize: 14,
+        fontSize: sizeFont(3.5),
         color: '#F96B44',
+        fontFamily: 'SVN-Gilroy-Medium',
     },
     viewTextInput: {
         //borderWidth: 1,
@@ -87,19 +89,21 @@ const styles = StyleSheet.create({
         backgroundColor: '#F5F5F8',
         //alignItems: 'center',
         alignItems: 'center',
-        paddingHorizontal: 16,
+        paddingHorizontal: sizeWidth(4),
         flexDirection: 'row',
         justifyContent: 'space-between',
     },
     textInput: {
-        fontSize: 14,
-        width: 300,
-        //fontFamily: ''
+        fontSize: sizeFont(4),
+        width: sizeWidth(80),
+        fontWeight: '600',
+        color: '#111A2C',
+        fontFamily: 'SVN-Gilroy-Medium',
         //backgroundColor: 'cornsilk',
     },
     imgRight: {
-        width: 16,
-        height: 16,
+        width: sizeWidth(4),
+        height: sizeWidth(4),
     },
 });
 

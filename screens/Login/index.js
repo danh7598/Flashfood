@@ -14,6 +14,7 @@ import LogoComponent from './LogoComponent';
 import FormComponent from './FormComponent';
 import SaveAndForgotComponent from './SaveAndForgotComponent';
 import ButtonSignAndSocial from './ButtonSignAndSocial';
+import { sizeHeight, sizeWidth } from '../../Utils/Size';
 
 const orangeColor = '#F96B44'
 const grayColor = ''
@@ -34,7 +35,7 @@ export default class Login extends Component {
     })
   }
 
-  
+
   //Function change value Switch
   changeSwitchState = () => {
     this.setState({
@@ -90,12 +91,12 @@ export default class Login extends Component {
     alert('Forgot password')
   }
   render() {
-    console.log('Height: ', screen.height)
-    console.log('Width: ', screen.width)
-    console.log('Height1: ', window.height)
-    console.log('Width1: ', window.width)
+    // console.log('Height: ', screen.height)
+    // console.log('Width: ', screen.width)
+    // console.log('Height1: ', window.height)
+    // console.log('Width1: ', window.width)
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1, marginTop: sizeHeight(6) }}>
         <LogoComponent
           textBold={"Let's Sign You In"}
           textLight={"Welcome back, you've been missed!"}
@@ -140,7 +141,7 @@ export default class Login extends Component {
 const styles = StyleSheet.create({
   loginFormContainer: {
     //backgroundColor: 'cornsilk',
-    marginBottom: 32,
+    marginBottom: sizeWidth(4),
   },
-  
+
 });
