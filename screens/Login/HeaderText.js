@@ -29,11 +29,12 @@ const styles = StyleSheet.create({
     textBold: {
         fontSize: 24,
         fontWeight: 'bold',
-        //fontFamily: 'Gilroy'
+        fontFamily: 'SVN-Gilroy-Bold'
     },
     textLight: {
         color: '#525C67',
         fontSize: 16,
-        marginTop: 8
+        marginTop: 8,
+        fontFamily: 'SVN-Gilroy-Regular'
     }
 })

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Image, StyleSheet, Text, View } from 'react-native'
+import { sizeHeight, sizeWidth } from '../../Utils/Size';
 import HeaderText from './HeaderText';
 
 export default class LogoComponent extends Component {
@@ -23,23 +24,9 @@ const styles = StyleSheet.create({
         //backgroundColor: 'skyblue'
     },
     imgLogo: {
-        width: 208,
-        height: 64,
-        marginTop: 24
+        width: sizeWidth(49),
+        height: sizeHeight(7),
+        marginTop: sizeHeight(2)
     },
-    textLogo: {
-        marginTop: 32,
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    textBold: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        //fontFamily: 'Gilroy'
-    },
-    textLight: {
-        color: '#525C67',
-        fontSize: 16,
-        marginTop: 8
-    }
+    
 })
