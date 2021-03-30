@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
-import { StyleSheet, TextInput, Text, View } from 'react-native'
+import { StyleSheet, TextInput, TouchableOpacity, Text, View } from 'react-native'
 import { sizeFont, sizeWidth } from '../../Utils/Size'
 
 export default class SignButton extends Component {
     render() {
         return (
-            <View style={styles.container}>
+            <TouchableOpacity style={styles.container}>
                 <Text style={styles.textSign}>
                     {this.props.signText}
                 </Text>
-            </View>
+            </TouchableOpacity>
         )
     }
 }

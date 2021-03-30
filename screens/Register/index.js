@@ -34,6 +34,7 @@ export default class Register extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        //marginTop: sizeHeight(6)
         //backgroundColor: 'skyblue'
     },
     formContainer: {

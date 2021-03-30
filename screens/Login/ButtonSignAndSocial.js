@@ -6,7 +6,6 @@ import QuestionSign from './QuestionSign'
 
 export default class ButtonSignAndSocial extends Component {
     render() {
-        
         return (
             <View style={styles.buttonContainer}>
                 <View>
@@ -61,7 +60,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: sizeWidth(4),
         //backgroundColor: 'cornsilk',
         //alignItems: 'center',
-        marginBottom: sizeWidth(5)
+        marginBottom: sizeWidth(8)
 
     },
     socialLoginButton: {

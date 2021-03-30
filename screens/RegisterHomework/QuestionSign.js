@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { StyleSheet, TextInput, Text, View } from 'react-native'
-import { sizeFont, sizeWidth } from '../../Utils/Size'
+import { StyleSheet, TextInput, Text, View, TouchableOpacity } from 'react-native'
+import { sizeFont, sizeWidth } from '../../Utils/Size';
 
 export default class QuestionSign extends Component {
     render() {
@@ -9,9 +9,12 @@ export default class QuestionSign extends Component {
                 <Text style={styles.questionText}>
                     {this.props.questionText}
                 </Text>
-                <Text style={styles.questionTextButton}>
-                    {this.props.questionTextButton}
-                </Text>
+                <TouchableOpacity>
+                    <Text style={styles.questionTextButton}>
+                        {this.props.questionTextButton}
+                    </Text>
+                </TouchableOpacity>
+
             </View>
         )
     }

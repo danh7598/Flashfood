@@ -96,7 +96,7 @@ export default class Login extends Component {
     // console.log('Height1: ', window.height)
     // console.log('Width1: ', window.width)
     return (
-      <View style={{ flex: 1, marginTop: sizeHeight(6) }}>
+      <View style={{ flex: 1}}>
         <LogoComponent
           textBold={"Let's Sign You In"}
           textLight={"Welcome back, you've been missed!"}

@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import { sizeHeight, sizeWidth } from '../../Utils/Size'
 import FormInput from './FormInput'
 import HeaderText from './HeaderText'
+import LogoComponent from './LogoComponent'
 import QuestionSign from './QuestionSign'
 import SignButton from './SignButton'
 import SocialButton from './SocialButton'
@@ -11,7 +12,7 @@ export default class RegisterHomework extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <View style={styles.logoContainer}></View>
+                <LogoComponent />
                 <HeaderText
                     textBold={"Let's log you in"}
                     textLight={"Welcome back You've been missed!"} />
@@ -34,7 +35,7 @@ export default class RegisterHomework extends Component {
                     signText={'Sign Up'} />
                 <QuestionSign
                     questionTextButton={'Sign In'}
-                    questionText={'Have an account? '}/>
+                    questionText={'Have an account? '} />
             </View>
         )
     }
@@ -42,10 +43,12 @@ export default class RegisterHomework extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+
+        //backgroundColor: 'skyblue'
     },
     logoContainer: {
         height: sizeHeight(20),
-        backgroundColor: 'skyblue'
+        //backgroundColor: 'skyblue'
     },
     viewSocialButton: {
         flexDirection: 'row',

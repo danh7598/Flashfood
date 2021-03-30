@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     },
     textBold: {
         fontSize: sizeFont(6),
-        fontFamily: 'SVN-Gilroy-Regular',
+        fontFamily: 'SVN-Gilroy-Bold',
         fontWeight: '700'
     },
     textLight: {
