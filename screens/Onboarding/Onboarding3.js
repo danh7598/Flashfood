@@ -29,8 +29,8 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     backgroundView: {
-        height: sizeHeight(75),
-        marginTop: -sizeHeight(20),
+        height: sizeWidth(150),
+        marginTop: -sizeHeight(25),
         width: sizeWidth(150),
         alignItems: 'center',
         borderRadius: sizeWidth(75),

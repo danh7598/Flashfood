@@ -43,8 +43,8 @@ export default class App extends Component {
           {/* <RegisterHomework /> */}
           {/* <Register /> */}
           {/* <Onboarding1 /> */}
-          {/* <Onboarding2/> */}
-          <Onboarding3 />
+          <Onboarding2/>
+          {/* <Onboarding3 /> */}
         </View>
 
 

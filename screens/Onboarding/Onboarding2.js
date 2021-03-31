@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     },
     backgroundView: {
         position: 'absolute',
-        height: sizeHeight(75),
+        height: sizeWidth(150),
         bottom: -sizeHeight(20),
         width: sizeWidth(150),
         borderRadius: sizeWidth(75),
