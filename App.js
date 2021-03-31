@@ -10,6 +10,8 @@ import Register from './screens/Register'
 import RegisterHomework from './screens/RegisterHomework';
 import LoginHomework from './screens/LoginHomework';
 import Onboarding1 from "./screens/Onboarding/Onboarding1";
+import Onboarding2 from './screens/Onboarding/Onboarding2';
+import Onboarding3 from './screens/Onboarding/Onboarding3';
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -40,7 +42,9 @@ export default class App extends Component {
           {/* <LoginHomework /> */}
           {/* <RegisterHomework /> */}
           {/* <Register /> */}
-          <Onboarding1/>
+          {/* <Onboarding1 /> */}
+          {/* <Onboarding2/> */}
+          <Onboarding3 />
         </View>
 
 
