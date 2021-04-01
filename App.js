@@ -12,6 +12,8 @@ import LoginHomework from './screens/LoginHomework';
 import Onboarding1 from "./screens/Onboarding/Onboarding1";
 import Onboarding2 from './screens/Onboarding/Onboarding2';
 import Onboarding3 from './screens/Onboarding/Onboarding3';
+import ForgotPassword from './screens/ForgotPassword';
+import ClassifyTransaction from './screens/ClassifyTransaction';
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -37,17 +39,22 @@ export default class App extends Component {
     if (this.state.fontsLoaded) {
       return (
         <View style={styles.container}>
-          <StatusBar style="auto" />
+          {/* thuộc tính translucent giúp làm mờ StatusBar, dẫn đến thấy các component nằm dưới StatusBar
+              Chỉnh false để ẩn đi các component nằm dưới statusbar
+              Khi translucent false thì StatusBar chuyển thành màu đen, phải để style="light" mới hiện chữ
+
+               */}
+          <StatusBar style="light" translucent={false} />
           {/* <Login /> */}
           {/* <LoginHomework /> */}
           {/* <RegisterHomework /> */}
           {/* <Register /> */}
           {/* <Onboarding1 /> */}
-          <Onboarding2/>
+          {/* <Onboarding2/> */}
           {/* <Onboarding3 /> */}
+          {/* <ForgotPassword /> */}
+          <ClassifyTransaction />
         </View>
-
-
       );
     } else {
       return null;
@@ -59,6 +66,6 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: Constants.statusBarHeight,
+    //paddingTop: Constants.statusBarHeight,
   },
 });

@@ -22,8 +22,11 @@ export default class SkipOrNextButton extends Component {
         }
         else {
             return (
-                <TouchableOpacity style={styles.fullNextBtn}>
-                    <Text style={styles.textNext}>Let's Get Started</Text>
+                <TouchableOpacity style={[styles.fullNextBtn, {
+                    backgroundColor: this.props.btnBackgroundColor ? this.props.btnBackgroundColor : '#FF6C44',
+                    width: this.props.btnWidth ? this.props.btnWidth : sizeWidth(80)
+                }]}>
+                    <Text style={styles.textNext}>{this.props.textFullBtn}</Text>
                 </TouchableOpacity>
             )
         }
@@ -64,9 +67,7 @@ const styles = StyleSheet.create({
     fullNextBtn: {
         position: 'absolute',
         bottom: sizeHeight(4),
-        width: sizeWidth(80),
         height: sizeWidth(15),
-        backgroundColor: '#FF6C44',
         borderRadius: sizeWidth(3),
         justifyContent: 'center',
         alignItems: 'center'

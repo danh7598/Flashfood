@@ -27,8 +27,11 @@ const styles = StyleSheet.create({
     imgLogoEatMe: {
         position: 'absolute',
         top: sizeHeight(7),
-        width: sizeWidth(40),
-        height: sizeWidth(12)
+        width: sizeWidth(42),
+        height: sizeHeight(8),
+        resizeMode: 'contain', //contain là hiển thị hình ảnh với kích cỡ bằng hoặc nhỏ hơn view chứa nớ
+        //giữ tỉ lệ theo kích thước của hình ảnh
+        //backgroundColor: 'skyblue'
     },
     svgImg: {
         position: 'absolute',

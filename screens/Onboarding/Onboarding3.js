@@ -16,7 +16,9 @@ export default class Onboarding3 extends Component {
                     textBold={'Receive the Greate Food'}
                     textLight={"You'll receive the greate food within a hour. And get free delivery credits for every order"}
                 />
-                <SkipOrNextButton skipBtn={false} />
+                <SkipOrNextButton
+                    textFullBtn={"Let's get started"}
+                    skipBtn={false} />
             </View>
         )
     }
@@ -29,8 +31,9 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     backgroundView: {
-        height: sizeWidth(150),
-        marginTop: -sizeHeight(25),
+        position: 'absolute',
+        height: sizeHeight(75),
+        top: -sizeHeight(25),
         width: sizeWidth(150),
         alignItems: 'center',
         borderRadius: sizeWidth(75),

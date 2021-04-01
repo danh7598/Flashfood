@@ -30,8 +30,9 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     backgroundView: {
-        height: sizeWidth(150),
-        marginTop: -sizeHeight(25),
+        position: 'absolute',
+        height: sizeHeight(75),
+        top: -sizeHeight(25),
         width: sizeWidth(150),
         alignItems: 'center',
         borderRadius: sizeWidth(75),
