@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient';
 import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size';
 
 export default class TransactionItem extends Component {
     render() {
         return (
-            <View style={styles.container}>
+            <TouchableOpacity
+                activeOpacity={0.8}
+                style={styles.container}>
                 <LinearGradient
                     colors={this.props.linearGradientColors}
                     style={styles.circleItem}>
@@ -15,7 +17,7 @@ export default class TransactionItem extends Component {
                         source={this.props.sourceImage} />
                 </LinearGradient>
                 <Text style={[styles.textItem, { color: this.props.textColor }]}>{this.props.name}</Text>
-            </View>
+            </TouchableOpacity>
         )
     }
 }

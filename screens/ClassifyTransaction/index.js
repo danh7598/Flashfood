@@ -43,7 +43,7 @@ export default class ClassifyTransaction extends Component {
                             textColor={'#D38312'}
                             sourceImage={require('../../assets/bill.png')}
                             linearGradientColors={['#D38312', '#A83279']}
-                            name={'Transport'} />
+                            name={'Bills'} />
                     </View>
                     <View style={styles.rowView}>
                         <TransactionItem
@@ -55,7 +55,7 @@ export default class ClassifyTransaction extends Component {
                             textColor={'#56ab2f'}
                             sourceImage={require('../../assets/groceries.png')}
                             linearGradientColors={['#56ab2f', '#a8e063']}
-                            name={'Transport'} />
+                            name={'Grocery'} />
                     </View>
 
                 </View>
