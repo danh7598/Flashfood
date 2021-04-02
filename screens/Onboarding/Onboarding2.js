@@ -12,12 +12,12 @@ export default class Onboarding2 extends Component {
         return (
             <View style={styles.container}>
                 <View style={styles.backgroundView}/>
-                <LogoAndSVG xmlFile={shipperSVG} />
+                <LogoAndSVG svgImg={require('../../assets/shipper.png')} />
                 <MiddleTextOnboarding
                     textBold={'Hot Delivery to Home'}
                     textLight={'We make food ordering fast, simple and free-no matter if you order online or cash'}
                 />
-                <SkipOrNextButton skipBtn={true}/>
+                {/* <SkipOrNextButton skipBtn={true}/> */}
             </View>
         )
     }
@@ -25,18 +25,19 @@ export default class Onboarding2 extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        //justifyContent: 'center',
+        width: sizeWidth(100),
+        height: sizeHeight(100),
         alignItems: 'center',
         backgroundColor: 'rgba(255, 92, 1, 0.2)'
     },
     backgroundView: {
         position: 'absolute',
-        height: sizeWidth(150),
-        bottom: -sizeHeight(20),
+        height: sizeHeight(75),
+        bottom: -sizeHeight(9),
         width: sizeWidth(150),
+        alignItems: 'center',
         borderRadius: sizeWidth(75),
-        backgroundColor: 'white'
+        backgroundColor: "white"
 
     },
 })

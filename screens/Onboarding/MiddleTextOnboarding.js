@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
         //backgroundColor: 'skyblue',
         position: 'absolute',
         width: sizeWidth(80),
-        bottom: sizeHeight(24),
+        bottom: sizeHeight(30),
         
     },
     textBold: {

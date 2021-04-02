@@ -10,9 +10,9 @@ export default class LogoAndSVG extends Component {
                 <Image
                     style={styles.imgLogoEatMe}
                     source={require('../../assets/logo-eatme.png')} />
-                <SvgXml
-                    style={styles.svgImg}
-                    xml={this.props.xmlFile} />
+                <Image
+                    source={this.props.svgImg}
+                    style={styles.svgImg}/>
             </View>
         )
     }
@@ -22,7 +22,8 @@ const styles = StyleSheet.create({
     container: {
         //justifyContent: 'flex-start'
         position: 'absolute',
-        alignItems: 'center'
+        alignItems: 'center',
+        //backgroundColor: 'skyblue'
     },
     imgLogoEatMe: {
         position: 'absolute',
@@ -35,6 +36,10 @@ const styles = StyleSheet.create({
     },
     svgImg: {
         position: 'absolute',
-        top: sizeHeight(18)
+        top: sizeHeight(18),
+        width: sizeWidth(70),
+        //borderWidth: 1,
+        height: sizeHeight(40),
+        resizeMode: 'contain'
     }
 })

@@ -78,8 +78,9 @@ const styles = StyleSheet.create({
         width: sizeWidth(100) * 0.9,
         height: sizeHeight(100) * 0.6,
         //backgroundColor: '#ff4081',
-        borderBottomLeftRadius: 60,
-        borderBottomRightRadius: 60,
+        // borderBottomLeftRadius: 60,
+        borderRadius: 60,
+        // borderBottomRightRadius: 60,
         transform: [{
             rotateX: '0deg'
         }, {

@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient';
 import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size';
+import PropTypes from 'prop-types';
 
-export default class TransactionItem extends Component {
+class TransactionItem extends Component {
     render() {
         return (
             <TouchableOpacity
@@ -21,6 +22,14 @@ export default class TransactionItem extends Component {
         )
     }
 }
+
+TransactionItem.propTypes = {
+    sourceImage: PropTypes.string,
+    name: PropTypes.string
+
+}
+export default TransactionItem;
+
 const styles = StyleSheet.create({
     container: {
         width: sizeWidth(36),

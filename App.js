@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { StyleSheet, SafeAreaView, View } from 'react-native';
+import { StyleSheet, SafeAreaView, View, Platform } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import Constants from 'expo-constants';
 //import Login from './Login'
@@ -14,6 +14,7 @@ import Onboarding2 from './screens/Onboarding/Onboarding2';
 import Onboarding3 from './screens/Onboarding/Onboarding3';
 import ForgotPassword from './screens/ForgotPassword';
 import ClassifyTransaction from './screens/ClassifyTransaction';
+import Slider from './screens/Onboarding/Slider';
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -44,16 +45,17 @@ export default class App extends Component {
               Khi translucent false thì StatusBar chuyển thành màu đen, phải để style="light" mới hiện chữ
 
                */}
-          <StatusBar style="light" translucent={false} />
+          <StatusBar style={Platform.OS === 'ios' ? 'auto' : 'light'} translucent={false} />
           {/* <Login /> */}
           {/* <LoginHomework /> */}
           {/* <RegisterHomework /> */}
           {/* <Register /> */}
           {/* <Onboarding1 /> */}
+          <Slider/>
           {/* <Onboarding2/> */}
           {/* <Onboarding3 /> */}
           {/* <ForgotPassword /> */}
-          <ClassifyTransaction />
+          {/* <ClassifyTransaction /> */}
         </View>
       );
     } else {
@@ -66,6 +68,6 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    //paddingTop: Constants.statusBarHeight,
+    paddingTop: Platform.OS === 'ios'  ? Constants.statusBarHeight : null,
   },
 });

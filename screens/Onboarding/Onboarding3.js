@@ -11,14 +11,15 @@ export default class Onboarding3 extends Component {
         return (
             <View style={styles.container}>
                 <View style={styles.backgroundView} />
-                <LogoAndSVG xmlFile={foodPackage} />
+                <LogoAndSVG svgImg={require('../../assets/grocery-bag.png')} />
                 <MiddleTextOnboarding
                     textBold={'Receive the Greate Food'}
                     textLight={"You'll receive the greate food within a hour. And get free delivery credits for every order"}
                 />
-                <SkipOrNextButton
+                <View style={styles.longDot}></View>
+                {/* <SkipOrNextButton
                     textFullBtn={"Let's get started"}
-                    skipBtn={false} />
+                    skipBtn={false} /> */}
             </View>
         )
     }
@@ -26,7 +27,8 @@ export default class Onboarding3 extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        width: sizeWidth(100),
+        height: sizeHeight(100),
         //justifyContent: 'center',
         alignItems: 'center'
     },

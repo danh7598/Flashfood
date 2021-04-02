@@ -7,12 +7,16 @@ export default class SkipOrNextButton extends Component {
         if (this.props.skipBtn) {
             return (
                 <View style={styles.container}>
-                    <TouchableOpacity style={styles.skipBtn}>
+                    <TouchableOpacity
+                        onPress={this.props.onPressSkip}
+                        style={styles.skipBtn}>
                         <Text style={styles.textSkip}>
                             Skip
                     </Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.nextBtn}>
+                    <TouchableOpacity
+                        onPress={this.props.onPressNext}
+                        style={styles.nextBtn}>
                         <Text style={styles.textNext}>
                             Next
                     </Text>
@@ -22,7 +26,9 @@ export default class SkipOrNextButton extends Component {
         }
         else {
             return (
-                <TouchableOpacity style={[styles.fullNextBtn, {
+                <TouchableOpacity
+                    onPress={this.props.onPressFinish}
+                    style={[styles.fullNextBtn, {
                     backgroundColor: this.props.btnBackgroundColor ? this.props.btnBackgroundColor : '#FF6C44',
                     width: this.props.btnWidth ? this.props.btnWidth : sizeWidth(80)
                 }]}>

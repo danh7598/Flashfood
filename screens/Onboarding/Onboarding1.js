@@ -12,12 +12,12 @@ export default class Onboarding1 extends Component {
         return (
             <View style={styles.container}>
                 <View style={styles.backgroundView} />
-                <LogoAndSVG xmlFile={HamburgerSVG}/>
+                <LogoAndSVG svgImg={require('../../assets/hamburger.png')}/>
                 <MiddleTextOnboarding
                     textBold={'Choose a Favourite Food'}
                     textLight={"When you order Eat Steet, we'll hook you up with exclusive coupon, specials and rewards"}
                 />
-                <SkipOrNextButton skipBtn={true} />
+                {/* <SkipOrNextButton skipBtn={true} /> */}
             </View>
         )
     }
@@ -25,9 +25,10 @@ export default class Onboarding1 extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        //justifyContent: 'center',
-        alignItems: 'center'
+        width: sizeWidth(100),
+        height: sizeHeight(100),
+        alignItems: 'center',
+        //backgroundColor: 'skyblue'
     },
     backgroundView: {
         position: 'absolute',
