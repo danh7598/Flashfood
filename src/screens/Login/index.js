@@ -16,6 +16,7 @@ import HeaderText from './HeaderText';
 import Button from './Button';
 import QuestionSign from './QuestionSign';
 import { sizeHeight, sizeWidth } from '../../Utils/Size';
+import { validateEmailLogin } from '../../Utils/Validate';
 
 const orangeColor = '#F96B44'
 const grayColor = ''
@@ -32,6 +33,7 @@ export default class Login extends Component {
       notificationEmail: 0, //0: dont show noti, 1: show error noti, 2: ok noti
       notificationEmailMessage: '',
       hidePassword: true,
+      btnShowPassword: require('../../assets/eye.png')
 
     })
   }
@@ -43,11 +45,7 @@ export default class Login extends Component {
       switchValue: !this.state.switchValue
     })
   }
-  //Validate email regex
-  validateEmail(email) {
-    const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email);
-  }
+
 
   //Function onChangeText on TextInput email
   onChangeEmail = (text) => {
@@ -59,7 +57,7 @@ export default class Login extends Component {
         notificationEmailMessage: '',
         notificationEmail: 0
       })
-    } else if (!this.validateEmail(text)) {
+    } else if (!validateEmailLogin(text)) {
       this.setState({
         notificationEmailMessage: 'Incorrect email, try again',
         notificationEmail: 1
@@ -76,9 +74,12 @@ export default class Login extends Component {
       passwordValue: text
     })
   }
+
   hideAndShowPassword = () => {
     this.setState({
-      hidePassword: !this.state.hidePassword
+      hidePassword: !this.state.hidePassword,
+      btnShowPassword: !this.state.hidePassword ? require('../../assets/eye.png')
+        : require('../../assets/eye_close.png')
     })
   }
   //Clear email input by right button
@@ -134,8 +135,8 @@ export default class Login extends Component {
             placeholder={'Input your email'}
             borderColor={this.state.notificationEmail === 1 ? '#F96B44' : null}
             notification={this.state.notificationEmailMessage}
-            buttonRightImage={this.state.notificationEmail === 1 ? require('../../assets/x-mark.png')
-              : this.state.notificationEmail === 2 ? require('../../assets/check-mark.png')
+            buttonRightImage={this.state.notificationEmail === 1 ? require('../../assets/cancel_icon.png')
+              : this.state.notificationEmail === 2 ? require('../../assets/right_mark_icon.png')
                 : null}
             tintColorRightImage={this.state.notificationEmail === 1 ? orangeColor
               : this.state.notificationEmail === 2 ? '#27AE60'
@@ -148,7 +149,7 @@ export default class Login extends Component {
             valueInput={this.state.passwordValue}
             onChangeValue={this.onChangePassword}
             buttonFunction={this.hideAndShowPassword}
-            buttonRightImage={require('../../assets/view.png')} />
+            buttonRightImage={this.state.btnShowPassword} />
         </View>
 
         {/* SaveAndForgotComponent chứa view bao gồm switch Save password và forgot password cùng 1 hàng */}
@@ -156,6 +157,9 @@ export default class Login extends Component {
           switchValue={this.state.switchValue}
           onPressSwitch={this.changeSwitchState}
           onPressForgot={this.onPressForgot} />
+
+        {/* ViewFooterButton bao gồm 3 nút Login, dòng hỏi có account chưa 
+        và 2 nút google, facebook */}
         <View style={styles.viewFooterButton}>
           <View>
             <Button

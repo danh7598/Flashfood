@@ -10,6 +10,7 @@ class Button extends Component {
                 onPress={this.props.onPress}
                 style={[styles.button, {
                     backgroundColor: this.props.btnBackgroundColor,
+                    marginBottom: this.props.marginBottom
                 }]}>
                 {this.props.imgSrc &&
                     <Image style={styles.imgBtn} source={this.props.imgSrc} />}
@@ -29,7 +30,8 @@ Button.propTypes = {
 }
 Button.defaultProps = {
     textColor: 'white',
-    btnBackgroundColor: orangeColor
+    btnBackgroundColor: orangeColor,
+    marginBottom: sizeHeight(1.5)
 }
 
 export default Button
@@ -41,7 +43,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         alignItems: "center",
         justifyContent: "center",
-        marginBottom: sizeWidth(3),
+        //marginBottom: sizeHeight(1.5),
     },
     imgBtn: {
         width: sizeWidth(4),
