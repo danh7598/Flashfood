@@ -40,7 +40,7 @@ export default class Login extends Component {
                         </Text>
                     </TouchableOpacity>
                 </View>
-                
+    
             </View>
         )
     }
@@ -65,7 +65,6 @@ const styles = StyleSheet.create({
         height: 150,
         borderRadius: 75
     },
-    
     inputContainer: {
         flex: 1,
         paddingTop: 24

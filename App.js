@@ -5,16 +5,16 @@ import { StatusBar } from 'expo-status-bar';
 import Constants from 'expo-constants';
 //import Login from './Login'
 import * as Font from 'expo-font';
-import Login from './screens/Login'
-import Register from './screens/Register'
-import RegisterHomework from './screens/RegisterHomework';
-import LoginHomework from './screens/LoginHomework';
-import Onboarding1 from "./screens/Onboarding/Onboarding1";
-import Onboarding2 from './screens/Onboarding/Onboarding2';
-import Onboarding3 from './screens/Onboarding/Onboarding3';
-import ForgotPassword from './screens/ForgotPassword';
-import ClassifyTransaction from './screens/ClassifyTransaction';
-import Slider from './screens/Onboarding/Slider';
+import Login from './src/screens/Login'
+import Register from './src/screens/Register'
+import RegisterHomework from './src/screens/RegisterHomework';
+import LoginHomework from './src/screens/LoginHomework';
+import Onboarding1 from "./src/screens/Onboarding/Onboarding1";
+import Onboarding2 from './src/screens/Onboarding/Onboarding2';
+import Onboarding3 from './src/screens/Onboarding/Onboarding3';
+import ForgotPassword from './src/screens/ForgotPassword';
+import ClassifyTransaction from './src/screens/ClassifyTransaction';
+import Slider from './src/screens/Onboarding/Slider';
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -24,10 +24,10 @@ export default class App extends Component {
   }
   async loadFonts() {
     await Font.loadAsync({
-      'SVN-Gilroy-Regular': require('./assets/fonts/SVN-Gilroy-Regular.otf'),
-      'SVN-Gilroy-Medium': require('./assets/fonts/SVN-Gilroy-Medium.otf'),
-      'SVN-Gilroy-SemiBold': require('./assets/fonts/SVN-Gilroy-SemiBold.otf'),
-      'SVN-Gilroy-Bold': require('./assets/fonts/SVN-Gilroy-Bold.otf'),
+      'SVN-Gilroy-Regular': require('./src/assets/fonts/SVN-Gilroy-Regular.otf'),
+      'SVN-Gilroy-Medium': require('./src/assets/fonts/SVN-Gilroy-Medium.otf'),
+      'SVN-Gilroy-SemiBold': require('./src/assets/fonts/SVN-Gilroy-SemiBold.otf'),
+      'SVN-Gilroy-Bold': require('./src/assets/fonts/SVN-Gilroy-Bold.otf'),
     });
     this.setState({ fontsLoaded: true });
   }
@@ -46,12 +46,12 @@ export default class App extends Component {
 
                */}
           <StatusBar style={Platform.OS === 'ios' ? 'auto' : 'light'} translucent={false} />
-          {/* <Login /> */}
+          <Login />
           {/* <LoginHomework /> */}
           {/* <RegisterHomework /> */}
           {/* <Register /> */}
           {/* <Onboarding1 /> */}
-          <Slider/>
+          {/* <Slider /> */}
           {/* <Onboarding2/> */}
           {/* <Onboarding3 /> */}
           {/* <ForgotPassword /> */}
@@ -68,6 +68,6 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: Platform.OS === 'ios'  ? Constants.statusBarHeight : null,
+    paddingTop: Platform.OS === 'ios' ? Constants.statusBarHeight : null,
   },
 });

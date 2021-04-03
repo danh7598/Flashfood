@@ -10,17 +10,17 @@ import {
   KeyboardAvoidingView,
   Dimensions
 } from 'react-native';
-import LogoComponent from './LogoComponent';
 import FormComponent from './FormComponent';
 import SaveAndForgotComponent from './SaveAndForgotComponent';
-import ButtonSignAndSocial from './ButtonSignAndSocial';
+import HeaderText from './HeaderText';
+import Button from './Button';
+import QuestionSign from './QuestionSign';
 import { sizeHeight, sizeWidth } from '../../Utils/Size';
 
 const orangeColor = '#F96B44'
 const grayColor = ''
-const blueColor = ''
-const window = Dimensions.get("window");
-const screen = Dimensions.get("screen");
+const blueColor = '#0064C0'
+
 
 export default class Login extends Component {
   constructor(props) {
@@ -28,6 +28,7 @@ export default class Login extends Component {
     this.state = ({
       switchValue: false,
       emailValue: '',
+      passwordValue: '',
       notificationEmail: 0, //0: dont show noti, 1: show error noti, 2: ok noti
       notificationEmailMessage: '',
       hidePassword: true,
@@ -71,7 +72,9 @@ export default class Login extends Component {
     }
   }
   onChangePassword = (text) => {
-
+    this.setState({
+      passwordValue: text
+    })
   }
   hideAndShowPassword = () => {
     this.setState({
@@ -90,21 +93,42 @@ export default class Login extends Component {
   onPressForgot = () => {
     alert('Forgot password')
   }
+
+  onPressFacebookLogin = () => {
+    alert('Press Facebook Login')
+  }
+
+  onPressGoogleLogin = () => {
+    alert('Press Google Login')
+  }
+
+  onPressLogin = () => {
+    alert('Press Login')
+  }
+
+  onPressQuestionSign = () => {
+    alert('Press Question Sign Up')
+  }
+
+
   render() {
-    // console.log('Height: ', screen.height)
-    // console.log('Width: ', screen.width)
-    // console.log('Height1: ', window.height)
-    // console.log('Width1: ', window.width)
+
     return (
-      <View style={{ flex: 1}}>
-        <LogoComponent
-          textBold={"Let's Sign You In"}
-          textLight={"Welcome back, you've been missed!"}
-        />
+      <View style={styles.container}>
+
+        {/* Header View bao gồm logo và headerText */}
+        <View style={styles.headerView}>
+          <Image style={styles.imgLogo} source={require('../../assets/logo-eatme.png')} />
+          <HeaderText
+            textBold={"Let's Sign You In"}
+            textLight={"Welcome back, you've been missed!"} />
+        </View>
+
+        {/* loginFormContainer bao gồm các textInput để Login */}
         <View style={styles.loginFormContainer}>
           <FormComponent
-            name={'Email'}
-            kind={'email-address'}
+            nameTextInput={'Email'}
+            keyboardType={'email-address'}
             onChangeValue={this.onChangeEmail}
             valueInput={this.state.emailValue}
             placeholder={'Input your email'}
@@ -118,30 +142,77 @@ export default class Login extends Component {
                 : null}
             buttonFunction={this.clearText} />
           <FormComponent
-            name={'Password'}
+            nameTextInput={'Password'}
             secure={this.state.hidePassword}
             placeholder={'Input your password'}
+            valueInput={this.state.passwordValue}
             onChangeValue={this.onChangePassword}
             buttonFunction={this.hideAndShowPassword}
             buttonRightImage={require('../../assets/view.png')} />
-          <SaveAndForgotComponent
-            switchValue={this.state.switchValue}
-            onPressSwitch={this.changeSwitchState}
-            onPressForgot={this.onPressForgot} />
         </View>
-        <ButtonSignAndSocial
-          buttonSign={'Sign In'}
-          questionSign={"Don't have account? "}
-          alternativeButtonSign={'Sign Up'} />
+
+        {/* SaveAndForgotComponent chứa view bao gồm switch Save password và forgot password cùng 1 hàng */}
+        <SaveAndForgotComponent
+          switchValue={this.state.switchValue}
+          onPressSwitch={this.changeSwitchState}
+          onPressForgot={this.onPressForgot} />
+        <View style={styles.viewFooterButton}>
+          <View>
+            <Button
+              onPress={this.onPressLogin}
+              buttonSign={"Sign In"} />
+            <QuestionSign
+              onPress={this.onPressQuestionSign}
+              alternativeButtonSign={"Sign Up"}
+              questionSign={"Don't have an account? "} />
+          </View>
+          <View>
+            <Button
+              onPress={this.onPressFacebookLogin}
+              btnBackgroundColor={blueColor}
+              imgSrc={require('../../assets/facebook.png')}
+              buttonSign={"Continue With Facebook"} />
+            <Button
+              onPress={this.onPressGoogleLogin}
+              textColor={'#111A2C'}
+              btnBackgroundColor={'#F5F5F8'}
+              imgSrc={require('../../assets/google.png')}
+              buttonSign={"Continue With Google"} />
+          </View>
+        </View>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+
+  },
+  headerView: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: sizeHeight(4),
+    //backgroundColor: 'skyblue'
+  },
+  imgLogo: {
+    width: sizeWidth(50),
+    height: sizeHeight(8),
+    resizeMode: 'contain',
+    marginBottom: sizeHeight(3)
+    //backgroundColor: 'skyblue',
+  },
   loginFormContainer: {
     //backgroundColor: 'cornsilk',
-    marginBottom: sizeWidth(4),
+    //height: sizeHeight(30),
+    marginBottom: sizeHeight(1),
   },
-
+  viewFooterButton: {
+    //backgroundColor: 'skyblue',
+    flex: 1,
+    justifyContent: 'space-between',
+    marginTop: sizeHeight(3),
+    marginBottom: sizeHeight(2)
+  }
 });

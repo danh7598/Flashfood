@@ -1,17 +1,17 @@
 import React, { Component } from 'react'
 import { Platform, StyleSheet, Text, KeyboardAvoidingView, View } from 'react-native';
-import LogoComponent from '../Login/LogoComponent';
+//import LogoComponent from '../Login/LogoComponent';
 import FormComponent from '../Login/FormComponent';
-import ButtonSignAndSocial from '../Login/ButtonSignAndSocial';
+// import ButtonSignAndSocial from '../Login/ButtonSignAndSocial';
 import { sizeHeight, sizeWidth } from '../../Utils/Size';
 export default class Register extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <LogoComponent
+                {/* <LogoComponent
                     textBold={'Getting Started'}
                     textLight={'Create an account to continue!'}
-                />
+                /> */}
                 <KeyboardAvoidingView
                     behavior='position'
                     keyboardVerticalOffset={sizeHeight(5)}
@@ -23,10 +23,10 @@ export default class Register extends Component {
                     <FormComponent
                         name={'Password'} />
                 </KeyboardAvoidingView>
-                <ButtonSignAndSocial
+                {/* <ButtonSignAndSocial
                     buttonSign={'Sign Up'}
                     questionSign={'Already have an account? '}
-                    alternativeButtonSign={'Sign In'} />
+                    alternativeButtonSign={'Sign In'} /> */}
             </View>
         )
     }
