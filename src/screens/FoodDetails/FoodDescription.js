@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     container: {
         height: sizeHeight(45),
         //backgroundColor: 'skyblue',
-        marginTop: sizeHeight(2)
+        //marginTop: sizeHeight(1)
         //flexDirection: 'row',
         //justifyContent: 'center'
     },
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
         height: sizeWidth(43),
         resizeMode: 'contain',
         position: 'absolute',
-        left: sizeWidth(25)
+        left: sizeWidth(22)
     },
     viewTextFoodDescription: {
         flex: 1,

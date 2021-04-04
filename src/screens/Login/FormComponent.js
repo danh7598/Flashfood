@@ -22,6 +22,7 @@ const FormComponent = ({
     borderColor,
     tintColorRightImage
 }) => {
+    console.log(buttonFunction.toString());
     return (
         <View style={styles.formComponentView}>
             <View style={styles.viewNameFormAndNoti}>
