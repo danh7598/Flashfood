@@ -15,6 +15,7 @@ import Onboarding3 from './src/screens/Onboarding/Onboarding3';
 import ForgotPassword from './src/screens/ForgotPassword';
 import ClassifyTransaction from './src/screens/ClassifyTransaction';
 import Slider from './src/screens/Onboarding/Slider';
+import FoodDetails from './src/screens/FoodDetails';
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -49,13 +50,14 @@ export default class App extends Component {
           {/* <Login /> */}
           {/* <LoginHomework /> */}
           {/* <RegisterHomework /> */}
-          <Register />
+          {/* <Register /> */}
           {/* <Onboarding1 /> */}
           {/* <Slider /> */}
           {/* <Onboarding2/> */}
           {/* <Onboarding3 /> */}
           {/* <ForgotPassword /> */}
           {/* <ClassifyTransaction /> */}
+          <FoodDetails />
         </View>
       );
     } else {

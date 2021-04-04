@@ -141,7 +141,7 @@ export default class Login extends Component {
             tintColorRightImage={this.state.notificationEmail === 1 ? orangeColor
               : this.state.notificationEmail === 2 ? '#27AE60'
                 : null}
-            buttonFunction={this.clearText} />
+            buttonFunction={this.state.notificationEmail !== 2 ? this.clearText : null} />
           <FormComponent
             nameTextInput={'Password'}
             secure={this.state.hidePassword}

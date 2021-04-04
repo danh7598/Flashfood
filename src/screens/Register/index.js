@@ -7,7 +7,12 @@ import { sizeHeight, sizeWidth } from '../../Utils/Size';
 import HeaderText from '../Login/HeaderText';
 import Button from '../Login/Button';
 import QuestionSign from '../Login/QuestionSign';
-
+import { emailNotification } from '../../string/NotificationInput';
+import { validateEmailLogin } from '../../Utils/Validate';
+import cancel_icon from '../../assets/cancel_icon.png';
+import eye from '../../assets/eye.png';
+import right_mark_icon from '../../assets/right_mark_icon.png';
+import eye_close from '../../assets/eye_close.png';
 const orangeColor = '#F96B44'
 const grayColor = ''
 const blueColor = '#0064C0'
@@ -18,35 +23,51 @@ export default class Register extends Component {
             emailValue: '',
             userNameValue: '',
             passwordValue: '',
-            notificationEmail: ['This email is already taken', 'Incorrect email, Try again'], //0: dont show noti, 1: show error noti, 2: ok noti
-            notificationUserName: ['This user name is already taken',],
-            notificationPassword: ['Password must be 9 characters'],
+            notificationEmail: '', //0: dont show noti, 1: show error noti, 2: ok noti
+            notificationUserName: '',
+            notificationPassword: '',
             hidePassword: true,
-            btnShowPassword: require('../../assets/eye.png')
+            btnShowPassword: eye,
+            buttonRightImageEmail: null
         }
     }
 
 
     //Function change TextInput email 
     onChangeEmail = (text) => {
-        this.setState({
-            emailValue: text,
-
-        })
+        if (text === '') {
+            this.setState({
+                notificationEmail: '',
+                buttonRightImageEmail: null
+            })
+        } else if (!validateEmailLogin(text)) {
+            this.setState({
+                emailValue: text,
+                notificationEmail: emailNotification[1],
+                buttonRightImageEmail: cancel_icon
+            })
+        } else {
+            this.setState({
+                emailValue: text,
+                notificationEmail: '',
+                buttonRightImageEmail: right_mark_icon
+            })
+        }
 
     }
 
     //Function change TextInput password
     onChangePassword = (text) => {
         this.setState({
-            passwordValue: text
+            passwordValue: text,
+
         })
     }
     hideAndShowPassword = () => {
         this.setState({
             hidePassword: !this.state.hidePassword,
-            btnShowPassword: !this.state.hidePassword ? require('../../assets/eye.png')
-                : require('../../assets/eye_close.png')
+            btnShowPassword: !this.state.hidePassword ? eye
+                : eye_close
         })
     }
 
@@ -92,6 +113,11 @@ export default class Register extends Component {
                         placeholder={'Input your email'}
                         keyboardType={'email-address'}
                         onChangeValue={this.onChangeEmail}
+                        notification={this.state.notificationEmail}
+                        buttonRightImage={this.state.buttonRightImageEmail}
+                        borderColor={this.state.buttonRightImageEmail === cancel_icon ? '#F96B44' : null}
+                        tintColorRightImage={this.state.buttonRightImageEmail === cancel_icon
+                            ? orangeColor : '#27AE60'}
                     />
                     <FormComponent
                         nameTextInput={'Username'}

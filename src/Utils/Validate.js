@@ -4,7 +4,15 @@ export const validateEmailLogin = (email) => {
 }
 
 export const validateEmailSignUp = (email) => {
-    if (email === 'danh7598@gmail.com') {
+    if (!validateEmailLogin(email)) {
         return false;
+    } else {
+        if (email === 'danh7598@gmail.com') {
+            return false;
+        }
+        else {
+            return true;
+        }
     }
+    
 }
