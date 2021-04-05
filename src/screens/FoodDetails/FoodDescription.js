@@ -3,6 +3,7 @@ import { Text, StyleSheet, View, Image, TouchableOpacity } from 'react-native'
 import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size'
 import fire from '../../assets/fire.png'
 import heart from '../../assets/heart.png'
+import { grayColor } from '../../string/ColorTheme'
 export default class FoodDescription extends Component {
     render() {
         // console.log(sizeHeight(25))
@@ -54,7 +55,7 @@ const styles = StyleSheet.create({
         marginHorizontal: sizeWidth(4),
         padding: sizeWidth(4),
         height: sizeHeight(28),
-        backgroundColor: '#F5F5F8',
+        backgroundColor: grayColor,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',

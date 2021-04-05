@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import PropTypes from 'prop-types'
 import { sizeWidth, sizeHeight, sizeFont } from '../../Utils/Size';
+import { grayColor } from '../../string/ColorTheme';
 const FormComponent = ({
     nameTextInput,
     keyboardType,
@@ -106,7 +107,7 @@ const styles = StyleSheet.create({
         height: sizeHeight(6.5),
         borderRadius: sizeWidth(2),
         borderWidth: 1,
-        backgroundColor: '#F5F5F8',
+        backgroundColor: grayColor,
         alignItems: 'center',
         paddingHorizontal: sizeWidth(4),
         flexDirection: 'row',

@@ -14,6 +14,7 @@ import MiniShopDescription from './MiniShopDescription'
 import logo_restaurant from '../../assets/logo_restaurant.png'
 import QuantityControl from './QuantityControl'
 import ButtonBuyNow from './ButtonBuyNow'
+import { grayColor } from '../../string/ColorTheme'
 
 const sizeFood = [12, 14, 16, 18]
 export default class FoodDetails extends Component {
@@ -82,7 +83,7 @@ export default class FoodDetails extends Component {
                     rateNumber={4} />
                 <View style={styles.viewFooterButton}>
                     <QuantityControl
-                        style={{ backgroundColor: '#F5F5F8' }}
+                        style={{ backgroundColor: grayColor }}
                         onPressMinus={this.onPressMinusQuantity}
                         onPressPlus={this.onPressPlusQuantity}
                         number={this.state.quantity} />
