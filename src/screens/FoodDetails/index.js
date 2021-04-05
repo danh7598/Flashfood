@@ -22,7 +22,7 @@ export default class FoodDetails extends Component {
         super(props);
         this.state = {
             sizeSelected: 0,
-            quantity: 0
+            quantity: 1
         }
     }
     onPressLeftBtn = () => {
@@ -39,7 +39,7 @@ export default class FoodDetails extends Component {
 
     //Giảm số lượng đồ ăn
     onPressMinusQuantity = () => {
-        if (this.state.quantity > 0) {
+        if (this.state.quantity > 1) {
             this.setState({
                 quantity: this.state.quantity - 1
             })
@@ -70,7 +70,7 @@ export default class FoodDetails extends Component {
                 <View style={styles.viewRating}>
                     <FoodStar rateNumber={4.5} />
                     <ShippingDuration textDuration={'30 Mins'} />
-                    <ShippingPrice textPrice={"Free shipping"} />
+                    <ShippingPrice textPrice={0} />
                 </View>
                 <SizeFood
                     sizeArray={sizeFood}
@@ -89,7 +89,7 @@ export default class FoodDetails extends Component {
                         number={this.state.quantity} />
                     <ButtonBuyNow
                         textButton={"Buy Now"}
-                        price={"$15.99"}
+                        price={"$" + (15.99*this.state.quantity).toFixed(2)}
                     />
                 </View>
             </View>
@@ -111,7 +111,6 @@ const styles = StyleSheet.create({
         height: sizeHeight(10),
         borderTopWidth: 1,
         borderBottomWidth: 1,
-
         borderColor: 'rgba(137,139,154,0.1)'
     },
     viewFooterButton: {
@@ -119,6 +118,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'flex-end',
         paddingHorizontal: sizeWidth(4),
-        paddingBottom: sizeHeight(2),
+        paddingBottom: sizeHeight(4),
     }
 })

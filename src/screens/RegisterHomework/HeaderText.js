@@ -9,7 +9,7 @@ export default class HeaderText extends Component {
                 <Text style={styles.textBold}>
                     {this.props.textBold}
                 </Text>
-                <Text style={styles.textLight}>
+                <Text style={[styles.textLight, {lineHeight: this.props.lineHeight}]}>
                     {this.props.textLight}
                 </Text>
             </View>
@@ -18,7 +18,7 @@ export default class HeaderText extends Component {
 }
 const styles = StyleSheet.create({
     container: {
-        paddingLeft: sizeWidth(8)
+        alignItems: 'center',
     },
     textBold: {
         fontSize: sizeFont(6),
@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
         marginTop: sizeWidth(2),
         fontSize: sizeFont(4),
         fontFamily: 'SVN-Gilroy-Regular',
-        color: 'gray'
+        color: 'gray',
+        textAlign: 'center',
     }
 })

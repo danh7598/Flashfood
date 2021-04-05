@@ -17,10 +17,7 @@ import Button from './Button';
 import QuestionSign from './QuestionSign';
 import { sizeHeight, sizeWidth } from '../../Utils/Size';
 import { validateEmailLogin } from '../../Utils/Validate';
-
-const orangeColor = '#F96B44'
-const grayColor = ''
-const blueColor = '#0064C0'
+import { blueColor } from '../../string/ColorTheme';
 
 
 export default class Login extends Component {
@@ -217,6 +214,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-between',
     marginTop: sizeHeight(3),
-    marginBottom: sizeHeight(2)
+    marginBottom: sizeHeight(4)
   }
 });

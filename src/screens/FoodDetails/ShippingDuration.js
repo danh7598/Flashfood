@@ -3,6 +3,7 @@ import { Image, StyleSheet, Text, View } from 'react-native'
 import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size'
 import clock from '../../assets/clock.png';
 import { blackColor } from '../../string/ColorTheme'
+
 const ShippingDuration = ({ textDuration }) => {
     return (
         <View style={styles.container}>

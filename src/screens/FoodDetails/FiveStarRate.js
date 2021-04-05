@@ -3,6 +3,7 @@ import { Image, StyleSheet, Text, View } from 'react-native'
 import star from '../../assets/star.png'
 import { yellowColor } from '../../string/ColorTheme'
 import { sizeWidth } from '../../Utils/Size'
+import PropTypes from 'prop-types'
 const convertStar = (number) => {
     let array = [];
     for (let i = 0; i < 5; i++) {
@@ -37,10 +38,19 @@ const FiveStarRate = ({ spaceSize, size, numberRate }) => {
                             source={star} />
                     )
                 }
-                
             })}
         </View>
     )
+}
+
+FiveStarRate.propTypes = {
+    numberRate: PropTypes.number.isRequired,
+    size: PropTypes.number,
+    spaceSize: PropTypes.number,
+}
+FiveStarRate.defaultProps = {
+    size: 5,
+    spaceSize: 4,
 }
 
 export default FiveStarRate

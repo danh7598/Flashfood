@@ -11,9 +11,16 @@ const FoodStar = ({ rateNumber }) => {
             <Image
                 style={styles.imgStar}
                 source={star} />
-            <Text style={styles.textRate}>{rateNumber}</Text>
+            <Text style={styles.textRate}>
+                {rateNumber <= 5 && rateNumber >= 0
+                ? rateNumber : 'error'}
+            </Text>
         </View>
     )
+}
+
+FoodStar.propTypes = {
+    rateNumber: PropTypes.number.isRequired,
 }
 
 export default FoodStar

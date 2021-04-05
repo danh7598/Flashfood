@@ -26,7 +26,14 @@ const QuantityControl = ({ number, onPressPlus, onPressMinus, style }) => {
 }
 
 QuantityControl.propTypes = {
+    onPressPlus: PropTypes.func.isRequired,
+    onPressMinus: PropTypes.func.isRequired,
+    number: PropTypes.number,
+    style: PropTypes.object,
+}
 
+QuantityControl.defaultProps = {
+    number: 1,
 }
 
 export default QuantityControl
@@ -47,7 +54,7 @@ const styles = StyleSheet.create({
     },
     textNumber: {
         fontFamily: 'SVN-Gilroy-Bold',
-        fontSize: sizeFont(4),
+        fontSize: sizeFont(5),
         color: blackColor
     }
 })

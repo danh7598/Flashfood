@@ -38,11 +38,13 @@ MiniShopDescription.propTypes = {
     distance: PropTypes.string,
     name: PropTypes.string,
     rateNumber: PropTypes.number,
-    quantity: PropTypes.number
 }
 
 MiniShopDescription.defaultProps = {
-    avatar: logo_restaurant
+    avatar: logo_restaurant,
+    name: 'Totoya Food',
+    distance: '1.2 Km',
+    rateNumber: 5,
 }
 
 export default MiniShopDescription

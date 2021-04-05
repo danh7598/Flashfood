@@ -4,9 +4,10 @@ import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size'
 import fire from '../../assets/fire.png'
 import heart from '../../assets/heart.png'
 import { grayColor } from '../../string/ColorTheme'
+import PropTypes from 'prop-types'
+
 export default class FoodDescription extends Component {
     render() {
-        // console.log(sizeHeight(25))
         return (
             <View style={styles.container}>
                 <View style={styles.viewFoodImg}>
@@ -45,7 +46,7 @@ export default class FoodDescription extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        height: sizeHeight(45),
+        //height: sizeHeight(44),
         //backgroundColor: 'skyblue',
         //marginTop: sizeHeight(1)
         //flexDirection: 'row',
@@ -60,6 +61,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
         borderRadius: sizeWidth(4),
+        
     },
     viewCalories: {
         //height: sizeHeight(45),
@@ -99,8 +101,9 @@ const styles = StyleSheet.create({
         left: sizeWidth(22)
     },
     viewTextFoodDescription: {
-        flex: 1,
-        padding: sizeWidth(4),
+        //height: sizeHeight(16),
+        paddingHorizontal: sizeWidth(4),
+        paddingTop: sizeHeight(2),
         //marginTop: sizeHeight(1),
         //backgroundColor: 'green'
     },

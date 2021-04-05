@@ -60,7 +60,7 @@ export default HeaderBar
 const styles = StyleSheet.create({
     container: {
         paddingHorizontal: sizeWidth(4),
-        height: sizeHeight(12),
+        height: sizeHeight(10),
         width: sizeWidth(100),
         //backgroundColor: 'skyblue',
         flexDirection: 'row',
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     textTitle: {
         textAlign: 'center',
         flex: 1,
-        fontFamily: 'SVN-Gilroy-Regular',
+        fontFamily: 'SVN-Gilroy-Bold',
         color: '#111A2C',
         fontWeight: '700',
         fontSize: sizeFont(5),

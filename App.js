@@ -16,6 +16,7 @@ import ForgotPassword from './src/screens/ForgotPassword';
 import ClassifyTransaction from './src/screens/ClassifyTransaction';
 import Slider from './src/screens/Onboarding/Slider';
 import FoodDetails from './src/screens/FoodDetails';
+import OPTAuthentication from './src/screens/OTPAuthentication';
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -58,6 +59,7 @@ export default class App extends Component {
           {/* <ForgotPassword /> */}
           {/* <ClassifyTransaction /> */}
           <FoodDetails />
+          {/* <OPTAuthentication/> */}
         </View>
       );
     } else {
