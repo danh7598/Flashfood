@@ -36,6 +36,22 @@ export default class FoodDetails extends Component {
         })
     }
 
+    //Giảm số lượng đồ ăn
+    onPressMinusQuantity = () => {
+        if (this.state.quantity > 0) {
+            this.setState({
+                quantity: this.state.quantity - 1
+            })
+        }
+    }
+
+    //Tăng số lượng đồ ăn
+    onPressPlusQuantity = () => {
+        this.setState({
+            quantity: this.state.quantity + 1
+        })
+    }
+
     render() {
         return (
             <View style={styles.container}>
@@ -66,9 +82,14 @@ export default class FoodDetails extends Component {
                     rateNumber={4} />
                 <View style={styles.viewFooterButton}>
                     <QuantityControl
-                        backgroundColor={'#F5F5F8'}
+                        style={{ backgroundColor: '#F5F5F8' }}
+                        onPressMinus={this.onPressMinusQuantity}
+                        onPressPlus={this.onPressPlusQuantity}
                         number={this.state.quantity} />
-                    <ButtonBuyNow />
+                    <ButtonBuyNow
+                        textButton={"Buy Now"}
+                        price={"$15.99"}
+                    />
                 </View>
             </View>
         )
@@ -93,9 +114,10 @@ const styles = StyleSheet.create({
         borderColor: 'rgba(137,139,154,0.1)'
     },
     viewFooterButton: {
+        flex: 1,
         flexDirection: 'row',
         alignItems: 'flex-end',
         paddingHorizontal: sizeWidth(4),
-        paddingBottom: sizeHeight(2)
+        paddingBottom: sizeHeight(2),
     }
 })
