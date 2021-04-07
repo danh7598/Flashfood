@@ -3,6 +3,7 @@ import { Text, StyleSheet, View, Image, TextInput } from 'react-native'
 import { blackColor, grayColor } from '../../string/ColorTheme'
 import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size'
 import HeaderText from '../RegisterHomework/HeaderText'
+import OTPInput from './OTPInput'
 
 export default class OPTAuthentication extends Component {
     constructor(props) {
@@ -13,20 +14,29 @@ export default class OPTAuthentication extends Component {
             thirdValue: '',
             fourthValue: '',
         }
+        this.firstInput = React.createRef(); 
+        this.secondInput = React.createRef();
+        this.thirdInput = React.createRef();
+        this.fourthInput = React.createRef();
     }
 
     onChangeValueInput = (text, value, backFocus, forwardFocus) => {
         if (text === '') {
             this.setState(value)
-            this.refs[backFocus].focus()
+            backFocus.focus()
         } else {
             this.setState({ secondValue: text })
-            this.refs[forwardFocus].focus()
+           forwardFocus.focus()
         }
+    }
+
+    onChangeTextInput = (text) => {
+        this.setState({ firstValue: text })
     }
 
     render() {
         const email = 'danh7598@gmail.com'
+        console.log(this.firstInput)
         return (
             <View style={styles.container}>
                 <View style={styles.headerView}>
@@ -37,22 +47,27 @@ export default class OPTAuthentication extends Component {
                         textLight={`An authentication code have been sent to ${email}`} />
                 </View>
                 <View style={styles.viewOPTInput}>
-                    <TextInput
-                        value={this.state.firstValue}
-                        maxLength={1}
-                        ref={'firstInput'}
-                        keyboardType={'numeric'}
-                        onChangeText={(text) => {
-                            if (text === '') {
-                                this.setState({ firstValue: '' })
-                            } else {
-                                this.setState({ firstValue: text })
-                                this.refs['secondInput'].focus()
-                            }
-                            
-                        }}
-                        style={styles.textInputOPT} />
-                    <TextInput
+                    <OTPInput
+                        backFocus={this.firstInput}
+                        forwardFocus={this.secondInput}
+                        onChangeValue={this.onChangeValueInput}
+                        value={this.state.firstValue} />
+                    <OTPInput
+                        backFocus={this.firstInput}
+                        forwardFocus={this.thirdInput}
+                        onChangeValue={this.onChangeValueInput}
+                        value={this.state.secondValue} />
+                    <OTPInput
+                        backFocus={this.secondInput}
+                        forwardFocus={this.fourthInput}
+                        onChangeValue={this.onChangeValueInput}
+                        value={this.state.thirdValue} />
+                    <OTPInput
+                        backFocus={this.thirdInput}
+                        forwardFocus={this.fourthInput}
+                        onChangeValue={this.onChangeValueInput}
+                        value={this.state.fourthValue} />
+                    {/* <TextInput
                         maxLength={1}
                         value={this.state.secondValue}
                         ref={'secondInput'}
@@ -60,7 +75,7 @@ export default class OPTAuthentication extends Component {
                         onChangeText={(text, backFocus, forwardFocus) => {
                             if (text === '') {
                                 this.setState({ secondValue: '' })
-                                this.refs['firstInput'].focus()
+
                             } else {
                                 this.setState({ secondValue: text })
                                 this.refs['thirdInput'].focus()
@@ -95,9 +110,9 @@ export default class OPTAuthentication extends Component {
                             } else {
                                 this.setState({ fourthValue: text })
                             }
-                            
+
                         }}
-                        style={styles.textInputOPT} />
+                        style={styles.textInputOPT} /> */}
                 </View>
             </View>
         )

@@ -58,8 +58,8 @@ export default class App extends Component {
           {/* <Onboarding3 /> */}
           {/* <ForgotPassword /> */}
           {/* <ClassifyTransaction /> */}
-          <FoodDetails />
-          {/* <OPTAuthentication/> */}
+          {/* <FoodDetails /> */}
+          <OPTAuthentication/>
         </View>
       );
     } else {
