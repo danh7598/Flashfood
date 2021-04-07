@@ -1,20 +1,22 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import { StyleSheet, TextInput } from 'react-native'
 import { blackColor, grayColor } from '../../string/ColorTheme'
 import { sizeFont, sizeWidth } from '../../Utils/Size'
 
-const OTPInput = ({ value, onChangeValue, backFocus, forwardFocus }) => {
-    // console.log(backFocus)
+const OTPInput = forwardRef((props, ref) => {
+    // console.log(props)
     return (
         <TextInput
-            value={value}
+            className="OTPInput"
+            ref={ref}
+            value={props.value}
             maxLength={1}
             keyboardType={'numeric'}
-            onChangeText={(text) => onChangeValue(text, value, backFocus, forwardFocus)}
+            onChangeText={(text) => props.onChangeValue(text)}
             style={styles.textInputOPT}>
         </TextInput>
     )
-}
+})
 
 export default OTPInput
 

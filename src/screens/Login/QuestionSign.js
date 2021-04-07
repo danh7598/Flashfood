@@ -1,15 +1,17 @@
 import React, { Component } from 'react'
 import { StyleSheet, TouchableOpacity, Text, View } from 'react-native'
-import { sizeFont } from '../../Utils/Size'
+import { sizeFont, sizeWidth } from '../../Utils/Size'
 import PropTypes from 'prop-types'
 class QuestionSign extends Component {
     render() {
         return (
-            <View style={styles.containerQuestionSign}>
+            <View style={[styles.containerQuestionSign, {flexDirection: this.props.flexDirection}]}>
                 <Text style={styles.textQuestionSign}>
                     {this.props.questionSign}
                 </Text>
-                <TouchableOpacity onPress={this.props.onPress}>
+                <TouchableOpacity
+                    disabled={this.props.disabled}
+                    onPress={this.props.onPress}>
                     <Text style={styles.textAlternativeButtonSign}>
                         {this.props.alternativeButtonSign}
                     </Text>
@@ -23,7 +25,13 @@ QuestionSign.propTypes = {
     onPress: PropTypes.func.isRequired,
     questionSign: PropTypes.string,
     alternativeButtonSign: PropTypes.string,
+    disabled: PropTypes.bool,
+    flexDirection: PropTypes.string
 
+}
+QuestionSign.defaultProps = {
+    disabled: false,
+    flexDirection: 'row'
 }
 
 export default QuestionSign
@@ -31,7 +39,8 @@ export default QuestionSign
 const styles = StyleSheet.create({
     containerQuestionSign: {
         flexDirection: "row",
-        justifyContent: "center"
+        justifyContent: "center",
+        
     },
     textQuestionSign: {
         fontSize: sizeFont(4),
@@ -39,6 +48,8 @@ const styles = StyleSheet.create({
     },
     textAlternativeButtonSign: {
         fontSize: sizeFont(4),
-        color: "#F96B44"
-    }
+        color: "#F96B44",
+        textAlign: 'center',
+    },
+    
 })

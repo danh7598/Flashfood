@@ -11,7 +11,7 @@ class Button extends Component {
                 style={[styles.button, {
                     backgroundColor: this.props.btnBackgroundColor,
                     marginBottom: this.props.marginBottom
-                }]}>
+                }, this.props.style]}>
                 {this.props.imgSrc &&
                     <Image style={styles.imgBtn} source={this.props.imgSrc} />}
                 <Text style={{ fontSize: sizeFont(4), color: this.props.textColor }}>

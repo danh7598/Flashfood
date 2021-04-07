@@ -47,7 +47,9 @@ export default class App extends Component {
               Khi translucent false thì StatusBar chuyển thành màu đen, phải để style="light" mới hiện chữ
 
                */}
-          <StatusBar style={Platform.OS === 'ios' ? 'auto' : 'light'} translucent={false} />
+          <StatusBar
+            style={Platform.OS === 'ios' ? 'auto' : 'light'}
+            translucent={false} />
           {/* <Login /> */}
           {/* <LoginHomework /> */}
           {/* <RegisterHomework /> */}

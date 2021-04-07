@@ -16,13 +16,31 @@ import QuantityControl from './QuantityControl'
 import ButtonBuyNow from './ButtonBuyNow'
 import { grayColor } from '../../string/ColorTheme'
 
-const sizeFood = [12, 14, 16, 18]
+const foodPrice = [
+    {
+        size: 12,
+        price: 13.99
+    },
+    {
+        size: 14,
+        price: 15.99
+    },
+    {
+        size: 16,
+        price: 17.99
+    },
+    {
+        size: 18,
+        price: 19.99
+    }
+]
 export default class FoodDetails extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            sizeSelected: 0,
-            quantity: 1
+            sizeSelected: -1,
+            quantity: 1,
+            currentPrice: 0
         }
     }
     onPressLeftBtn = () => {
@@ -31,9 +49,12 @@ export default class FoodDetails extends Component {
 
     // Hàm thay đổi lựa chọn size của đồ ăn
     // nhận một tham số là chỉ số được lựa chọn [0, 1, 2, 3]
-    onSizeSelected = (index) => {
+    // Và giá của món ăn, lưu vào trong state để chuẩn bị Buy now
+    onSizeSelected = (index, price) => {
+        //console.log(price)
         this.setState({
-            sizeSelected: index
+            sizeSelected: index,
+            currentPrice: price
         })
     }
 
@@ -41,7 +62,7 @@ export default class FoodDetails extends Component {
     onPressMinusQuantity = () => {
         if (this.state.quantity > 1) {
             this.setState({
-                quantity: this.state.quantity - 1
+                quantity: --this.state.quantity
             })
         }
     }
@@ -49,8 +70,26 @@ export default class FoodDetails extends Component {
     //Tăng số lượng đồ ăn
     onPressPlusQuantity = () => {
         this.setState({
-            quantity: this.state.quantity + 1
+            quantity: ++this.state.quantity
         })
+    }
+
+
+    componentDidMount() {
+        this.interval = setInterval(
+            () => this.setState((prevState) => ({ time_remain: prevState.timer - 1 })),
+            1000
+        );
+    }
+
+    componentDidUpdate() {
+        if (this.state.timer === 1) {
+            clearInterval(this.interval);
+        }
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.interval);
     }
 
     render() {
@@ -73,7 +112,7 @@ export default class FoodDetails extends Component {
                     <ShippingPrice textPrice={0} />
                 </View>
                 <SizeFood
-                    sizeArray={sizeFood}
+                    sizeArray={foodPrice}
                     onSelected={this.onSizeSelected}
                     selectedIndex={this.state.sizeSelected} />
                 <MiniShopDescription
@@ -89,7 +128,7 @@ export default class FoodDetails extends Component {
                         number={this.state.quantity} />
                     <ButtonBuyNow
                         textButton={"Buy Now"}
-                        price={"$" + (15.99*this.state.quantity).toFixed(2)}
+                        price={"$" + (this.state.currentPrice * this.state.quantity).toFixed(2)}
                     />
                 </View>
             </View>

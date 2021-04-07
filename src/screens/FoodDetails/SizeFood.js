@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, TouchableOpacity, Text, View } from 'react-native'
-import { blackColor, orangeColor } from '../../string/ColorTheme'
+import { blackColor, grayColor, orangeColor } from '../../string/ColorTheme'
 import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size'
 import PropTypes from 'prop-types'
 
@@ -43,33 +43,21 @@ const SizeFood = ({ sizeArray, selectedIndex, onSelected }) => {
             <Text style={styles.textSize}>Sizes:</Text>
             <View style={styles.viewListItem}>
                 {sizeArray.map((item, index) => {
-                    if (selectedIndex === index) {
+                    
                         return (
                             <SizeItem
                                 //Muốn truyền tham số index vào hàm thay đổi selectedIndex của parent view,
                                 //thì ta viết cấu trúc function, trong function thì gọi hàm trên (chính là props onSelected)
                                 //và truyền tham số index vào
                                 onItemSelected={() => {
-                                    onSelected(index)
+                                    onSelected(index, item.price)
                                 }}
-
-                                textColor={'white'}
-                                backgroundColor={orangeColor}
-                                borderWidth={0}
+                                textColor={selectedIndex === index ? 'white' : '#BBBDC1'}
+                                backgroundColor={selectedIndex === index ? orangeColor : 'transparent'}
+                                borderWidth={selectedIndex === index ? 0 : 1}
                                 key={index.toString()}
-                                size={item} />
+                                size={item.size} />
                         )
-                    } else {
-                        return (
-                            <SizeItem
-                                onItemSelected={() => {
-                                    onSelected(index)
-                                }}
-                                key={index.toString()}
-                                size={item} />
-                        )
-                    }
-
                 })}
             </View>
         </View>

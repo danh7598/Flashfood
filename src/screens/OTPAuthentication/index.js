@@ -2,8 +2,24 @@ import React, { Component } from 'react'
 import { Text, StyleSheet, View, Image, TextInput } from 'react-native'
 import { blackColor, grayColor } from '../../string/ColorTheme'
 import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size'
+import Button from '../Login/Button'
+import QuestionSign from '../Login/QuestionSign'
 import HeaderText from '../RegisterHomework/HeaderText'
 import OTPInput from './OTPInput'
+
+
+/*   CÁCH DÙNG REF
+*   Tạo ref bằng const ref = createRef()
+*   Dùng props ref ở trong TextInput, gọi focus bằng ref.current.focus()
+*   Nếu dùng ref trong một component, dùng forwardRef((props, ref) => (
+    <TextInput ref={ref}/> rồi dùng focus() như bình thường
+))
+*/
+
+const firstInput = React.createRef();
+const secondInput = React.createRef();
+const thirdInput = React.createRef();
+const fourthInput = React.createRef();
 
 export default class OPTAuthentication extends Component {
     constructor(props) {
@@ -13,30 +29,96 @@ export default class OPTAuthentication extends Component {
             secondValue: '',
             thirdValue: '',
             fourthValue: '',
+            time_remain: 5,
+            isDisabled: true
         }
-        this.firstInput = React.createRef(); 
-        this.secondInput = React.createRef();
-        this.thirdInput = React.createRef();
-        this.fourthInput = React.createRef();
     }
 
-    onChangeValueInput = (text, value, backFocus, forwardFocus) => {
+    onChangeFirstInput = (text) => {
         if (text === '') {
-            this.setState(value)
-            backFocus.focus()
+            this.setState({ firstValue: '' })
+            firstInput.current.focus()
+        } else {
+            this.setState({ firstValue: text })
+            secondInput.current.focus()
+        }
+    }
+
+    onChangeSecondInput = (text) => {
+        if (text === '') {
+            this.setState({ secondValue: '' })
+            firstInput.current.focus()
         } else {
             this.setState({ secondValue: text })
-           forwardFocus.focus()
+            thirdInput.current.focus()
         }
     }
 
-    onChangeTextInput = (text) => {
-        this.setState({ firstValue: text })
+    onChangeThirdInput = (text) => {
+        if (text === '') {
+            this.setState({ thirdValue: '' })
+            secondInput.current.focus()
+        } else {
+            this.setState({ thirdValue: text })
+            fourthInput.current.focus()
+        }
+    }
+
+    onChangeFourthInput = (text) => {
+        if (text === '') {
+            this.setState({ fourthValue: '' })
+            thirdInput.current.focus()
+        } else {
+            this.setState({ fourthValue: text })
+            fourthInput.current.focus()
+        }
+    }
+
+
+    componentDidMount() {
+        this.interval = setInterval(
+            () => this.setState((prevState) => ({
+                time_remain: prevState.time_remain - 1
+            })),
+            1000
+        );
+    }
+
+    componentDidUpdate() {
+        if (this.state.time_remain === 0) {
+            this.setState({
+                time_remain: -1,
+                isDisabled: false
+            })
+            clearInterval(this.interval);
+        }
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.interval);
+    }
+
+    reSendButton = () => {
+        alert("Resend OTP");
+        this.setState({
+            isDisabled: true,
+            time_remain: 5
+        })
+        this.interval = setInterval(
+            () => this.setState((prevState) => ({
+                time_remain: prevState.time_remain - 1,
+                
+            })),
+            1000
+        );
     }
 
     render() {
         const email = 'danh7598@gmail.com'
-        console.log(this.firstInput)
+        const time_remain = 60
+        
+        // console.log(this.firstInput)
+        // console.log(JSON.stringify(this.firstInput));
         return (
             <View style={styles.container}>
                 <View style={styles.headerView}>
@@ -48,72 +130,40 @@ export default class OPTAuthentication extends Component {
                 </View>
                 <View style={styles.viewOPTInput}>
                     <OTPInput
-                        backFocus={this.firstInput}
-                        forwardFocus={this.secondInput}
-                        onChangeValue={this.onChangeValueInput}
+                        ref={firstInput}
+                        onChangeValue={this.onChangeFirstInput}
                         value={this.state.firstValue} />
                     <OTPInput
-                        backFocus={this.firstInput}
-                        forwardFocus={this.thirdInput}
-                        onChangeValue={this.onChangeValueInput}
+                        ref={secondInput}
+                        onChangeValue={this.onChangeSecondInput}
                         value={this.state.secondValue} />
                     <OTPInput
-                        backFocus={this.secondInput}
-                        forwardFocus={this.fourthInput}
-                        onChangeValue={this.onChangeValueInput}
+                        ref={thirdInput}
+                        onChangeValue={this.onChangeThirdInput}
                         value={this.state.thirdValue} />
                     <OTPInput
-                        backFocus={this.thirdInput}
-                        forwardFocus={this.fourthInput}
-                        onChangeValue={this.onChangeValueInput}
+                        ref={fourthInput}
+                        onChangeValue={this.onChangeFourthInput}
                         value={this.state.fourthValue} />
-                    {/* <TextInput
-                        maxLength={1}
-                        value={this.state.secondValue}
-                        ref={'secondInput'}
-                        keyboardType={'numeric'}
-                        onChangeText={(text, backFocus, forwardFocus) => {
-                            if (text === '') {
-                                this.setState({ secondValue: '' })
-
-                            } else {
-                                this.setState({ secondValue: text })
-                                this.refs['thirdInput'].focus()
-                            }
-                        }}
-                        style={styles.textInputOPT} />
-                    <TextInput
-                        maxLength={1}
-                        value={this.state.thirdValue}
-                        ref={'thirdInput'}
-                        keyboardType={'numeric'}
-                        onChangeText={(text) => {
-                            if (text === '') {
-                                this.setState({ thirdValue: '' })
-                                this.refs['secondInput'].focus()
-                            } else {
-                                this.setState({ thirdValue: text })
-                                this.refs['fourthInput'].focus()
-
-                            }
-                        }}
-                        style={styles.textInputOPT} />
-                    <TextInput
-                        maxLength={1}
-                        value={this.state.fourthValue}
-                        ref={'fourthInput'}
-                        keyboardType={'numeric'}
-                        onChangeText={(text) => {
-                            if (text === '') {
-                                this.setState({ fourthValue: '' })
-                                this.refs['thirdInput'].focus()
-                            } else {
-                                this.setState({ fourthValue: text })
-                            }
-
-                        }}
-                        style={styles.textInputOPT} /> */}
                 </View>
+                <QuestionSign
+                    onPress={this.reSendButton}
+                    disabled={this.state.isDisabled}
+                    alternativeButtonSign={this.state.isDisabled
+                        ? `Resend Code (${this.state.time_remain}s)`
+                        :`Resend Code`}
+                    questionSign={"Didn't receive code? "} />
+                <View style={styles.viewFooter}>
+                    <Button
+                        style={styles.buttonContinue}
+                        buttonSign={'Continue'} />
+                    <QuestionSign
+                        flexDirection={'column'}
+                        questionSign={`By Signing up, you agree to our`}
+                        alternativeButtonSign={"Term and Conditions"}
+                    />
+                </View>
+                
             </View>
         )
     }
@@ -142,7 +192,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         marginTop: sizeHeight(5),
         justifyContent: 'space-around',
-        width: sizeWidth(80)
+        width: sizeWidth(80),
+        marginBottom: sizeHeight(3)
     },
     textInputOPT: {
         width: sizeWidth(15),
@@ -157,5 +208,15 @@ const styles = StyleSheet.create({
         fontFamily: 'SVN-Gilroy-Bold',
         fontSize: sizeFont(5),
         color: blackColor
+    },
+    buttonContinue: {
+        width: sizeWidth(92),
+        marginHorizontal: sizeWidth(4),
+        marginBottom: sizeHeight(2)
+    },
+    viewFooter: {
+        alignItems: 'center',
+        position: 'absolute',
+        bottom: sizeHeight(4),
     }
 })
