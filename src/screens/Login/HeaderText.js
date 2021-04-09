@@ -12,7 +12,7 @@ class HeaderText extends Component {
                     </Text>
                     : null}
                 {this.props.textLight
-                    ? <Text style={styles.textLight}>
+                    ? <Text style={[styles.textLight, this.props.style]}>
                         {this.props.textLight}
                     </Text>
                     : null}
@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
         color: '#525C67',
         fontSize: sizeFont(4),
         marginTop: sizeHeight(0.8),
-        fontFamily: 'SVN-Gilroy-Regular'
+        fontFamily: 'SVN-Gilroy-Regular',
+        textAlign: 'center'
     }
 })
