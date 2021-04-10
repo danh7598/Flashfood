@@ -20,6 +20,7 @@ import OPTAuthentication from './src/screens/OTPAuthentication';
 import PasswordRecovery from './src/screens/PasswordRecovery/PasswordRecovery';
 import PasswordReset from './src/screens/PasswordRecovery/PasswordReset';
 import SuccesfullyReset from './src/screens/PasswordRecovery/SuccesfullyReset';
+import Home from './src/screens/Home';
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -60,14 +61,15 @@ export default class App extends Component {
           {/* <Onboarding1 /> */}
           {/* <Slider /> */}
           {/* <Onboarding2/> */}
-          {/* <Onboarding3 /> */}
+          {/* <Onboarding3 />/ */}
           {/* <ForgotPassword /> */}
           {/* <ClassifyTransaction /> */}
           {/* <FoodDetails /> */}
           {/* <OPTAuthentication/> */}
           {/* <PasswordRecovery /> */}
           {/* <PasswordReset/> */}
-          <SuccesfullyReset />
+          {/* <SuccesfullyReset /> */}
+          <Home/>
         </View>
       );
     } else {

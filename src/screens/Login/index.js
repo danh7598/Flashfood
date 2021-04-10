@@ -8,7 +8,8 @@ import {
   TouchableOpacity,
   View,
   KeyboardAvoidingView,
-  Dimensions
+  Dimensions,
+  ScrollView
 } from 'react-native';
 import FormComponent from './FormComponent';
 import SaveAndForgotComponent from './SaveAndForgotComponent';
@@ -17,9 +18,14 @@ import Button from './Button';
 import QuestionSign from './QuestionSign';
 import { sizeHeight, sizeWidth } from '../../Utils/Size';
 import { validateEmailLogin } from '../../Utils/Validate';
-import { blueColor } from '../../string/ColorTheme';
-
-
+import { blueColor, orangeColor, trueGreenColor } from '../../string/ColorTheme';
+import right_mark_icon from '../../assets/right_mark_icon.png';
+import cancel_icon from '../../assets/cancel_icon.png'
+import logo_eatme from '../../assets/logo-eatme.png'
+import LogoAndText from '../OTPAuthentication/LogoAndText';
+import eye from '../../assets/eye.png'
+import eye_close from '../../assets/eye_close.png';
+import {emailNotification} from '../../string/NotificationInput';
 export default class Login extends Component {
   constructor(props) {
     super(props);
@@ -28,9 +34,8 @@ export default class Login extends Component {
       emailValue: '',
       passwordValue: '',
       notificationEmail: 0, //0: dont show noti, 1: show error noti, 2: ok noti
-      notificationEmailMessage: '',
       hidePassword: true,
-      btnShowPassword: require('../../assets/eye.png')
+      btnShowPassword: eye
 
     })
   }
@@ -51,18 +56,15 @@ export default class Login extends Component {
     })
     if (text === '') {
       this.setState({
-        notificationEmailMessage: '',
-        notificationEmail: 0
+        notificationEmail: 0 //Chưa chỉnh sửa gì
       })
     } else if (!validateEmailLogin(text)) {
       this.setState({
-        notificationEmailMessage: 'Incorrect email, try again',
-        notificationEmail: 1
+        notificationEmail: 2 //Sai cú pháp email
       })
     } else {
       this.setState({
-        notificationEmailMessage: '',
-        notificationEmail: 2
+        notificationEmail: 3 //Đúng cú pháp email
       })
     }
   }
@@ -75,16 +77,14 @@ export default class Login extends Component {
   hideAndShowPassword = () => {
     this.setState({
       hidePassword: !this.state.hidePassword,
-      btnShowPassword: !this.state.hidePassword ? require('../../assets/eye.png')
-        : require('../../assets/eye_close.png')
+      btnShowPassword: !this.state.hidePassword ? eye : eye_close
     })
   }
   //Clear email input by right button
   clearText = () => {
     this.setState({
       emailValue: '',
-      notificationEmail: false,
-      notificationEmailMessage: ''
+      notificationEmail: 0,
     })
   }
   //On press the forgot button
@@ -110,17 +110,13 @@ export default class Login extends Component {
 
 
   render() {
-
+    // console.log(emailNotification)
     return (
       <View style={styles.container}>
-
         {/* Header View bao gồm logo và headerText */}
-        <View style={styles.headerView}>
-          <Image style={styles.imgLogo} source={require('../../assets/logo-eatme.png')} />
-          <HeaderText
-            textBold={"Let's Sign You In"}
-            textLight={"Welcome back, you've been missed!"} />
-        </View>
+        <LogoAndText
+          textBold={"Let's Sign You In"}
+          textLight={"Welcome back, you've been missed!"} />
 
         {/* loginFormContainer bao gồm các textInput để Login */}
         <View style={styles.loginFormContainer}>
@@ -130,13 +126,13 @@ export default class Login extends Component {
             onChangeValue={this.onChangeEmail}
             valueInput={this.state.emailValue}
             placeholder={'Input your email'}
-            borderColor={this.state.notificationEmail === 1 ? '#F96B44' : null}
-            notification={this.state.notificationEmailMessage}
-            buttonRightImage={this.state.notificationEmail === 1 ? require('../../assets/cancel_icon.png')
-              : this.state.notificationEmail === 2 ? require('../../assets/right_mark_icon.png')
+            borderColor={this.state.notificationEmail === 2 ? orangeColor : null}
+            notification={emailNotification[this.state.notificationEmail]}
+            buttonRightImage={this.state.notificationEmail === 2 ? cancel_icon
+              : this.state.notificationEmail === 3 ? right_mark_icon
                 : null}
-            tintColorRightImage={this.state.notificationEmail === 1 ? orangeColor
-              : this.state.notificationEmail === 2 ? '#27AE60'
+            tintColorRightImage={this.state.notificationEmail === 2 ? orangeColor
+              : this.state.notificationEmail === 3 ? trueGreenColor
                 : null}
             buttonFunction={this.state.notificationEmail !== 2 ? this.clearText : null} />
           <FormComponent

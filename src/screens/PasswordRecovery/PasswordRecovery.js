@@ -96,6 +96,8 @@ const styles = StyleSheet.create({
 
     },
     buttonSend: {
-        marginTop: sizeHeight(3)
+        position: 'absolute',
+        bottom: sizeHeight(4),
+        width: sizeWidth(92)
     }
 })

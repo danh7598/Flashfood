@@ -20,7 +20,7 @@ class HeaderBar extends Component {
                 </Text>
 
                 {/* Nếu k có nút bên phải thì render ra 1 view rỗng để có thể canh giữa cho text title*/}
-                {this.props.rightBtn
+                {this.props.rightBtnSource
                     ? <TouchableOpacity
                         onPress={this.props.onPressRightBtn}
                         style={[styles.btnContainer, {
@@ -28,7 +28,7 @@ class HeaderBar extends Component {
                             borderWidth: 0
                         }]}>
                         <Image
-                            style={styles.imgBtn}
+                            style={[styles.imgBtn, this.props.styleRightBtn]}
                             source={this.props.rightBtnSource} />
                     </TouchableOpacity>
                     : <View style={[styles.btnContainer, {
@@ -46,13 +46,11 @@ HeaderBar.propTypes = {
     onPressRightBtn: PropTypes.func,
     leftBtnSource: PropTypes.node,
     rightBtnSource: PropTypes.node,
-    rightBtn: PropTypes.bool,
     backgroundColorRightBtn: PropTypes.string
 
 }
 HeaderBar.defaultProps = {
     leftBtnSource: backImg,
-    rightBtn: false,
     backgroundColorRightBtn: 'transparent'
 }
 
@@ -74,7 +72,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#BBBDC1',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     imgBtn: {
         width: sizeWidth(4),
