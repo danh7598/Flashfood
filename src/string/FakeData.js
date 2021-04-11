@@ -1,20 +1,52 @@
-import burger from '../assets/burger.png'
-import cherry from '../assets/cherry.png'
-import money_bag from '../assets/money_bag.png'
+import hamburger_category from '../assets/hamburger_category.png'
+import cherry_category from '../assets/cherry_category.png'
+import rice_category from '../assets/rice_category.png'
+import hamburger_popular from '../assets/hamburger_popular.png'
+import hot_tacos from '../assets/hot_tacos.png'
+import vegetable_biryani from '../assets/vegetable_biryani.png'
 export const dataCategory = [
     {
         id: 'gfdg',
         title: 'Fast Food',
-        img: burger
+        img: hamburger_category
     },
     {
         id: 'vcxd',
         title: 'Fruit Item',
-        img: cherry
+        img: cherry_category
     },
     {
         id: 'rfd',
-        title: 'Rich Item',
-        img: money_bag
+        title: 'Rice Item',
+        img: rice_category
+    }
+]
+export let dataPopular = [
+    {
+        id: 'asd23',
+        name: 'Hamburger',
+        description: 'Chicken patty hamburger',
+        price: 15.99,
+        calories: 78,
+        image: hamburger_popular,
+        favoured: true
+    },
+    {
+        id: 'asd2354',
+        name: 'Hot Tacos',
+        description: 'Mexican tortilla & tacos',
+        price: 10.99,
+        calories: 78,
+        image: hot_tacos,
+        favoured: false
+    },
+    {
+        id: 'asd2312',
+        name: 'Veg Biryani',
+        description: 'Indian vegetable biryani',
+        price: 10.99,
+        calories: 78,
+        image: vegetable_biryani,
+        favoured: true
     }
 ]
