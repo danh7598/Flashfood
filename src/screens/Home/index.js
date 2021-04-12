@@ -13,7 +13,7 @@ import ListCategory from './ListCategory';
 import ItemRecommended from './ListRecommended';
 import ListPopular from './ListPopular';
 import ListRecommended from './ListRecommended';
-
+import ListMenu from './ListMenu';
 
 export default class Home extends Component {
     constructor(props) {
@@ -21,6 +21,7 @@ export default class Home extends Component {
 
         this.state = {
             indexCategory: 0,
+            indexMenu: 0,
             searchValue: ''
         };
     }
@@ -39,6 +40,10 @@ export default class Home extends Component {
 
     onPressDrawer = () => {
         alert('Press Drawer');
+    };
+
+    onSelectedMenu = (index) => () => {
+        this.setState({ indexMenu: index });
     };
 
     render() {
@@ -61,15 +66,18 @@ export default class Home extends Component {
                         style={styles.viewSearchBar}
                         onPressFilter={this.onPressFilter}
                         value={this.state.searchValue}
-                        onChangeValue={this.onChangeSearchValue}/>
+                        onChangeValue={this.onChangeSearchValue} />
                     <DeliveryAddress
                         style={styles.viewDeliveryAddress}
-                        textAddress={'300 Post Street San Francisco, CA'}/>
+                        textAddress={'300 Post Street San Francisco, CA'} />
                     <ListCategory
                         indexCategory={this.state.indexCategory}
                         onPressCategory={this.onPressCategory} />
-                    <ListPopular/>
-                    <ListRecommended/>
+                    <ListPopular />
+                    <ListRecommended />
+                    <ListMenu
+                        onSelected={this.onSelectedMenu}
+                        itemSelected={this.state.indexMenu} />
                 </ScrollView>
             </View>
         );
@@ -79,11 +87,11 @@ export default class Home extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingBottom: sizeHeight(3)
+        paddingBottom: sizeHeight(1)
     },
     containerScrollView: {
-        alignItems: 'center',
-        justifyContent: 'space-between'
+        //alignItems: 'center',
+        //justifyContent: 'space-between'
     },
     imgHeaderBarRight: {
         width: '100%',
@@ -92,12 +100,14 @@ const styles = StyleSheet.create({
     },
     viewSearchBar: {
         marginTop: sizeHeight(1),
+        marginLeft: sizeWidth(4)
         //backgroundColor: 'skyblue'
     },
     viewDeliveryAddress: {
-        marginTop: sizeHeight(2)
+        marginTop: sizeHeight(2),
+        marginLeft: sizeWidth(4)
     },
-    
-    
-    
+
+
+
 });

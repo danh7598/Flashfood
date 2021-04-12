@@ -27,13 +27,13 @@ ItemCategory.propTypes = {
 };
 
 class ListCategory extends Component {
-    
     render() {
         return (
             <ScrollView
                 horizontal
                 showsHorizontalScrollIndicator={false}
-                contentContainerStyle={styles.listCategory}>
+                contentContainerStyle={styles.listCategory}
+            >
                 {dataCategory.map((item, index) => {
                     return (
                         <ItemCategory
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     listCategory: {
         paddingLeft: sizeWidth(4),
         marginTop: sizeHeight(3),
-        //width: sizeWidth()
+        // width: sizeWidth(110)
     },
     imgCategory: {
         width: sizeWidth(5),
