@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Image, ScrollView, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size';
-import { dataCategory } from '../../string/FakeData';
 import { blackColor, grayColor, orangeColor } from '../../string/ColorTheme';
 
 const ItemCategory = ({ onPress, sourceImage, textCategory, backgroundColor, textColor }) => {
@@ -11,7 +10,7 @@ const ItemCategory = ({ onPress, sourceImage, textCategory, backgroundColor, tex
             onPress={onPress}
             style={[styles.itemCategoryView, { backgroundColor: backgroundColor }]}>
             <Image
-                source={sourceImage}
+                source={{uri: sourceImage}}
                 style={styles.imgCategory} />
             <Text style={[styles.textCategory, { color: textColor }]}>
                 {textCategory}
@@ -28,6 +27,8 @@ ItemCategory.propTypes = {
 
 class ListCategory extends Component {
     render() {
+        const dataCategory = this.props.data;
+        // console.log(dataCategory)
         return (
             <ScrollView
                 horizontal
@@ -37,10 +38,10 @@ class ListCategory extends Component {
                 {dataCategory.map((item, index) => {
                     return (
                         <ItemCategory
-                            key={item.id}
+                            key={item.id.toString()}
                             onPress={this.props.onPressCategory(index)}
-                            textCategory={item.title}
-                            sourceImage={item.img}
+                            textCategory={item.name}
+                            sourceImage={item.imageUrl}
                             backgroundColor={this.props.indexCategory === index ? orangeColor : grayColor}
                             textColor={this.props.indexCategory === index ? 'white' : blackColor}
                         />
@@ -70,10 +71,11 @@ const styles = StyleSheet.create({
         // width: sizeWidth(110)
     },
     imgCategory: {
-        width: sizeWidth(5),
-        height: sizeWidth(5),
+        width: sizeWidth(10),
+        height: sizeWidth(10),
         marginRight: sizeWidth(2),
-        resizeMode: 'contain'
+        // backgroundColor: 'skyblue',
+        resizeMode: 'cover'
     },
     textCategory: {
         fontSize: sizeFont(3.5),

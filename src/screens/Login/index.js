@@ -20,12 +20,13 @@ import { sizeHeight, sizeWidth } from '../../Utils/Size';
 import { validateEmailLogin } from '../../Utils/Validate';
 import { blueColor, orangeColor, trueGreenColor } from '../../string/ColorTheme';
 import right_mark_icon from '../../assets/right_mark_icon.png';
-import cancel_icon from '../../assets/cancel_icon.png'
-import logo_eatme from '../../assets/logo-eatme.png'
+import cancel_icon from '../../assets/cancel_icon.png';
+import logo_eatme from '../../assets/logo-eatme.png';
 import LogoAndText from '../OTPAuthentication/LogoAndText';
-import eye from '../../assets/eye.png'
+import eye from '../../assets/eye.png';
 import eye_close from '../../assets/eye_close.png';
-import {emailNotification} from '../../string/NotificationInput';
+import { emailNotification } from '../../string/NotificationInput';
+import { loginWithEmailAndPassword } from '../../Utils/api';
 export default class Login extends Component {
   constructor(props) {
     super(props);
@@ -35,9 +36,11 @@ export default class Login extends Component {
       passwordValue: '',
       notificationEmail: 0, //0: dont show noti, 1: show error noti, 2: ok noti
       hidePassword: true,
-      btnShowPassword: eye
+      btnShowPassword: eye,
+      loading: true,
+      bodyLogin: ''
 
-    })
+    });
   }
 
 
@@ -45,68 +48,99 @@ export default class Login extends Component {
   changeSwitchState = () => {
     this.setState({
       switchValue: !this.state.switchValue
-    })
-  }
+    });
+  };
 
 
   //Function onChangeText on TextInput email
   onChangeEmail = (text) => {
     this.setState({
       emailValue: text
-    })
+    });
     if (text === '') {
       this.setState({
         notificationEmail: 0 //Chưa chỉnh sửa gì
-      })
+      });
     } else if (!validateEmailLogin(text)) {
       this.setState({
         notificationEmail: 2 //Sai cú pháp email
-      })
+      });
     } else {
       this.setState({
         notificationEmail: 3 //Đúng cú pháp email
-      })
+      });
     }
-  }
+  };
   onChangePassword = (text) => {
     this.setState({
       passwordValue: text
-    })
-  }
+    });
+  };
 
   hideAndShowPassword = () => {
     this.setState({
       hidePassword: !this.state.hidePassword,
       btnShowPassword: !this.state.hidePassword ? eye : eye_close
-    })
-  }
+    });
+  };
   //Clear email input by right button
   clearText = () => {
     this.setState({
       emailValue: '',
       notificationEmail: 0,
-    })
-  }
+    });
+  };
   //On press the forgot button
   onPressForgot = () => {
-    alert('Forgot password')
-  }
+    alert('Forgot password');
+  };
 
   onPressFacebookLogin = () => {
-    alert('Press Facebook Login')
-  }
+    alert('Press Facebook Login');
+  };
 
   onPressGoogleLogin = () => {
-    alert('Press Google Login')
-  }
+    alert('Press Google Login');
+  };
 
   onPressLogin = () => {
-    alert('Press Login')
-  }
+    this.setState({ loading: true }, async () => {
+      try {
+        const loginInfo = await loginWithEmailAndPassword(this.state.emailValue,
+          this.state.passwordValue);
+        //console.log(loginInfo)
+        if (loginInfo.length == 0) {
+          this.setState({
+            loading: false,
+            bodyLogin: 'Login Failed'
+          });
+        } else {
+          this.setState({
+            loading: false,
+            bodyLogin: 'Login Successfully'
+          });
+        }
+        alert(this.state.bodyLogin)
+
+
+      }
+      catch (e) {
+        this.setState({
+          loading: false
+        }, () => {
+          console.log(e);
+        });
+      }
+    });
+  };
 
   onPressQuestionSign = () => {
-    alert('Press Question Sign Up')
-  }
+    alert('Press Question Sign Up');
+  };
+
+  componentDidMount = () => {
+
+  };
 
 
   render() {

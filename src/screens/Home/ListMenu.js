@@ -92,8 +92,9 @@ const styles = StyleSheet.create({
         //justifyContent: 'space-between'
     },
     viewMenu: {
-        width: sizeWidth(110),
-        paddingHorizontal: sizeWidth(4),
+        width: sizeWidth(100),
+        //backgroundColor: 'skyblue',
+        //paddingHorizontal: sizeWidth(4),
         justifyContent: 'space-between',
         marginBottom: sizeHeight(2)
     },

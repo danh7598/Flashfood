@@ -14,15 +14,17 @@ import ItemRecommended from './ListRecommended';
 import ListPopular from './ListPopular';
 import ListRecommended from './ListRecommended';
 import ListMenu from './ListMenu';
+import { getCategoryItems } from '../../Utils/api';
 
 export default class Home extends Component {
     constructor(props) {
         super(props);
-
         this.state = {
+            dataCategory: [],
             indexCategory: 0,
             indexMenu: 0,
-            searchValue: ''
+            searchValue: '',
+            loading: true
         };
     }
 
@@ -45,6 +47,20 @@ export default class Home extends Component {
     onSelectedMenu = (index) => () => {
         this.setState({ indexMenu: index });
     };
+
+    handleUpdateCategory = () => {
+        this.setState({ loading: true }, async () => {
+            const categories = await getCategoryItems();
+            this.setState({
+                loading: false,
+                dataCategory: categories
+            })
+        })
+    }
+
+    componentDidMount() {
+        this.handleUpdateCategory();
+    }
 
     render() {
         //console.log(this.state.indexCategory)
@@ -71,6 +87,7 @@ export default class Home extends Component {
                         style={styles.viewDeliveryAddress}
                         textAddress={'300 Post Street San Francisco, CA'} />
                     <ListCategory
+                        data={this.state.dataCategory}
                         indexCategory={this.state.indexCategory}
                         onPressCategory={this.onPressCategory} />
                     <ListPopular />

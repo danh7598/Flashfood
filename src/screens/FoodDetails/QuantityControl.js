@@ -9,10 +9,12 @@ const QuantityControl = ({ number, onPressPlus, onPressMinus, style }) => {
     return (
         <View style={[styles.container, style]}>
             <TouchableOpacity
+                disabled={number === 1 ? true : false}
                 onPress={onPressMinus}>
                 <Image
                     source={minus}
-                    style={styles.imgBtn} />
+                    style={[styles.imgBtn,
+                    { tintColor: number === 1 ? '#898B9A' : orangeColor}]} />
             </TouchableOpacity>
             <Text style={styles.textNumber}>{number}</Text>
             <TouchableOpacity

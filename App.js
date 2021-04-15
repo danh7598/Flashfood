@@ -21,6 +21,8 @@ import PasswordRecovery from './src/screens/PasswordRecovery/PasswordRecovery';
 import PasswordReset from './src/screens/PasswordRecovery/PasswordReset';
 import SuccesfullyReset from './src/screens/PasswordRecovery/SuccesfullyReset';
 import Home from './src/screens/Home';
+import { sizeHeight } from './src/Utils/Size';
+import MyCart from './src/screens/MyCart';
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -54,7 +56,7 @@ export default class App extends Component {
           <StatusBar
             style={Platform.OS === 'ios' ? 'auto' : 'light'}
             translucent={false} />
-          {/* <Login /> */}
+          <Login />
           {/* <LoginHomework /> */}
           {/* <RegisterHomework /> */}
           {/* <Register /> */}
@@ -69,7 +71,8 @@ export default class App extends Component {
           {/* <PasswordRecovery /> */}
           {/* <PasswordReset/> */}
           {/* <SuccesfullyReset /> */}
-          <Home/>
+          {/* <Home/> */}
+          {/* <MyCart/> */}
         </View>
       );
     } else {
@@ -82,6 +85,6 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: Platform.OS === 'ios' ? Constants.statusBarHeight : null,
+    paddingTop: Platform.OS === 'ios' ? Constants.statusBarHeight - sizeHeight(2) : null,
   },
 });
