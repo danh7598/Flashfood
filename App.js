@@ -56,10 +56,10 @@ export default class App extends Component {
           <StatusBar
             style={Platform.OS === 'ios' ? 'auto' : 'light'}
             translucent={false} />
-          <Login />
+          {/* <Login /> */}
           {/* <LoginHomework /> */}
           {/* <RegisterHomework /> */}
-          {/* <Register /> */}
+          <Register />
           {/* <Onboarding1 /> */}
           {/* <Slider /> */}
           {/* <Onboarding2/> */}

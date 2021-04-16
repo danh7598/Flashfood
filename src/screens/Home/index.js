@@ -14,17 +14,20 @@ import ItemRecommended from './ListRecommended';
 import ListPopular from './ListPopular';
 import ListRecommended from './ListRecommended';
 import ListMenu from './ListMenu';
-import { getCategoryItems } from '../../Utils/api';
+import { getCategoryItems, getPopularItems, getRecommendedItems } from '../../Utils/api';
 
 export default class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
             dataCategory: [],
+            dataPopular: [],
+            dataRecommended: [],
             indexCategory: 0,
             indexMenu: 0,
             searchValue: '',
-            loading: true
+            loading: true,
+            
         };
     }
 
@@ -50,22 +53,66 @@ export default class Home extends Component {
 
     handleUpdateCategory = () => {
         this.setState({ loading: true }, async () => {
-            const categories = await getCategoryItems();
-            this.setState({
-                loading: false,
-                dataCategory: categories
-            })
-        })
-    }
+            try {
+                const categories = await getCategoryItems();
+                this.setState({
+                    loading: false,
+                    dataCategory: categories
+                });
+            } catch (e) {
+                this.setState({
+                    loading: false,
+                });
+                console.log("Error: ", e);
+            }
+        });
+    };
+
+    handleUpdatePopularItems = () => {
+        this.setState({ loading: true }, async () => {
+            try {
+                const popular = await getPopularItems();
+                this.setState({
+                    loading: false,
+                    dataPopular: popular
+                });
+            } catch (e) {
+                this.setState({
+                    loading: false,
+                });
+                console.log("Error: ", e);
+            }
+        });
+    };
+
+    handleUpdateRecommendedItems = () => {
+        this.setState({ loading: true }, async () => {
+            try {
+                const popular = await getRecommendedItems();
+                this.setState({
+                    loading: false,
+                    dataRecommended: popular
+                });
+            } catch (e) {
+                this.setState({
+                    loading: false,
+                });
+                console.log("Error: ", e);
+            }
+        });
+    };
 
     componentDidMount() {
         this.handleUpdateCategory();
+        this.handleUpdatePopularItems();
+        this.handleUpdateRecommendedItems();
     }
 
     render() {
         //console.log(this.state.indexCategory)
         //console.log(this.state.searchValue)
         //console.log(sizeHeight(3))
+        //console.log(this.state.dataPopular)
         return (
             <View style={styles.container}>
                 <HeaderBar
@@ -90,8 +137,11 @@ export default class Home extends Component {
                         data={this.state.dataCategory}
                         indexCategory={this.state.indexCategory}
                         onPressCategory={this.onPressCategory} />
-                    <ListPopular />
-                    <ListRecommended />
+                    <ListPopular
+                        data={this.state.dataPopular}
+                    />
+                    <ListRecommended
+                        data={this.state.dataRecommended}/>
                     <ListMenu
                         onSelected={this.onSelectedMenu}
                         itemSelected={this.state.indexMenu} />

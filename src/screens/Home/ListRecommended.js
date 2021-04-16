@@ -4,12 +4,12 @@ import { blackColor, grayColor } from '../../string/ColorTheme'
 import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size'
 import fire_calories from '../../assets/fire_calories.png'
 import HeaderList from './HeaderList';
-import { dataPopular } from '../../string/FakeData';
+
 const ItemRecommended = ({ name, image, calories, price, description }) => {
     return (
         <View style={styles.container}>
             <Image style={styles.imgMain}
-                source={image} />
+                source={{uri: image}} />
             <View style={styles.viewDescription}>
                 <View style={styles.viewCalories}>
                     <Image
@@ -21,7 +21,9 @@ const ItemRecommended = ({ name, image, calories, price, description }) => {
                 </View>
                 <View style={styles.viewText}>
                     <Text style={styles.textName}>{name}</Text>
-                    <Text style={styles.textDescription}>{description}</Text>
+                    <Text
+                        numberOfLines={1}
+                        style={styles.textDescription}>{description}</Text>
                     <Text style={styles.textPrice}>${price}</Text>
                 </View>
             </View>
@@ -38,16 +40,16 @@ class ListRecommended extends Component {
                     horizontal={true}
                     showsHorizontalScrollIndicator={false}
                     contentContainerStyle={styles.listRecommended}
-                    data={dataPopular}
+                    data={this.props.data}
                     renderItem={({ item, index }) => (
                         <ItemRecommended
                             name={item.name}
                             description={item.description}
                             price={item.price}
                             calories={item.calories}
-                            image={item.image}/>
+                            image={item.imageUrl}/>
                     )}
-                    keyExtractor={(item) => item.id} />
+                    keyExtractor={(item) => item.id.toString()} />
             </View>
         )
     }

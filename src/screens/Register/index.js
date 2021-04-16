@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, KeyboardAvoidingView, View, Image } from 'react-native';
 //import LogoComponent from '../Login/LogoComponent';
 import FormComponent from '../Login/FormComponent';
@@ -13,9 +13,11 @@ import cancel_icon from '../../assets/cancel_icon.png';
 import eye from '../../assets/eye.png';
 import right_mark_icon from '../../assets/right_mark_icon.png';
 import eye_close from '../../assets/eye_close.png';
-const orangeColor = '#F96B44'
-const grayColor = ''
-const blueColor = '#0064C0'
+import { registerWithEmail } from '../../Utils/api';
+const orangeColor = '#F96B44';
+const grayColor = '';
+const blueColor = '#0064C0';
+
 export default class Register extends Component {
     constructor(props) {
         super(props);
@@ -29,7 +31,7 @@ export default class Register extends Component {
             hidePassword: true,
             btnShowPassword: eye,
             buttonRightImageEmail: null
-        }
+        };
     }
 
 
@@ -39,60 +41,98 @@ export default class Register extends Component {
             this.setState({
                 notificationEmail: '',
                 buttonRightImageEmail: null
-            })
+            });
         } else if (!validateEmailLogin(text)) {
             this.setState({
                 emailValue: text,
-                notificationEmail: emailNotification[1],
+                notificationEmail: emailNotification[2],
                 buttonRightImageEmail: cancel_icon
-            })
+            });
         } else {
             this.setState({
                 emailValue: text,
                 notificationEmail: '',
                 buttonRightImageEmail: right_mark_icon
-            })
+            });
         }
 
-    }
+    };
 
     //Function change TextInput password
     onChangePassword = (text) => {
         this.setState({
             passwordValue: text,
-
-        })
-    }
+        });
+    };
     hideAndShowPassword = () => {
         this.setState({
             hidePassword: !this.state.hidePassword,
             btnShowPassword: !this.state.hidePassword ? eye
                 : eye_close
-        })
-    }
+        });
+    };
 
     //Function change TextInput username
     onChangeUserName = (text) => {
         this.setState({
             userNameValue: text
-        })
-    }
+        });
+    };
 
     onPressFacebookLogin = () => {
-        alert('Press Facebook Login')
-    }
+        alert('Press Facebook Login');
+    };
 
     onPressGoogleLogin = () => {
-        alert('Press Google Login')
-    }
+        alert('Press Google Login');
+    };
 
-    onPressLogin = () => {
-        alert('Press Login')
-    }
+    onPressSignUp = () => {
+        this.setState({ loading: true }, async () => {
+            try {
+                const bodySignUp = await registerWithEmail(this.state.emailValue,
+                    this.state.userNameValue, this.state.passwordValue);
+                if (bodySignUp.ok) {
+                    this.setState({ loading: false }, () => {
+                        alert(JSON.stringify(bodySignUp.result));
+                    });
+                } else {
+                    let emailMsg = '';
+                    let usernameMsg = '';
+                    let passwordMsg = '';
+                    bodySignUp.errors.forEach((item) => {
+                        switch (item.param) {
+                            case 'email': {
+                                emailMsg = item.msg;
+                                break;
+                            }
+                            case 'password': {
+                                passwordMsg = item.msg;
+                                break;
+                            }
+                            case 'fullname': {
+                                usernameMsg = item.msg;
+                                break;
+                            }
+                        }
+                        this.setState({
+                            notificationEmail: emailMsg,
+                            notificationUserName: usernameMsg,
+                            notificationPassword: passwordMsg
+                        }, () => {
+                            //alert(JSON.stringify(bodySignUp.errors))
+                        });
+                    });
+                }
+            } catch (e) {
+                console.log(e);
+            }
+        });
+    };
 
     onPressQuestionSign = () => {
-        alert('Press Question Sign Up')
-    }
+        alert('Press Question Sign Up');
+    };
 
     render() {
         return (
@@ -111,6 +151,7 @@ export default class Register extends Component {
                     <FormComponent
                         nameTextInput={'Email'}
                         placeholder={'Input your email'}
+                        valueInput={this.state.emailValue}
                         keyboardType={'email-address'}
                         onChangeValue={this.onChangeEmail}
                         notification={this.state.notificationEmail}
@@ -121,12 +162,16 @@ export default class Register extends Component {
                     />
                     <FormComponent
                         nameTextInput={'Username'}
+                        valueInput={this.state.userNameValue}
+                        notification={this.state.notificationUserName}
                         placeholder={'Input your user name'}
                         onChangeValue={this.onChangeUserName}
                     />
                     <FormComponent
                         nameTextInput={'Password'}
                         placeholder={'Input your password'}
+                        valueInput={this.state.passwordValue}
+                        notification={this.state.notificationPassword}
                         onChangeValue={this.onChangePassword}
                         secure={this.state.hidePassword}
                         buttonFunction={this.hideAndShowPassword}
@@ -138,12 +183,12 @@ export default class Register extends Component {
                 <View style={styles.viewFooterButton}>
                     <View>
                         <Button
-                            onPress={this.onPressLogin}
-                            buttonSign={"Sign In"} />
+                            onPress={this.onPressSignUp}
+                            buttonSign={"Sign Up"} />
                         <QuestionSign
                             onPress={this.onPressQuestionSign}
-                            alternativeButtonSign={"Sign Up"}
-                            questionSign={"Don't have an account? "} />
+                            alternativeButtonSign={"Sign In"}
+                            questionSign={"Already have an account? "} />
                     </View>
                     <View>
                         <Button
@@ -161,7 +206,7 @@ export default class Register extends Component {
                     </View>
                 </View>
             </View>
-        )
+        );
     }
 }
 const styles = StyleSheet.create({
@@ -193,4 +238,4 @@ const styles = StyleSheet.create({
         marginTop: sizeHeight(2),
         marginBottom: sizeHeight(2)
     }
-})
+});

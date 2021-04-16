@@ -108,7 +108,7 @@ export default class Login extends Component {
       try {
         const loginInfo = await loginWithEmailAndPassword(this.state.emailValue,
           this.state.passwordValue);
-        //console.log(loginInfo)
+        console.log(loginInfo)
         if (loginInfo.length == 0) {
           this.setState({
             loading: false,

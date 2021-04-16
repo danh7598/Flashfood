@@ -7,9 +7,8 @@ import hamburger_popular from '../../assets/hamburger_popular.png';
 import fire_calories from '../../assets/fire_calories.png';
 import PropTypes from 'prop-types';
 import HeaderList from './HeaderList';
-import { dataPopular } from '../../string/FakeData';
 
-const ItemPopular = ({ calories, favoured, image, name, description, price, changeFavorite }) => {
+const ItemPopular = ({ calories, favoured, image, name, description, price, changeFavorite}) => {
     //console.log(sizeHeight(25))
     return (
         <TouchableOpacity style={styles.container}>
@@ -30,11 +29,13 @@ const ItemPopular = ({ calories, favoured, image, name, description, price, chan
                 </TouchableOpacity>
             </View>
             <Image
-                source={image}
+                source={{uri: image}}
                 style={styles.imgCenter} />
             <View style={styles.viewText}>
                 <Text style={styles.textName}>{name}</Text>
-                <Text style={styles.textDescription}>{description}</Text>
+                <Text
+                    numberOfLines={1}
+                    style={styles.textDescription}>{description}</Text>
                 <Text style={styles.textPrice}>${price}</Text>
             </View>
         </TouchableOpacity>
@@ -46,8 +47,8 @@ ItemPopular.propTypes = {
     description: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     calories: PropTypes.number.isRequired,
-    image: PropTypes.node.isRequired,
-    changeFavorite: PropTypes.func.isRequired,
+    image: PropTypes.string.isRequired,
+    changeFavorite: PropTypes.func,
     favoured: PropTypes.bool,
 };
 ItemPopular.defaultProps = {
@@ -55,7 +56,9 @@ ItemPopular.defaultProps = {
 };
 
 class ListPopular extends Component {
+
     render() {
+        console.log(this.props.data)
         return (
             <View style={styles.viewListPopular}>
                 <HeaderList title={"Popular Near You"} />
@@ -63,26 +66,26 @@ class ListPopular extends Component {
                     horizontal={true}
                     showsHorizontalScrollIndicator={false}
                     contentContainerStyle={styles.listPopular}
-                    data={dataPopular}
+                    data={this.props.data}
                     renderItem={({ item, index }) => (
                         <ItemPopular
                             name={item.name}
                             description={item.description}
                             price={item.price}
                             calories={item.calories}
-                            image={item.image}
+                            image={item.imageUrl}
                             favoured={item.favoured}
-                            changeFavorite={() => {
-                                dataPopular[index].favoured
-                                    ? dataPopular[index].favoured = false
-                                    : dataPopular[index].favoured = true;
-                                this.forceUpdate(); //Không có state thay đổi nên force rerender
-                                //console.log(dataPopular[index].favoured)
-                                //
-                            }}
+                            // changeFavorite={() => { API không hỗ trợ
+                            //     dataPopular[index].favoured
+                            //         ? dataPopular[index].favoured = false
+                            //         : dataPopular[index].favoured = true;
+                            //     this.forceUpdate(); //Không có state thay đổi nên force rerender
+                            //     //console.log(dataPopular[index].favoured)
+                            //     //
+                            // }}
                         />
                     )}
-                    keyExtractor={(item) => item.id}
+                    keyExtractor={(item) => item.id.toString()}
                 />
             </View>
         );
