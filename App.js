@@ -23,6 +23,7 @@ import SuccesfullyReset from './src/screens/PasswordRecovery/SuccesfullyReset';
 import Home from './src/screens/Home';
 import { sizeHeight } from './src/Utils/Size';
 import MyCart from './src/screens/MyCart';
+import RiderReview from './src/screens/RiderReview';
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -59,7 +60,7 @@ export default class App extends Component {
           {/* <Login /> */}
           {/* <LoginHomework /> */}
           {/* <RegisterHomework /> */}
-          <Register />
+          {/* <Register /> */}
           {/* <Onboarding1 /> */}
           {/* <Slider /> */}
           {/* <Onboarding2/> */}
@@ -73,6 +74,7 @@ export default class App extends Component {
           {/* <SuccesfullyReset /> */}
           {/* <Home/> */}
           {/* <MyCart/> */}
+          <RiderReview/>
         </View>
       );
     } else {

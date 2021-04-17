@@ -39,6 +39,7 @@ export default class Register extends Component {
     onChangeEmail = (text) => {
         if (text === '') {
             this.setState({
+                emailValue: '',
                 notificationEmail: '',
                 buttonRightImageEmail: null
             });

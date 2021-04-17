@@ -67,7 +67,7 @@ class ListMenu extends Component {
                             price={item.price}
                             calories={item.calories}
                             image={item.image}
-                            key={item.id} />
+                            key={item.id.toString()} />
                     );
                 })}
                 {/* <FlatList

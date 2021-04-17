@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {
     Image,
     StyleSheet,
@@ -7,7 +7,7 @@ import {
     TouchableOpacity,
     View,
 } from 'react-native';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import { sizeWidth, sizeHeight, sizeFont } from '../../Utils/Size';
 import { grayColor } from '../../string/ColorTheme';
 const FormComponent = ({
@@ -34,6 +34,8 @@ const FormComponent = ({
                 borderColor: borderColor ? borderColor : 'transparent'
             }]}>
                 <TextInput
+                    autoCompleteType={'off'}
+                    autoCorrect={false}
                     keyboardType={keyboardType}
                     secureTextEntry={secure}
                     placeholder={placeholder}
@@ -52,8 +54,8 @@ const FormComponent = ({
                 }
             </View>
         </View>
-    )
-}
+    );
+};
 
 FormComponent.propTypes = {
     nameTextInput: PropTypes.string.isRequired,
@@ -67,7 +69,7 @@ FormComponent.propTypes = {
     buttonFunction: PropTypes.func,
     borderColor: PropTypes.string,
     tintColorRightImage: PropTypes.string
-}
+};
 
 FormComponent.defaultProps = {
     keyboardType: 'default',
@@ -75,9 +77,9 @@ FormComponent.defaultProps = {
     secure: false,
     borderColor: 'transparent',
     tintColorRightImage: '#111A2C'
-}
+};
 
-export default FormComponent
+export default FormComponent;
 
 const styles = StyleSheet.create({
     formComponentView: {

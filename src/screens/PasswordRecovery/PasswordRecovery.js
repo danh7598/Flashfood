@@ -1,55 +1,74 @@
-import React, { Component } from 'react'
-import { Text, StyleSheet, View } from 'react-native'
-import FormComponent from '../Login/FormComponent'
-import LogoAndText from '../OTPAuthentication/LogoAndText'
-import Button from '../Login/Button'
-import cancel_icon from '../../assets/cancel_icon.png'
-import right_mark_icon from '../../assets/right_mark_icon.png'
-import { sizeHeight, sizeWidth } from '../../Utils/Size'
-import { validateEmailLogin } from '../../Utils/Validate'
-import { orangeColor } from '../../string/ColorTheme'
+import React, { Component } from 'react';
+import { Text, StyleSheet, View } from 'react-native';
+import FormComponent from '../Login/FormComponent';
+import LogoAndText from '../OTPAuthentication/LogoAndText';
+import Button from '../Login/Button';
+import cancel_icon from '../../assets/cancel_icon.png';
+import right_mark_icon from '../../assets/right_mark_icon.png';
+import { sizeHeight, sizeWidth } from '../../Utils/Size';
+import { validateEmailLogin } from '../../Utils/Validate';
+import { orangeColor, trueGreenColor } from '../../string/ColorTheme';
+import { emailNotification } from '../../string/NotificationInput';
+import { forgotPasswordByEmail } from '../../Utils/api';
 export default class PasswordRecovery extends Component {
     constructor(props) {
-        super(props)
+        super(props);
 
         this.state = {
             emailValue: '',
-            notificationEmail: 0,
-            notificationEmailMessage: ''
-        }
+            notificationEmail: '',
+
+        };
     }
+
+    onPressSendEmail = () => {
+
+    };
 
     //Function onChangeText on TextInput email
     onChangeEmail = (text) => {
         this.setState({
             emailValue: text
-        })
+        });
         if (text === '') {
             this.setState({
-                notificationEmailMessage: '',
-                notificationEmail: 0
-            })
+                notificationEmail: ''
+            });
         } else if (!validateEmailLogin(text)) {
             this.setState({
-                notificationEmailMessage: 'Incorrect email, try again',
-                notificationEmail: 1
-            })
+                notificationEmail: 2
+            });
         } else {
             this.setState({
-                notificationEmailMessage: '',
-                notificationEmail: 2
-            })
+                notificationEmail: 3,
+            });
         }
-    }
+    };
 
     //Clear email input by right button
     clearText = () => {
         this.setState({
             emailValue: '',
-            notificationEmail: false,
-            notificationEmailMessage: ''
-        })
-    }
+            notificationEmail: '',
+        });
+    };
+
+    onPressSendEmail = () => {
+        this.setState({ loading: true }, async () => {
+            try {
+                const response = await forgotPasswordByEmail(this.state.emailValue);
+                if (response.success) {
+                    alert(response.message);
+                } else {
+                    alert(response.message);
+                }
+            } catch (e) {
+                console.log(e);
+            }
+
+        });
+
+    };
 
     render() {
         return (
@@ -65,21 +84,22 @@ export default class PasswordRecovery extends Component {
                         onChangeValue={this.onChangeEmail}
                         valueInput={this.state.emailValue}
                         placeholder={'Input your email'}
-                        borderColor={this.state.notificationEmail === 1 ? '#F96B44' : null}
-                        notification={this.state.notificationEmailMessage}
-                        buttonRightImage={this.state.notificationEmail === 1 ? cancel_icon
-                            : this.state.notificationEmail === 2 ? right_mark_icon
+                        borderColor={this.state.notificationEmail === 2 ? orangeColor : null}
+                        notification={emailNotification[this.state.notificationEmail]}
+                        buttonRightImage={this.state.notificationEmail === 2 ? cancel_icon
+                            : this.state.notificationEmail === 3 ? right_mark_icon
                                 : null}
-                        tintColorRightImage={this.state.notificationEmail === 1 ? orangeColor
-                            : this.state.notificationEmail === 2 ? '#27AE60'
+                        tintColorRightImage={this.state.notificationEmail === 2 ? orangeColor
+                            : this.state.notificationEmail === 3 ? trueGreenColor
                                 : null}
                         buttonFunction={this.state.notificationEmail !== 2 ? this.clearText : null} />
                 </View>
                 <Button
+                    onPress={this.onPressSendEmail}
                     style={styles.buttonSend}
                     buttonSign={'Send Email'} />
             </View>
-        )
+        );
     }
 }
 
@@ -100,4 +120,4 @@ const styles = StyleSheet.create({
         bottom: sizeHeight(4),
         width: sizeWidth(92)
     }
-})
+});

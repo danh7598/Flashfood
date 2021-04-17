@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export const getCategoryItems = async () => {
     const response = await fetch('https://training.softech.cloud/api/categories');
     const json = await response.json();
@@ -50,4 +52,32 @@ export const registerWithEmail = async (email, username, password) => {
     });
     const json = await response.json();
     return json;
-}
+};
+
+export const forgotPasswordByEmail = async (email) => {
+    const response = await fetch('https://training.softech.cloud/api/users/forgot-password', {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            "email": String(email).toLowerCase(),
+        })
+    });
+    const json = await response.json();
+    return json;
+};
+
+export const changePasswordAPI = (email, password, newPassword) => {
+    axios.post('https://training.softech.cloud/api/users/change-password', {
+        "email": email,
+        "password": password,
+        "newPassword": newPassword
+    }).then(function (response) {
+        return response.data;
+    }).catch(function (error) {
+        console.log(error);
+    });
+
+};
