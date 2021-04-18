@@ -6,7 +6,7 @@ import { sizeHeight, sizeWidth } from '../../Utils/Size';
 const arrayStar = [1, 2, 3, 4, 5];
 
 const StarRating = ({ onPress, rateSelected }) => {
-    console.log(onPress.toString())
+    // console.log(onPress.toString())
     return (
         <View style={styles.container}>
             {arrayStar.map((item, index) => {
@@ -32,9 +32,10 @@ export default StarRating;
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
-        marginTop: sizeHeight(2.6),
+        marginTop: sizeHeight(2.08),
         width: sizeWidth(100),
-        paddingHorizontal: sizeWidth(20.8)
+        paddingHorizontal: sizeWidth(20.8),
+        //backgroundColor: 'skyblue'
     },
     imgStar: {
         width: sizeWidth(7.46),

@@ -33,8 +33,8 @@ export default class MyCart extends Component {
                         return (
                             <ItemCart
                                 onPressPlus={() => {
-                                    ++dataCart[index].quantity
-                                    this.forceUpdate()
+                                    ++dataCart[index].quantity;
+                                    this.forceUpdate();
                                 }}
                                 onPressMinus={() => {
                                     --dataCart[index].quantity;
@@ -43,13 +43,13 @@ export default class MyCart extends Component {
                                 name={item.name}
                                 price={item.price}
                                 image={item.image}
-                                quantity={item.quantity}/>
-                        )
+                                quantity={item.quantity} />
+                        );
                     }}
                 />
                 <TotalAndOrder
                     subtotal={36.55}
-                    fee={0}/>
+                    fee={0} />
             </View>
         );
     }
@@ -65,8 +65,9 @@ const styles = StyleSheet.create({
         //borderWidth: 0.5,
         //paddingVertical: sizeHeight(2),
         //justifyContent: 'space-between',
+        marginTop: sizeHeight(1.97),
         paddingHorizontal: sizeWidth(4),
-        
+
         //height: sizeHeight(60),
         //backgroundColor: 'skyblue'
     }

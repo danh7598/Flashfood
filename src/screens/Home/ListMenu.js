@@ -39,10 +39,12 @@ const MenuBar = ({ itemSelected, onSelected }) => {
                 // console.log(onSelected.toString())
                 // console.log(index)
                 return (
-                    <TouchableOpacity onPress={onSelected(index)}>
+                    <TouchableOpacity
+                        key={index.toString()}
+                        onPress={onSelected(index)}>
                         <Text
                             style={[styles.textMenu, { color: itemSelected === index ? orangeColor : blackColor }]}
-                            key={index.toString()}>
+                        >
                             {item}
                         </Text>
                     </TouchableOpacity>

@@ -81,3 +81,26 @@ export const changePasswordAPI = (email, password, newPassword) => {
     });
 
 };
+
+export const getRiderById = async (id) => {
+    try {
+        const response = await axios.get(`https://training.softech.cloud/api/riders/${id}`);
+        return response.data;
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+export const sendReviewForByUserForId = async (user, id, star, tip, comment) => {
+    try {
+        const response = await axios.put(`https://training.softech.cloud/api/riders/${id}/review/`, {
+            "star": star,
+            "tip": tip,
+            "comment": comment,
+            "reviewUserId": user
+        });
+        return response.data;
+    } catch (error) {
+        console.error(error);
+    }
+};

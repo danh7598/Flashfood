@@ -5,8 +5,8 @@ import { StatusBar } from 'expo-status-bar';
 import Constants from 'expo-constants';
 //import Login from './Login'
 import * as Font from 'expo-font';
-import Login from './src/screens/Login'
-import Register from './src/screens/Register'
+import Login from './src/screens/Login';
+import Register from './src/screens/Register';
 import RegisterHomework from './src/screens/RegisterHomework';
 import LoginHomework from './src/screens/LoginHomework';
 import Onboarding1 from "./src/screens/Onboarding/Onboarding1";
@@ -46,6 +46,7 @@ export default class App extends Component {
   }
 
   render() {
+    console.log(Constants.statusBarHeight,)
     if (this.state.fontsLoaded) {
       return (
         <View style={styles.container}>
@@ -54,9 +55,7 @@ export default class App extends Component {
               Khi translucent false thì StatusBar chuyển thành màu đen, phải để style="light" mới hiện chữ
 
                */}
-          <StatusBar
-            style={Platform.OS === 'ios' ? 'auto' : 'light'}
-            translucent={false} />
+          <StatusBar style={'light'} />
           {/* <Login /> */}
           {/* <LoginHomework /> */}
           {/* <RegisterHomework /> */}
@@ -74,7 +73,7 @@ export default class App extends Component {
           {/* <SuccesfullyReset /> */}
           {/* <Home/> */}
           {/* <MyCart/> */}
-          <RiderReview/>
+          <RiderReview />
         </View>
       );
     } else {
@@ -87,6 +86,6 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: Platform.OS === 'ios' ? Constants.statusBarHeight - sizeHeight(2) : null,
+    paddingTop: Constants.statusBarHeight,
   },
 });

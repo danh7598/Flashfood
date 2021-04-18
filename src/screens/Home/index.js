@@ -27,7 +27,7 @@ export default class Home extends Component {
             indexMenu: 0,
             searchValue: '',
             loading: true,
-            
+
         };
     }
 
@@ -123,6 +123,7 @@ export default class Home extends Component {
                     rightBtnSource={face_woman}
                     leftBtnSource={three_lines} />
                 <ScrollView
+                    style={styles.styleScrollView}
                     showsVerticalScrollIndicator={false}
                     contentContainerStyle={styles.containerScrollView}>
                     <SearchBar
@@ -141,7 +142,7 @@ export default class Home extends Component {
                         data={this.state.dataPopular}
                     />
                     <ListRecommended
-                        data={this.state.dataRecommended}/>
+                        data={this.state.dataRecommended} />
                     <ListMenu
                         onSelected={this.onSelectedMenu}
                         itemSelected={this.state.indexMenu} />
@@ -156,7 +157,11 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingBottom: sizeHeight(1)
     },
+    styleScrollView: {
+        marginTop: sizeHeight(1.97)
+    },
     containerScrollView: {
+        // marginTop: sizeHeight(1.97)
         //alignItems: 'center',
         //justifyContent: 'space-between'
     },

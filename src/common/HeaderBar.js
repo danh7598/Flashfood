@@ -1,10 +1,13 @@
-import React, { Component } from 'react'
-import { Text, StyleSheet, View, TouchableOpacity, Image } from 'react-native'
-import PropTypes from 'prop-types'
+import React, { Component } from 'react';
+import { Text, StyleSheet, View, TouchableOpacity, Image } from 'react-native';
+import PropTypes from 'prop-types';
 import { sizeFont, sizeHeight, sizeWidth } from '../Utils/Size';
 import backImg from '../assets/back.png';
 class HeaderBar extends Component {
     render() {
+        // console.log(sizeWidth(100))
+        // console.log(sizeHeight(100))
+
         return (
             <View style={styles.container}>
                 <TouchableOpacity
@@ -36,7 +39,7 @@ class HeaderBar extends Component {
                     }]} />}
 
             </View>
-        )
+        );
     }
 }
 
@@ -48,26 +51,28 @@ HeaderBar.propTypes = {
     rightBtnSource: PropTypes.node,
     backgroundColorRightBtn: PropTypes.string
 
-}
+};
 HeaderBar.defaultProps = {
     leftBtnSource: backImg,
     backgroundColorRightBtn: 'transparent'
-}
+};
 
-export default HeaderBar
+export default HeaderBar;
 const styles = StyleSheet.create({
     container: {
         paddingHorizontal: sizeWidth(4),
-        height: sizeHeight(10),
+        //height: sizeHeight(10),
         width: sizeWidth(100),
         //backgroundColor: 'skyblue',
         flexDirection: 'row',
         //justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
+        //marginTop: sizeHeight(0.52)
+        // marginBottom: sizeHeight(3.94)
     },
     btnContainer: {
-        width: sizeWidth(10),
-        height: sizeWidth(10),
+        width: sizeHeight(4.92),
+        height: sizeHeight(4.92),
         borderRadius: sizeWidth(2),
         borderWidth: 1,
         borderColor: '#BBBDC1',
@@ -75,8 +80,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     imgBtn: {
-        width: sizeWidth(4),
-        height: sizeWidth(4)
+        width: sizeHeight(1.97),
+        height: sizeHeight(1.97)
     },
     textTitle: {
         textAlign: 'center',
@@ -87,4 +92,4 @@ const styles = StyleSheet.create({
         fontSize: sizeFont(5),
         //backgroundColor: 'firebrick'
     }
-})
+});
