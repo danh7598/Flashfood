@@ -24,6 +24,7 @@ import Home from './src/screens/Home';
 import { sizeHeight } from './src/Utils/Size';
 import MyCart from './src/screens/MyCart';
 import RiderReview from './src/screens/RiderReview';
+import SplitMoneyHomeWork from './src/screens/SplitMoneyHomework';
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -46,7 +47,7 @@ export default class App extends Component {
   }
 
   render() {
-    console.log(Constants.statusBarHeight,)
+    // console.log(Constants.statusBarHeight,);
     if (this.state.fontsLoaded) {
       return (
         <View style={styles.container}>
@@ -55,7 +56,7 @@ export default class App extends Component {
               Khi translucent false thì StatusBar chuyển thành màu đen, phải để style="light" mới hiện chữ
 
                */}
-          <StatusBar style={'light'} />
+          <StatusBar style={'auto'} />
           {/* <Login /> */}
           {/* <LoginHomework /> */}
           {/* <RegisterHomework /> */}
@@ -73,7 +74,8 @@ export default class App extends Component {
           {/* <SuccesfullyReset /> */}
           {/* <Home/> */}
           {/* <MyCart/> */}
-          <RiderReview />
+          {/* <RiderReview /> */}
+          <SplitMoneyHomeWork />
         </View>
       );
     } else {

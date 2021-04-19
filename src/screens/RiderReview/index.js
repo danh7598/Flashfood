@@ -59,7 +59,7 @@ export default class RiderReview extends Component {
                     this.setState({
                         loading: false
                     }, () => {
-                        console.log(response);
+                        // console.log(response);
                     });
                 }
             } catch (error) {
