@@ -95,7 +95,6 @@ export default class RiderReview extends Component {
 
     componentDidMount = () => {
         this.getRiderInformation();
-
     };
 
     render() {

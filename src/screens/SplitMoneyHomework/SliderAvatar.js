@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         width: sizeWidth(2.5),
         height: sizeWidth(2.5),
-        borderColor: 'transparent', //ẩn đi border nhưng vẫn giữ kích thước giống bên large
+        borderColor: 'rgba(52, 52, 255, 0)', //ẩn đi border nhưng vẫn giữ kích thước giống bên large
         borderWidth: sizeWidth(1)
         //borderWidth: sizeWidth(1),
         //borderColor: 'white',

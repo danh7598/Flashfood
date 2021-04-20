@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Image, StyleSheet, Text, View } from 'react-native'
+import React, { Component } from 'react';
+import { Image, StyleSheet, Text, View } from 'react-native';
 import { SvgXml } from 'react-native-svg';
 //import HamburgerSVG from '../../assets/svg/HamburgerSVG';
 import shipperSVG from '../../assets/svg/ShipperSVG';
@@ -11,15 +11,22 @@ export default class Onboarding2 extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <View style={styles.backgroundView}/>
+                <View style={styles.backgroundView} />
                 <LogoAndSVG svgImg={require('../../assets/shipper.png')} />
                 <MiddleTextOnboarding
                     textBold={'Hot Delivery to Home'}
                     textLight={'We make food ordering fast, simple and free-no matter if you order online or cash'}
                 />
-                {/* <SkipOrNextButton skipBtn={true}/> */}
+                <SkipOrNextButton
+                    onPressSkip={() => {
+                        alert("skip");
+                    }}
+                    onPressNext={() => {
+                        this.props.navigation.navigate('Onboarding3');
+                    }}
+                    skipBtn={true} />
             </View>
-        )
+        );
     }
 }
 
@@ -40,4 +47,4 @@ const styles = StyleSheet.create({
         backgroundColor: "white"
 
     },
-})
+});

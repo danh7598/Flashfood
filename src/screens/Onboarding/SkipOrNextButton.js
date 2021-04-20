@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size'
+import React, { Component } from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size';
 
 export default class SkipOrNextButton extends Component {
     render() {
@@ -22,19 +22,19 @@ export default class SkipOrNextButton extends Component {
                     </Text>
                     </TouchableOpacity>
                 </View>
-            )
+            );
         }
         else {
             return (
                 <TouchableOpacity
                     onPress={this.props.onPressFinish}
                     style={[styles.fullNextBtn, {
-                    backgroundColor: this.props.btnBackgroundColor ? this.props.btnBackgroundColor : '#FF6C44',
-                    width: this.props.btnWidth ? this.props.btnWidth : sizeWidth(80)
-                }]}>
+                        backgroundColor: this.props.btnBackgroundColor ? this.props.btnBackgroundColor : '#FF6C44',
+                        width: this.props.btnWidth ? this.props.btnWidth : sizeWidth(80)
+                    }]}>
                     <Text style={styles.textNext}>{this.props.textFullBtn}</Text>
                 </TouchableOpacity>
-            )
+            );
         }
 
     }
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         position: 'absolute',
-        bottom: sizeHeight(4),
+        bottom: sizeHeight(12),
         //backgroundColor: 'skyblue',
         width: sizeWidth(80),
         justifyContent: 'space-between'
@@ -72,10 +72,10 @@ const styles = StyleSheet.create({
     },
     fullNextBtn: {
         position: 'absolute',
-        bottom: sizeHeight(4),
+        bottom: sizeHeight(12),
         height: sizeWidth(15),
         borderRadius: sizeWidth(3),
         justifyContent: 'center',
         alignItems: 'center'
     }
-})
+});

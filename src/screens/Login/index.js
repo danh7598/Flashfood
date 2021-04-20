@@ -108,7 +108,7 @@ export default class Login extends Component {
       try {
         const loginInfo = await loginWithEmailAndPassword(this.state.emailValue,
           this.state.passwordValue);
-        console.log(loginInfo)
+        console.log(loginInfo);
         if (!loginInfo.ok) {
           this.setState({
             loading: false,
@@ -120,10 +120,10 @@ export default class Login extends Component {
             loading: false,
             bodyLogin: 'Login Successfully'
           }, () => {
-            alert(JSON.stringify(loginInfo.result))
+            this.props.navigation.navigate('Home');
           });
         }
-        alert(this.state.bodyLogin)
+        alert(this.state.bodyLogin);
 
 
       }
@@ -138,7 +138,7 @@ export default class Login extends Component {
   };
 
   onPressQuestionSign = () => {
-    alert('Press Question Sign Up');
+    this.props.navigation.navigate('Register');
   };
 
   componentDidMount = () => {

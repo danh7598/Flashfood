@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Image, StyleSheet, Text, View } from 'react-native'
+import React, { Component } from 'react';
+import { Image, StyleSheet, Text, View } from 'react-native';
 import { SvgXml } from 'react-native-svg';
 import foodPackage from '../../assets/svg/FoodPackage';
 import { sizeHeight, sizeWidth } from "../../Utils/Size";
@@ -17,11 +17,14 @@ export default class Onboarding3 extends Component {
                     textLight={"You'll receive the greate food within a hour. And get free delivery credits for every order"}
                 />
                 <View style={styles.longDot}></View>
-                {/* <SkipOrNextButton
+                <SkipOrNextButton
+                    onPressFinish={() => {
+                        this.props.navigation.navigate('Login');
+                    }}
                     textFullBtn={"Let's get started"}
-                    skipBtn={false} /> */}
+                    skipBtn={false} />
             </View>
-        )
+        );
     }
 }
 
@@ -41,4 +44,4 @@ const styles = StyleSheet.create({
         borderRadius: sizeWidth(75),
         backgroundColor: 'rgba(255, 92, 1, 0.2)'
     },
-})
+});

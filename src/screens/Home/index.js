@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Text, StyleSheet, View, ScrollView, Image, TouchableOpacity, FlatList } from 'react-native';
+import Constants from 'expo-constants';
 import HeaderBar from '../../common/HeaderBar';
 import three_lines from '../../assets/three_lines.png';
 import face_woman from '../../assets/face_woman.jpeg';
@@ -155,7 +156,7 @@ export default class Home extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingBottom: sizeHeight(1)
+        paddingBottom: sizeHeight(1),
     },
     styleScrollView: {
         marginTop: sizeHeight(1.97)

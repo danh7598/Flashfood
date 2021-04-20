@@ -8,7 +8,7 @@ import fire_calories from '../../assets/fire_calories.png';
 import PropTypes from 'prop-types';
 import HeaderList from './HeaderList';
 
-const ItemPopular = ({ calories, favoured, image, name, description, price, changeFavorite}) => {
+const ItemPopular = ({ calories, favoured, image, name, description, price, changeFavorite }) => {
     //console.log(sizeHeight(25))
     return (
         <TouchableOpacity style={styles.container}>
@@ -29,7 +29,7 @@ const ItemPopular = ({ calories, favoured, image, name, description, price, chan
                 </TouchableOpacity>
             </View>
             <Image
-                source={{uri: image}}
+                source={{ uri: image }}
                 style={styles.imgCenter} />
             <View style={styles.viewText}>
                 <Text style={styles.textName}>{name}</Text>
@@ -58,7 +58,7 @@ ItemPopular.defaultProps = {
 class ListPopular extends Component {
 
     render() {
-        console.log(this.props.data)
+        // console.log(this.props.data)
         return (
             <View style={styles.viewListPopular}>
                 <HeaderList title={"Popular Near You"} />
@@ -75,14 +75,14 @@ class ListPopular extends Component {
                             calories={item.calories}
                             image={item.imageUrl}
                             favoured={item.favoured}
-                            // changeFavorite={() => { API không hỗ trợ
-                            //     dataPopular[index].favoured
-                            //         ? dataPopular[index].favoured = false
-                            //         : dataPopular[index].favoured = true;
-                            //     this.forceUpdate(); //Không có state thay đổi nên force rerender
-                            //     //console.log(dataPopular[index].favoured)
-                            //     //
-                            // }}
+                        // changeFavorite={() => { API không hỗ trợ
+                        //     dataPopular[index].favoured
+                        //         ? dataPopular[index].favoured = false
+                        //         : dataPopular[index].favoured = true;
+                        //     this.forceUpdate(); //Không có state thay đổi nên force rerender
+                        //     //console.log(dataPopular[index].favoured)
+                        //     //
+                        // }}
                         />
                     )}
                     keyExtractor={(item) => item.id.toString()}

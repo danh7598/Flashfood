@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, View, Platform } from 'react-native';
 import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size';
 
 const CardReceipt = () => {
