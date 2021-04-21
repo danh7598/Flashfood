@@ -157,6 +157,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingBottom: sizeHeight(1),
+        backgroundColor: 'white'
     },
     styleScrollView: {
         marginTop: sizeHeight(1.97)

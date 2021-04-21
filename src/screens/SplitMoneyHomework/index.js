@@ -65,6 +65,12 @@ export default class SplitMoneyHomeWork extends Component {
             </View>
         );
     }
+
+    dasd() {
+        return () => {
+            alert('abc');
+        };
+    }
 }
 
 const styles = StyleSheet.create({

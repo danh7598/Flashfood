@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import { StyleSheet, TouchableOpacity, Text, View, Image } from 'react-native'
-import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size'
-import PropTypes from 'prop-types'
-const orangeColor = '#F96B44'
+import React, { Component } from 'react';
+import { StyleSheet, TouchableOpacity, Text, View, Image } from 'react-native';
+import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size';
+import PropTypes from 'prop-types';
+const orangeColor = '#F96B44';
 class Button extends Component {
     render() {
         return (
@@ -14,11 +14,11 @@ class Button extends Component {
                 }, this.props.style]}>
                 {this.props.imgSrc &&
                     <Image style={styles.imgBtn} source={this.props.imgSrc} />}
-                <Text style={[styles.textButton, {color: this.props.textColor}]}>
+                <Text style={[styles.textButton, { color: this.props.textColor }, this.props.textStyle]}>
                     {this.props.buttonSign}
                 </Text>
             </TouchableOpacity>
-        )
+        );
     }
 }
 
@@ -27,14 +27,14 @@ Button.propTypes = {
     onPress: PropTypes.func.isRequired,
     textColor: PropTypes.string,
     btnBackgroundColor: PropTypes.string
-}
+};
 Button.defaultProps = {
     textColor: 'white',
     btnBackgroundColor: orangeColor,
     marginBottom: sizeHeight(1.5)
-}
+};
 
-export default Button
+export default Button;
 const styles = StyleSheet.create({
     button: {
         height: sizeHeight(8),
@@ -50,9 +50,9 @@ const styles = StyleSheet.create({
         height: sizeWidth(4),
         marginRight: sizeWidth(3),
     },
-    textButton: { 
+    textButton: {
         fontSize: sizeFont(4),
         fontFamily: 'SVN-Gilroy-Bold'
     }
-    
-})
+
+});
