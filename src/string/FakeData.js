@@ -5,6 +5,7 @@ import hamburger_popular from '../assets/hamburger_popular.png';
 import hot_tacos from '../assets/hot_tacos.png';
 import vegetable_biryani from '../assets/vegetable_biryani.png';
 import pizza_hut_logo from '../assets/pizza-hut-logo.png';
+import burger_king_logo from '../assets/burger-king-logo.png';
 export const dataCategory = [
     {
         id: 'gfdg',
@@ -196,6 +197,103 @@ export const dataOrderUpcoming = [
         ]
     }
 ];
-export const dataLastestOrder = [
-
+export const dataCoupon = [
+    {
+        name: 'Burger King',
+        value: '20%',
+        status: 'used',
+        date: '29 Nov 2020',
+        imageSource: burger_king_logo
+    },
+    {
+        name: 'Burger King',
+        value: '20%',
+        status: 'used',
+        date: '29 Nov 2020',
+        imageSource: burger_king_logo
+    },
+    {
+        name: 'Burger King',
+        value: '20%',
+        status: 'used',
+        date: '29 Nov 2020',
+        imageSource: burger_king_logo
+    },
+    {
+        name: 'Burger King',
+        value: '20%',
+        status: 'used',
+        date: '29 Nov 2020',
+        imageSource: burger_king_logo
+    },
+    {
+        name: 'Burger King',
+        value: '20%',
+        status: 'used',
+        date: '29 Nov 2020',
+        imageSource: burger_king_logo
+    },
+    {
+        name: 'Burger King',
+        value: '50%',
+        status: 'valid',
+        date: '29 Jan 2021',
+        imageSource: burger_king_logo
+    },
+    {
+        name: 'Burger King',
+        value: '50%',
+        status: 'valid',
+        date: '29 Jan 2021',
+        imageSource: burger_king_logo
+    },
+    {
+        name: 'Burger King',
+        value: '50%',
+        status: 'valid',
+        date: '29 Jan 2021',
+        imageSource: burger_king_logo
+    },
+    {
+        name: 'Burger King',
+        value: '50%',
+        status: 'valid',
+        date: '29 Jan 2021',
+        imageSource: burger_king_logo
+    },
+    {
+        name: 'Burger King',
+        value: '50%',
+        status: 'valid',
+        date: '29 Jan 2021',
+        imageSource: burger_king_logo
+    },
+    {
+        name: 'Burger King',
+        value: '40%',
+        status: 'used',
+        date: '29 Dec 2020',
+        imageSource: burger_king_logo
+    },
+    {
+        name: 'Burger King',
+        value: '10%',
+        status: 'valid',
+        date: '27 Fed 2021',
+        imageSource: burger_king_logo
+    },
+    {
+        name: 'Burger King',
+        value: '60%',
+        status: 'valid',
+        date: '29 Nov 2021',
+        imageSource: burger_king_logo
+    },
+    {
+        name: 'Burger King',
+        value: '20%',
+        status: 'used',
+        date: '15 Oct 2020',
+        imageSource: burger_king_logo
+    },
 ];

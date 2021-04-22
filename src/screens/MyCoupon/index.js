@@ -8,6 +8,7 @@ import Button from '../Login/Button';
 import { orangeColor } from '../../string/ColorTheme';
 import ItemCoupon from './ItemCoupon';
 import burger_king_logo from '../../assets/burger-king-logo.png';
+import ListCoupon from './ListCoupon';
 export default class MyCoupon extends Component {
     constructor(props) {
         super(props);
@@ -55,7 +56,7 @@ export default class MyCoupon extends Component {
                             : styles.buttonTab}
                         buttonSign={"Use"} />
                 </View>
-                <ItemCoupon imageSource={burger_king_logo} />
+                <ListCoupon tabSelected={this.state.tabSelected} />
 
             </View>
         );
