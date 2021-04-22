@@ -3,6 +3,8 @@ import { Text, StyleSheet, View, TouchableOpacity, Image } from 'react-native';
 import PropTypes from 'prop-types';
 import { sizeFont, sizeHeight, sizeWidth } from '../Utils/Size';
 import backImg from '../assets/back.png';
+import { orangeColor } from '../string/ColorTheme';
+import { responsiveFontSize } from 'react-native-responsive-dimensions';
 class HeaderBar extends Component {
     render() {
         // console.log(sizeWidth(100))
@@ -34,9 +36,17 @@ class HeaderBar extends Component {
                             style={[styles.imgBtn, this.props.styleRightBtn]}
                             source={this.props.rightBtnSource} />
                     </TouchableOpacity>
-                    : <View style={[styles.btnContainer, {
-                        borderWidth: 0
-                    }]} />}
+                    : this.props.rightBtnText
+                        ? <TouchableOpacity
+                            onPress={this.props.onPressRightBtn}
+                            style={[styles.btnContainer, { borderWidth: 0 }]}>
+                            <Text style={styles.textButtonRight}>
+                                {this.props.rightBtnText}
+                            </Text>
+                        </TouchableOpacity>
+                        : <View style={[styles.btnContainer, {
+                            borderWidth: 0
+                        }]} />}
 
             </View>
         );
@@ -91,5 +101,11 @@ const styles = StyleSheet.create({
         fontWeight: '700',
         fontSize: sizeFont(5),
         //backgroundColor: 'firebrick'
+    },
+    textButtonRight: {
+        fontFamily: 'SVN-Gilroy-SemiBold',
+        color: orangeColor,
+        fontWeight: '600',
+        fontSize: responsiveFontSize(2.09),
     }
 });

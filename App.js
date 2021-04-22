@@ -29,6 +29,7 @@ import RiderReview from './src/screens/RiderReview';
 import SplitMoneyHomeWork from './src/screens/SplitMoneyHomework';
 import OrderHistory from './src/screens/OrderHistory';
 import MyCoupon from './src/screens/MyCoupon';
+import MyAccount from './src/screens/MyAccount';
 
 const OnboardingStack = createStackNavigator();
 const MainStack = createStackNavigator();
@@ -55,7 +56,7 @@ const Onboarding = () => {
 const MainStackNavigator = () => {
   return (
     <MainStack.Navigator
-      initialRouteName={'MyCoupon'}
+      initialRouteName={'MyAccount'}
       headerMode={'none'}>
       <MainStack.Screen name={'Onboarding'} component={Onboarding} />
       <MainStack.Screen name={'Home'} component={Home} />
@@ -64,7 +65,7 @@ const MainStackNavigator = () => {
       <MainStack.Screen name={'MyCart'} component={MyCart} />
       <MainStack.Screen name={'OrderHistory'} component={OrderHistory} />
       <MainStack.Screen name={'MyCoupon'} component={MyCoupon} />
-
+      <MainStack.Screen name={'MyAccount'} component={MyAccount} />
 
     </MainStack.Navigator>
   );

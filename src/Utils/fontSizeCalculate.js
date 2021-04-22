@@ -18,4 +18,4 @@ const fontCalculation = (height, width, val) => {
     );
 };
 console.log(fontCalculation(812, 375, 2.1));
-console.log(revertFontCalculation(812, 375, 24));
+console.log(revertFontCalculation(812, 375, 14));
