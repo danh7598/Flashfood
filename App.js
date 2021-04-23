@@ -30,6 +30,7 @@ import SplitMoneyHomeWork from './src/screens/SplitMoneyHomework';
 import OrderHistory from './src/screens/OrderHistory';
 import MyCoupon from './src/screens/MyCoupon';
 import MyAccount from './src/screens/MyAccount';
+import EditMyAccount from './src/screens/MyAccount/EditMyAccount';
 
 const OnboardingStack = createStackNavigator();
 const MainStack = createStackNavigator();
@@ -66,7 +67,7 @@ const MainStackNavigator = () => {
       <MainStack.Screen name={'OrderHistory'} component={OrderHistory} />
       <MainStack.Screen name={'MyCoupon'} component={MyCoupon} />
       <MainStack.Screen name={'MyAccount'} component={MyAccount} />
-
+      <MainStack.Screen name={'EditMyAccount'} component={EditMyAccount} />
     </MainStack.Navigator>
   );
 };

@@ -47,9 +47,12 @@ const dataDetail = [
     },
 ];
 
-const MyAccount = () => {
+const MyAccount = ({ navigation }) => {
     const pressBack = () => {
         alert('Press back');
+    };
+    const pressEdit = () => {
+        navigation.navigate('EditMyAccount');
     };
     return (
         <View style={styles.container}>
@@ -57,6 +60,7 @@ const MyAccount = () => {
                 title={'MY ACCOUNT'}
                 rightBtn
                 onPressLeftBtn={pressBack}
+                onPressRightBtn={pressEdit}
                 styleRightBtn={styles.imgHeaderBarRight}
                 rightBtnText={'Edit'}
                 leftBtnSource={back} />
@@ -67,7 +71,6 @@ const MyAccount = () => {
                 contentContainerStyle={styles.viewGroupItem}
                 ItemSeparatorComponent={() => <View style={styles.separator} />}
                 renderItem={({ item }) => {
-
                     return (
                         <ItemAccount
                             title={item.title}
@@ -115,13 +118,14 @@ const styles = StyleSheet.create({
         marginHorizontal: responsiveWidth(4),
         borderRadius: responsiveWidth(4.2),
         borderWidth: 1,
-        borderColor: 'rgba(245, 245, 248, 1)'
+        borderColor: 'rgba(245, 245, 248, 1)',
+        backgroundColor: '#FBFBFB'
     },
     separator: {
         alignSelf: 'center',
         width: responsiveWidth(78.6),
         height: 1,
-        backgroundColor: 'rgba(245, 245, 248, 1)'
+        backgroundColor: '#DDDDDD'
     }
 });
 

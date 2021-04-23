@@ -34,7 +34,6 @@ const styles = StyleSheet.create({
     },
     textValue: {
         //backgroundColor: 'skyblue',
-        width: responsiveWidth(40),
         width: responsiveWidth(50),
         textAlign: 'right',
         fontFamily: 'SVN-Gilroy-Medium',
