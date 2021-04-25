@@ -10,7 +10,7 @@ import TotalAndOrder from './TotalAndOrder';
 export default class MyCartScreen extends Component {
 
     onPressLeftBtn = () => {
-        alert('Press Back');
+        this.props.navigation.navigate('Home');
     };
 
     render() {

@@ -33,6 +33,7 @@ const TotalAndOrder = ({ subtotal, fee, }) => {
                 </Text>
             </View>
             <Button
+                onPress={() => alert("Press finish")}
                 buttonSign={'Place your Order'}
                 style={styles.buttonPayment} />
         </View>

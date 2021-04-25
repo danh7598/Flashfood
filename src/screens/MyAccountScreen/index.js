@@ -49,7 +49,7 @@ const dataDetail = [
 
 const MyAccountScreen = ({ navigation }) => {
     const pressBack = () => {
-        alert('Press back');
+        navigation.goBack();
     };
     const pressEdit = () => {
         navigation.navigate('EditMyAccount');

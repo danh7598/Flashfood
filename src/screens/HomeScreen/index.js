@@ -45,7 +45,7 @@ export default class HomeScreen extends Component {
     };
 
     onPressDrawer = () => {
-        alert('Press Drawer');
+        this.props.navigation.openDrawer();
     };
 
     onSelectedMenu = (index) => () => {
@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingBottom: sizeHeight(1),
-        backgroundColor: 'white'
+        // backgroundColor: '#E5E5E5'
     },
     styleScrollView: {
         marginTop: sizeHeight(1.97)
