@@ -9,6 +9,7 @@ const ListCoupon = ({ tabSelected }) => {
         return (
             <FlatList
                 style={styles.container}
+                ListFooterComponent={<View style={styles.footerComponent} />}
                 data={dataCoupon}
                 keyExtractor={(item, index) => index.toString()}
                 renderItem={({ item, index }) => {
@@ -28,6 +29,7 @@ const ListCoupon = ({ tabSelected }) => {
             <FlatList
                 style={styles.container}
                 data={dataCoupon}
+                ListFooterComponent={<View style={styles.footerComponent} />}
                 keyExtractor={(item, index) => index.toString()}
                 renderItem={({ item, index }) => {
                     if (item.status == 'used')
@@ -49,6 +51,9 @@ export default ListCoupon;
 
 const styles = StyleSheet.create({
     container: {
+        // marginBottom: responsiveHeight(3.94)
+    },
+    footerComponent: {
         marginBottom: responsiveHeight(3.94)
     }
 });

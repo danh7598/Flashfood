@@ -28,7 +28,7 @@ export default class MyCouponScreen extends Component {
     };
 
     onPressBack = () => {
-        alert("Press back");
+        this.props.navigation.goBack();
     };
     render() {
         return (
