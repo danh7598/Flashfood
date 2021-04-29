@@ -32,7 +32,7 @@ const ItemDrawer = ({ style, onPress, title, icon }) => {
     );
 };
 const CustomDrawerContainer = (props) => {
-    console.log(JSON.stringify(props.navigation));
+    // console.log(JSON.stringify(props.navigation));
     const nameRoutes = props.state.routeNames;
 
     const onPress = (name) => () => {

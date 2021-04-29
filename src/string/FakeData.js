@@ -297,3 +297,88 @@ export const dataCoupon = [
         imageSource: burger_king_logo
     },
 ];
+export const dataNotification = [
+    {
+        time: '04-29-2021',
+        data: [
+            {
+                title: "Domino's - Buy 1 get 1 free",
+                description: 'Buy 1 get 1 free for small sizes until Nov 30, 2020',
+                time: 'a few seconds',
+                imageSource: hamburger_popular,
+                kind: 'promotion'
+            },
+            {
+                title: "Veg Biryani - 35% sale today",
+                description: 'Enter discount code NEW2021 for 35% off for Veg Biryani',
+                imageSource: vegetable_biryani,
+                time: '5 mins',
+                kind: 'promotion'
+            },
+            {
+                title: "Wrap Sandwich",
+                status: "Completed",
+                shipper: 'Nick Will',
+                imageSource: vegetable_biryani,
+                time: '10 mins',
+                kind: 'promotion'
+            },
+        ]
+    },
+    {
+        time: '04-28-2021',
+        data: [
+            {
+                title: "Domino's - Buy 1 get 1 free",
+                description: 'Buy 1 get 1 free for small sizes until Nov 30, 2020',
+                time: 'a few seconds',
+                imageSource: hamburger_popular,
+                kind: 'promotion'
+            },
+            {
+                title: "Veg Biryani - 35% sale today",
+                description: 'Enter discount code NEW2021 for 35% off for Veg Biryani',
+                imageSource: vegetable_biryani,
+                time: '5 mins',
+                kind: 'promotion'
+            },
+            {
+                title: "Wrap Sandwich",
+                status: "Completed",
+                shipper: 'Nick Will',
+                imageSource: vegetable_biryani,
+                time: '10 mins',
+                kind: 'promotion'
+            },
+        ]
+    },
+    {
+        time: '04-25-2021',
+        data: [
+            {
+                title: "Domino's - Buy 1 get 1 free",
+                description: 'Buy 1 get 1 free for small sizes until Nov 30, 2020',
+                time: 'a few seconds',
+                imageSource: hamburger_popular,
+                kind: 'promotion'
+            },
+            {
+                title: "Veg Biryani - 35% sale today",
+                description: 'Enter discount code NEW2021 for 35% off for Veg Biryani',
+                imageSource: vegetable_biryani,
+                time: '5 mins',
+                kind: 'promotion'
+            },
+            {
+                title: "Wrap Sandwich",
+                status: "Completed",
+                shipper: 'Nick Will',
+                imageSource: vegetable_biryani,
+                time: '10 mins',
+                kind: 'promotion'
+            },
+        ]
+    },
+
+
+];

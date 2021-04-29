@@ -90,7 +90,7 @@ const HomeTabNavigator = () => {
                 tabBarVisible: false,
             }} />
             <HomeTabStack.Screen name={'Notification'} component={NotificationScreen} options={{
-                tabBarVisible: true,
+                tabBarVisible: false,
             }} />
         </HomeTabStack.Navigator >
     );

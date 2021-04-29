@@ -35,14 +35,14 @@ export default class App extends Component {
     // console.log(Constants.statusBarHeight,);
     if (this.state.fontsLoaded) {
       return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
           {/* thuộc tính translucent giúp làm mờ StatusBar, dẫn đến thấy các component nằm dưới StatusBar
               Chỉnh false để ẩn đi các component nằm dưới statusbar
               Khi translucent false thì StatusBar chuyển thành màu đen, phải để style="light" mới hiện chữ
              */}
           <StatusBar style={'auto'} transparent={true} />
           <AppNavigator />
-        </View>
+        </SafeAreaView>
 
       );
     } else {
@@ -55,7 +55,7 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: Constants.statusBarHeight,
+    paddingTop: Platform.OS == 'android' ? Constants.statusBarHeight : 0,
     // backgroundColor: '#E5E5E5',
   },
 

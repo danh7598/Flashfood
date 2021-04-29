@@ -65,7 +65,9 @@ const MainStackNavigator = () => {
 
 const AppNavigator = () => {
     return (
-        <NavigationContainer theme={MyTheme}>
+        <NavigationContainer
+            theme={MyTheme}
+        >
             <MainStackNavigator />
         </NavigationContainer>
     );
