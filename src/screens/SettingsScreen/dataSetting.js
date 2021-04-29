@@ -20,6 +20,7 @@ export default data = [
     },
     {
         title: 'Notifications',
+        routeName: 'NotificationSetting',
         imageSource: notification
     },
     {

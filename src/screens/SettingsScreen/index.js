@@ -24,7 +24,7 @@ const SettingsScreen = ({ navigation }) => {
                 renderItem={({ item, index }) => {
                     return (
                         <ItemSettings
-                            onPress={() => { }}
+                            onPress={() => { navigation.navigate(item.routeName); }}
                             imageSource={item.imageSource}
                             title={item.title} />
                     );
