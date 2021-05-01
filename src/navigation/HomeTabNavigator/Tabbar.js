@@ -11,17 +11,12 @@ import favourite_tabbar from '../../assets/favourite-tabbar.png';
 
 const Tabbar = ({ state, descriptors, navigation }) => {
     const focusedOptions = descriptors[state.routes[state.index].key].options;
-
     if (focusedOptions.tabBarVisible === false) {
         return null;
     }
-
     let icon = '';
-
-
     return (
         <View style={styles.homeTabStackStyle}>
-
             {state.routes.map((route, index) => {
                 switch (route.name) {
                     case 'Home':
@@ -67,7 +62,6 @@ const Tabbar = ({ state, descriptors, navigation }) => {
                     return (
                         <TouchableOpacity
                             key={route.name}
-
                             onPress={onPress}
                             onLongPress={onLongPress}
                             style={styles.viewTabbarIconFocused}
@@ -93,8 +87,6 @@ const Tabbar = ({ state, descriptors, navigation }) => {
                         </TouchableOpacity>
                     );
                 }
-
-
             })}
         </View>
     );
@@ -108,7 +100,7 @@ export default Tabbar;
 const styles = StyleSheet.create({
     homeTabStackStyle: {
         flexDirection: 'row',
-        height: responsiveHeight(8),
+        height: responsiveHeight(10.83),
         // width: responsiveWidth(100),
         //justifyContent: 'center',
         justifyContent: 'space-between',
@@ -118,11 +110,12 @@ const styles = StyleSheet.create({
         // justifyContent: 'space-around',
         // paddingBottom: responsiveWidth(4),
         // backgroundColor: 'skyblue',
-        elevation: 0.8,
+        backgroundColor: 'white',
+        elevation: 20,
         paddingHorizontal: responsiveWidth(4)
     },
     viewTabbarIconFocused: {
-        alignSelf: 'center',
+        // alignSelf: 'center',
         //marginLeft: responsiveWidth(4),
         width: responsiveWidth(26),
         height: responsiveHeight(4.9),

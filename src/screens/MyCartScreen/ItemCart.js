@@ -1,11 +1,14 @@
 import React from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View, Animated } from 'react-native';
 import PropTypes from 'prop-types';
 import QuantityControl from '../FoodDetailsScreen/QuantityControl';
 import { blackColor, grayColor, orangeColor } from '../../string/ColorTheme';
 import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size';
+
+
 const ItemCart = ({ image, name, price, quantity, onPressPlus, onPressMinus }) => {
     return (
+
         <View style={styles.container}>
             <Image
                 style={styles.imgMain}
@@ -34,10 +37,10 @@ const styles = StyleSheet.create({
         backgroundColor: grayColor,
         alignItems: 'center',
         width: sizeWidth(92),
-        height: sizeHeight(10),
+        height: sizeHeight(9.85),
         flexDirection: 'row',
-        marginBottom: sizeHeight(3),
-        borderRadius: sizeWidth(3)
+        // marginBottom: sizeHeight(3),
+        borderRadius: sizeWidth(2.13)
     },
     imgMain: {
         width: sizeWidth(20),
@@ -69,5 +72,6 @@ const styles = StyleSheet.create({
         height: sizeHeight(6),
         position: 'absolute',
         right: sizeWidth(4)
-    }
+    },
+
 });

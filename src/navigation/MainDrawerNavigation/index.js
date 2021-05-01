@@ -13,6 +13,7 @@ import TrackOrderScreen from '../../screens/TrackOrderScreen';
 import InviteFriendScreen from '../../screens/InviteFriendScreen';
 import HelpScreen from '../../screens/HelpScreen';
 import SettingStackNavigator from '../SettingStackNavigator';
+import MyCardScreen from '../../screens/MyCardScreen';
 
 const Drawer = createDrawerNavigator();
 
@@ -24,7 +25,7 @@ const MainDrawerNavigation = () => {
         // overlayColor={'transparent'}
         >
             <Drawer.Screen name="Home" component={HomeTabNavigator} />
-            <Drawer.Screen name="My Wallet" component={MyWalletScreen} />
+            <Drawer.Screen name="My Card" component={MyCardScreen} />
             <Drawer.Screen name="Notifications" component={NotificationScreen} />
             <Drawer.Screen name="My Favourite" component={MyFavouriteScreen} />
             <Drawer.Screen name="Track Your Order" component={TrackOrderScreen} />

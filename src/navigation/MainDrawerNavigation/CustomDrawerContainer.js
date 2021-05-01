@@ -68,7 +68,7 @@ const CustomDrawerContainer = (props) => {
                     case "Home":
                         icon = home_tabbar;
                         break;
-                    case "My Wallet":
+                    case "My Card":
                         icon = wallet;
                         break;
                     case "Notifications":
