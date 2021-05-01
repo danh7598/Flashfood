@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
         // backgroundColor: '#E5E5E5'
     },
     styleScrollView: {
-        marginTop: sizeHeight(1.97)
+        // marginTop: sizeHeight(1.97)
     },
     containerScrollView: {
         // marginTop: sizeHeight(1.97)

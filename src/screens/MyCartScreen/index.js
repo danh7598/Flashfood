@@ -45,8 +45,6 @@ export default class MyCartScreen extends Component {
                     rightBtn={true}
                     title={'MY CART'}
                     leftBtnSource={backImg}
-                    rightBtnSource={add_to_cart}
-                    backgroundColorRightBtn={'rgba(255, 108, 68, 0.2)'}
                     onPressLeftBtn={this.onPressLeftBtn} />
                 <FlatList
                     data={dataCart}

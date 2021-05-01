@@ -1,29 +1,32 @@
 import React from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+
 import { responsiveFontSize } from 'react-native-responsive-dimensions';
 import { blackColor, orangeColor } from '../../string/ColorTheme';
 import { sizeHeight, sizeWidth } from '../../Utils/Size';
 
-const ItemCard = ({ isSelected, title, imageSource }) => {
+const ItemCard = ({ isSelected, title, imageSource, onSelect }) => {
+    // console.log(responsiveFontSize(2.09));
     return (
-        <View style={[styles.container, { borderColor: isSelected ? orangeColor : 'rgba(245, 245, 248, 1)' }]}>
-            <View style={styles.viewGroupLeft}>
-                <View style={styles.viewImage}>
-                    <Image
-                        style={styles.image}
-                        source={imageSource}
-                    />
+        <TouchableOpacity onPress={onSelect}>
+            <View style={[styles.container, { borderColor: isSelected ? orangeColor : 'rgba(245, 245, 248, 1)' }]}>
+                <View style={styles.viewGroupLeft}>
+                    <View style={styles.viewImage}>
+                        <Image
+                            style={styles.image}
+                            source={imageSource}
+                        />
+                    </View>
+                    <Text style={styles.textTitle}>{title}</Text>
                 </View>
-                <Text style={styles.textTitle}>{title}</Text>
+                {isSelected
+                    ? <View style={styles.viewSelect}>
+                        <View style={styles.pointSelect} />
+                    </View>
+                    : <View style={styles.viewNotSelected} />
+                }
             </View>
-            {isSelected
-                ? <View style={styles.viewSelect}>
-                    <View style={styles.pointSelect} />
-                </View>
-                : <View style={styles.viewNotSelected} />
-            }
-
-        </View>
+        </TouchableOpacity>
     );
 };
 
