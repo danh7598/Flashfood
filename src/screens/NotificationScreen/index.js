@@ -3,7 +3,6 @@ import { SectionList, StyleSheet, Text, View } from 'react-native';
 import HeaderBar from '../../common/HeaderBar';
 import back from '../../assets/back.png';
 import ItemNotification from './ItemNotification';
-import hamburger from '../../assets/hamburger_popular.png';
 import { dataNotification } from '../../string/FakeData';
 import { blackColor, orangeColor } from '../../string/ColorTheme';
 import { responsiveFontSize } from 'react-native-responsive-dimensions';
@@ -50,14 +49,18 @@ const NotificationScreen = ({ navigation }) => {
                         />
                     );
                 }}
-                renderSectionHeader={({ section: { time } }) => {
+                renderSectionHeader={({ section }) => {
+                    const index = dataNotification.indexOf(section); //Lấy index của header
                     let today = new Date();
                     let yesterday = new Date();
                     yesterday.setDate(yesterday.getDate() - 1);
-                    if (time === convertDateToString(today)) {
+                    let text = section.time === convertDateToString(today)
+                        ? "Today" : section.time === convertDateToString(yesterday)
+                            ? "Yesterday" : section.time;
+                    if (index === 0) {
                         return (
                             <View style={styles.viewHeader}>
-                                <Text style={styles.textHeader}>Today</Text>
+                                <Text style={styles.textHeader}>{text}</Text>
                                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                                     <CheckBox
                                         tintColors={{ true: orangeColor, false: blackColor }}
@@ -69,16 +72,10 @@ const NotificationScreen = ({ navigation }) => {
                                 </View>
                             </View>
                         );
-                    } else if (time === convertDateToString(yesterday)) {
-                        return (
-                            <View style={[styles.viewHeader, { marginTop: sizeHeight(2) }]}>
-                                <Text style={styles.textHeader}>Yesterday</Text>
-                            </View>
-                        );
                     } else {
                         return (
                             <View style={[styles.viewHeader, { marginTop: sizeHeight(2) }]}>
-                                <Text style={styles.textHeader}>{time}</Text>
+                                <Text style={styles.textHeader}>{text}</Text>
                             </View>
                         );
                     }

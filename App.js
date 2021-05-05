@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { StyleSheet, SafeAreaView, View, } from 'react-native';
+import { StyleSheet, SafeAreaView, View, LogBox, } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import Constants from 'expo-constants';
 

@@ -20,6 +20,7 @@ const Drawer = createDrawerNavigator();
 const MainDrawerNavigation = () => {
     return (
         <Drawer.Navigator
+            edgeWidth={0}  //prevent open from edge
             initialRouteName="Home"
             drawerContent={props => <CustomDrawerContainer {...props} />}
         // overlayColor={'transparent'}
@@ -33,8 +34,6 @@ const MainDrawerNavigation = () => {
             <Drawer.Screen name="Settings" component={SettingStackNavigator} />
             <Drawer.Screen name="Invite a Friend" component={InviteFriendScreen} />
             <Drawer.Screen name="Help Center" component={HelpScreen} />
-
-
         </Drawer.Navigator>
     );
 };

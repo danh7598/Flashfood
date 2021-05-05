@@ -16,6 +16,7 @@ import ListPopular from './ListPopular';
 import ListRecommended from './ListRecommended';
 import ListMenu from './ListMenu';
 import { getCategoryItems, getPopularItems, getRecommendedItems } from '../../Utils/api';
+import FilterScreen from '../FilterScreen';
 
 export default class HomeScreen extends Component {
     constructor(props) {
@@ -28,7 +29,7 @@ export default class HomeScreen extends Component {
             indexMenu: 0,
             searchValue: '',
             loading: true,
-
+            filterModal: false
         };
     }
 
@@ -37,7 +38,11 @@ export default class HomeScreen extends Component {
     };
 
     onPressFilter = () => {
-        alert('Press Filter');
+        this.setState({ filterModal: true });
+    };
+
+    onCloseFilter = () => {
+        this.setState({ filterModal: false });
     };
 
     onPressCategory = (index) => () => {
@@ -115,7 +120,11 @@ export default class HomeScreen extends Component {
         //console.log(sizeHeight(3))
         //console.log(this.state.dataPopular)
         return (
-            <View style={styles.container}>
+            <View
+                style={[styles.container, styles,
+                {
+                    backgroundColor: this.state.filterModal ? 'rgba(0,0,0,0.5)' : null,
+                }]}>
                 <HeaderBar
                     title={'HOME'}
                     rightBtn
@@ -132,6 +141,9 @@ export default class HomeScreen extends Component {
                         onPressFilter={this.onPressFilter}
                         value={this.state.searchValue}
                         onChangeValue={this.onChangeSearchValue} />
+                    <FilterScreen
+                        onCloseModal={this.onCloseFilter}
+                        modalVisible={this.state.filterModal} />
                     <DeliveryAddress
                         style={styles.viewDeliveryAddress}
                         textAddress={'300 Post Street San Francisco, CA'} />

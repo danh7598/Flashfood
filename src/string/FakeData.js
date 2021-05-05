@@ -299,7 +299,7 @@ export const dataCoupon = [
 ];
 export const dataNotification = [
     {
-        time: '04-29-2021',
+        time: '05-04-2021',
         data: [
             {
                 title: "Domino's - Buy 1 get 1 free",
@@ -326,7 +326,7 @@ export const dataNotification = [
         ]
     },
     {
-        time: '04-28-2021',
+        time: '05-03-2021',
         data: [
             {
                 title: "Domino's - Buy 1 get 1 free",

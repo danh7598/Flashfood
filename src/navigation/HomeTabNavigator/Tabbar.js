@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
         // paddingBottom: responsiveWidth(4),
         // backgroundColor: 'skyblue',
         backgroundColor: 'white',
-        elevation: 20,
+        elevation: 10,
         paddingHorizontal: responsiveWidth(4)
     },
     viewTabbarIconFocused: {
