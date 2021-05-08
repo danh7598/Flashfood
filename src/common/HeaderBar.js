@@ -4,12 +4,11 @@ import PropTypes from 'prop-types';
 import { sizeFont, sizeHeight, sizeWidth } from '../Utils/Size';
 import backImg from '../assets/back.png';
 import { orangeColor } from '../string/ColorTheme';
-import { responsiveFontSize } from 'react-native-responsive-dimensions';
 class HeaderBar extends Component {
     render() {
         // console.log(sizeWidth(100))
         // console.log(sizeHeight(100))
-
+        // console.log(sizeFont(2.09));
         return (
             <View style={styles.container}>
                 <TouchableOpacity
@@ -99,13 +98,13 @@ const styles = StyleSheet.create({
         fontFamily: 'SVN-Gilroy-Bold',
         color: '#111A2C',
         fontWeight: '700',
-        fontSize: sizeFont(5),
+        fontSize: sizeFont(2.08),
         //backgroundColor: 'firebrick'
     },
     textButtonRight: {
         fontFamily: 'SVN-Gilroy-SemiBold',
         color: orangeColor,
         fontWeight: '600',
-        fontSize: responsiveFontSize(2.09),
+        fontSize: sizeFont(2.08),
     }
 });

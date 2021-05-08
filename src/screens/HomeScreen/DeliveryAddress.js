@@ -1,8 +1,8 @@
-import React from 'react'
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import { blackColor, orangeColor } from '../../string/ColorTheme'
-import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size'
-import arrow_down from '../../assets/arrow_down.png'
+import React from 'react';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { blackColor, orangeColor } from '../../string/ColorTheme';
+import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size';
+import arrow_down from '../../assets/arrow_down.png';
 const DeliveryAddress = ({ style, textAddress }) => {
     return (
         <View style={[styles.container, style]}>
@@ -18,10 +18,10 @@ const DeliveryAddress = ({ style, textAddress }) => {
                 </TouchableOpacity>
             </View>
         </View>
-    )
-}
+    );
+};
 
-export default DeliveryAddress
+export default DeliveryAddress;
 
 const styles = StyleSheet.create({
     container: {
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
         width: sizeWidth(92)
     },
     textDelivery: {
-        fontSize: sizeFont(3.5),
+        fontSize: sizeFont(1.82),
         fontFamily: 'SVN-Gilroy-Bold',
         color: orangeColor,
         lineHeight: sizeHeight(4),
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
         alignItems: 'flex-end',
     },
     textAddress: {
-        fontSize: sizeFont(4),
+        fontSize: sizeFont(2.08),
         fontFamily: 'SVN-Gilroy-SemiBold',
         color: blackColor
     },
@@ -54,4 +54,4 @@ const styles = StyleSheet.create({
         //alignSelf: 'flex-end',
         marginLeft: sizeWidth(3)
     }
-})
+});

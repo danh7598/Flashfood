@@ -1,7 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { responsiveFontSize, responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions';
+import { StyleSheet, Text, TouchableOpacity, View, PixelRatio } from 'react-native';
+
 import { blackColor } from '../../string/ColorTheme';
+import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size';
 
 const ItemAccount = ({ title, value }) => {
     return (
@@ -18,11 +19,11 @@ export default ItemAccount;
 
 const styles = StyleSheet.create({
     container: {
-        width: responsiveWidth(92),
-        height: responsiveHeight(8),
+        width: sizeWidth(92),
+        height: sizeHeight(8),
         flexDirection: 'row',
         alignItems: 'center',
-        paddingHorizontal: responsiveWidth(4.2),
+        paddingHorizontal: sizeWidth(4.2),
         justifyContent: 'space-between'
         //backgroundColor: 'skyblue'
     },
@@ -30,14 +31,16 @@ const styles = StyleSheet.create({
         color: '#898B9A',
         fontFamily: 'SVN-Gilroy-Medium',
         fontWeight: '600',
-        fontSize: responsiveFontSize(1.83),
+        fontSize: sizeFont(1.83), //fontSize 14px
+        // fontSize: PixelRatio.getPixelSizeForLayoutSize(14)
     },
     textValue: {
         //backgroundColor: 'skyblue',
-        width: responsiveWidth(50),
+        width: sizeWidth(50),
         textAlign: 'right',
         fontFamily: 'SVN-Gilroy-Medium',
         fontWeight: '500',
-        fontSize: responsiveFontSize(1.83),
+        fontSize: sizeFont(1.83), //fontSize 14px
+        // fontSize: PixelRatio.getPixelSizeForLayoutSize(14)
     }
 });

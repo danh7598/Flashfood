@@ -1,7 +1,7 @@
-import React from 'react'
-import { StyleSheet, Text, TouchableOpacity } from 'react-native'
-import { orangeColor } from '../../string/ColorTheme'
-import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size'
+import React from 'react';
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { orangeColor } from '../../string/ColorTheme';
+import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size';
 
 const ButtonBuyNow = ({ textButton, price, onPress, style }) => {
     return (
@@ -11,10 +11,10 @@ const ButtonBuyNow = ({ textButton, price, onPress, style }) => {
             <Text style={styles.textButton}>{textButton}</Text>
             <Text style={styles.textButton}>{price}</Text>
         </TouchableOpacity>
-    )
-}
+    );
+};
 
-export default ButtonBuyNow
+export default ButtonBuyNow;
 
 const styles = StyleSheet.create({
     container: {
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     textButton: {
         fontFamily: 'SVN-Gilroy-Bold',
         color: 'white',
-        fontSize: sizeFont(4)
+        fontSize: sizeFont(2.08)
 
     }
-})
+});

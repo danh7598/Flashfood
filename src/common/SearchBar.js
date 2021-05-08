@@ -1,10 +1,10 @@
-import React from 'react'
-import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
-import { grayColor } from '../string/ColorTheme'
-import { sizeFont, sizeHeight, sizeWidth } from '../Utils/Size'
-import search_icon from '../assets/search_icon.png'
-import filter_icon from '../assets/filter_icon.png'
-import PropTypes from 'prop-types'
+import React from 'react';
+import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { grayColor } from '../string/ColorTheme';
+import { sizeFont, sizeHeight, sizeWidth } from '../Utils/Size';
+import search_icon from '../assets/search_icon.png';
+import filter_icon from '../assets/filter_icon.png';
+import PropTypes from 'prop-types';
 const SearchBar = ({ style, onPressFilter, value, onChangeValue }) => {
     return (
         <View style={[styles.container, style]}>
@@ -28,16 +28,16 @@ const SearchBar = ({ style, onPressFilter, value, onChangeValue }) => {
             </TouchableOpacity>
 
         </View>
-    )
-}
+    );
+};
 
 SearchBar.propTypes = {
     onPressFilter: PropTypes.func.isRequired,
     onChangeValue: PropTypes.func.isRequired,
     value: PropTypes.string.isRequired,
     style: PropTypes.object
-}
-export default SearchBar
+};
+export default SearchBar;
 
 const styles = StyleSheet.create({
     container: {
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     textInput: {
-        fontSize: sizeFont(3.5),
+        fontSize: sizeFont(1.82),
         fontFamily: 'SVN-Gilroy-Medium',
         width: sizeWidth(70),
         marginLeft: sizeWidth(3)
@@ -72,4 +72,4 @@ const styles = StyleSheet.create({
         width: sizeWidth(4),
         height: sizeWidth(4)
     }
-})
+});

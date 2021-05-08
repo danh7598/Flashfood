@@ -10,7 +10,7 @@ const ItemCategory = ({ onPress, sourceImage, textCategory, backgroundColor, tex
             onPress={onPress}
             style={[styles.itemCategoryView, { backgroundColor: backgroundColor }]}>
             <Image
-                source={{uri: sourceImage}}
+                source={{ uri: sourceImage }}
                 style={styles.imgCategory} />
             <Text style={[styles.textCategory, { color: textColor }]}>
                 {textCategory}
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
         resizeMode: 'cover'
     },
     textCategory: {
-        fontSize: sizeFont(3.5),
+        fontSize: sizeFont(1.82),
         fontFamily: 'SVN-Gilroy-SemiBold',
         fontWeight: '600'
     },

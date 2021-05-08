@@ -1,13 +1,13 @@
 import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
-import { responsiveFontSize } from 'react-native-responsive-dimensions';
+
 import { blackColor, orangeColor, trueGreenColor } from '../../string/ColorTheme';
-import { sizeHeight, sizeWidth } from '../../Utils/Size';
+import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size';
 import three_dots from '../../assets/three-dots.png';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { TouchableRipple } from 'react-native-paper';
 const ItemNotification = ({ kind, title, description, imageSource, time, status, shipper }) => {
-    let a = 23;
+    console.log(sizeHeight(100));
     return (
 
         <View style={styles.container}>
@@ -95,27 +95,27 @@ const styles = StyleSheet.create({
         fontFamily: 'SVN-Gilroy-Medium',
         fontWeight: '500',
         color: blackColor,
-        fontSize: responsiveFontSize(1.83) //14px
+        fontSize: sizeFont(1.83) //14px
     },
     textDescription: {
         color: '#757D85',
         fontFamily: 'SVN-Gilroy-Regular',
         fontWeight: '400',
         //lineHeight: sizeHeight(2.21),
-        fontSize: responsiveFontSize(1.56) //12px
+        fontSize: sizeFont(1.56) //12px
     },
     textShipper: {
         color: blackColor,
         fontFamily: 'SVN-Gilroy-Medium',
         fontWeight: '500',
         //lineHeight: sizeHeight(2.21),
-        fontSize: responsiveFontSize(1.56) //12px
+        fontSize: sizeFont(1.56) //12px
     },
     textTime: {
         color: blackColor,
         fontFamily: 'SVN-Gilroy-Regular',
         fontWeight: '400',
-        fontSize: responsiveFontSize(1.30) //12px
+        fontSize: sizeFont(1.30) //12px
     },
     btnMenu: {
         marginTop: sizeHeight(3)

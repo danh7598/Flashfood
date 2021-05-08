@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-import { sizeHeight, sizeFont, sizeWidth } from '../../Utils/Size'
-import PropTypes from 'prop-types'
+import React, { Component } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { sizeHeight, sizeFont, sizeWidth } from '../../Utils/Size';
+import PropTypes from 'prop-types';
 class HeaderText extends Component {
     render() {
         return (
@@ -17,15 +17,15 @@ class HeaderText extends Component {
                     </Text>
                     : null}
             </View>
-        )
+        );
     }
 }
 
 HeaderText.propTypes = {
     textBold: PropTypes.string,
     textLight: PropTypes.string
-}
-export default HeaderText
+};
+export default HeaderText;
 
 const styles = StyleSheet.create({
     textHeader: {
@@ -33,15 +33,15 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     textBold: {
-        fontSize: sizeFont(7),
+        fontSize: sizeFont(3.125),
         fontWeight: 'bold',
         fontFamily: 'SVN-Gilroy-Bold'
     },
     textLight: {
         color: '#525C67',
-        fontSize: sizeFont(4),
+        fontSize: sizeFont(1.83),
         marginTop: sizeHeight(0.8),
         fontFamily: 'SVN-Gilroy-Regular',
         textAlign: 'center'
     }
-})
+});

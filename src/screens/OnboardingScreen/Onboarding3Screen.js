@@ -19,7 +19,7 @@ export default class Onboarding3Screen extends Component {
                 <View style={styles.longDot}></View>
                 <SkipOrNextButton
                     onPressFinish={() => {
-                        this.props.navigation.navigate('Login');
+                        this.props.navigation.navigate('LoginStack');
                     }}
                     textFullBtn={"Let's get started"}
                     skipBtn={false} />

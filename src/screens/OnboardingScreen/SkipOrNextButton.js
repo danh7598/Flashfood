@@ -53,8 +53,9 @@ const styles = StyleSheet.create({
 
     },
     textSkip: {
-        fontSize: sizeFont(4),
+        fontSize: sizeFont(2.09),
         fontFamily: 'SVN-Gilroy-Medium',
+        fontWeight: '500',
         color: '#757D85'
     },
     nextBtn: {
@@ -66,8 +67,9 @@ const styles = StyleSheet.create({
         borderRadius: sizeWidth(3)
     },
     textNext: {
-        fontSize: sizeFont(4),
-        fontFamily: 'SVN-Gilroy-Medium',
+        fontSize: sizeFont(2.09),
+        fontFamily: 'SVN-Gilroy-SemiBold',
+        fontWeight: '600',
         color: 'white'
     },
     fullNextBtn: {

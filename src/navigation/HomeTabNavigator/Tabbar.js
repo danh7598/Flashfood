@@ -1,13 +1,14 @@
 import React from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { TouchableRipple } from 'react-native-paper';
-import { responsiveFontSize, responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions';
+
 import { orangeColor } from '../../string/ColorTheme';
 import home_tabbar from '../../assets/home-tabbar.png';
 import my_cart_tabbar from '../../assets/my-cart-tabbar.png';
 import Notification from '../../assets/notification-tabbar.png';
 import search_tabbar from '../../assets/search-tabbar.png';
 import favourite_tabbar from '../../assets/favourite-tabbar.png';
+import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size';
 
 const Tabbar = ({ state, descriptors, navigation }) => {
     const focusedOptions = descriptors[state.routes[state.index].key].options;
@@ -100,42 +101,42 @@ export default Tabbar;
 const styles = StyleSheet.create({
     homeTabStackStyle: {
         flexDirection: 'row',
-        height: responsiveHeight(10.83),
-        // width: responsiveWidth(100),
+        height: sizeHeight(10.83),
+        // width: sizeWidth(100),
         //justifyContent: 'center',
         justifyContent: 'space-between',
         alignItems: 'center',
-        borderTopLeftRadius: responsiveWidth(6.4),
-        borderTopRightRadius: responsiveWidth(6.4),
+        borderTopLeftRadius: sizeWidth(6.4),
+        borderTopRightRadius: sizeWidth(6.4),
         // justifyContent: 'space-around',
-        // paddingBottom: responsiveWidth(4),
+        // paddingBottom: sizeWidth(4),
         // backgroundColor: 'skyblue',
         backgroundColor: 'white',
         elevation: 10,
-        paddingHorizontal: responsiveWidth(4)
+        paddingHorizontal: sizeWidth(4)
     },
     viewTabbarIconFocused: {
         // alignSelf: 'center',
-        //marginLeft: responsiveWidth(4),
-        width: responsiveWidth(26),
-        height: responsiveHeight(4.9),
-        borderRadius: responsiveWidth(5.3),
+        //marginLeft: sizeWidth(4),
+        width: sizeWidth(26),
+        height: sizeHeight(4.9),
+        borderRadius: sizeWidth(5.3),
         justifyContent: 'center',
         flexDirection: 'row',
         alignItems: 'center',
         backgroundColor: orangeColor
     },
     imgTabbar: {
-        width: responsiveWidth(4.2),
-        height: responsiveWidth(4.2),
+        width: sizeWidth(4.2),
+        height: sizeWidth(4.2),
         tintColor: 'white'
     },
     textTabbar: {
         // backgroundColor: 'tomato',
-        marginLeft: responsiveWidth(2.1),
+        marginLeft: sizeWidth(2.1),
         fontFamily: 'SVN-Gilroy-Bold',
         fontWeight: '700',
-        fontSize: responsiveFontSize(1.57),
+        fontSize: sizeFont(1.56),
         color: 'white',
 
     },
@@ -143,7 +144,7 @@ const styles = StyleSheet.create({
         // backgroundColor: 'skyblue',
         justifyContent: 'center',
         alignItems: 'center',
-        width: responsiveWidth(15),
-        height: responsiveHeight(4.9),
+        width: sizeWidth(15),
+        height: sizeHeight(4.9),
     },
 });

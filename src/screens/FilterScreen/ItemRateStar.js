@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { responsiveFontSize } from 'react-native-responsive-dimensions';
 import { blackColor, grayColor, orangeColor } from '../../string/ColorTheme';
-import { sizeHeight, sizeWidth } from '../../Utils/Size';
+import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size';
 import star from '../../assets/star.png';
 const dataStar = [1, 2, 3, 4, 5];
 const ItemRateStar = () => {
@@ -52,7 +51,7 @@ const styles = StyleSheet.create({
         fontFamily: 'SVN-Gilroy-SemiBold',
         fontWeight: '600',
         color: blackColor,
-        fontSize: responsiveFontSize(1.83)
+        fontSize: sizeFont(1.83)
     },
     flatList: {
         width: sizeWidth(87.2),
@@ -69,7 +68,7 @@ const styles = StyleSheet.create({
         backgroundColor: grayColor
     },
     textItem: {
-        fontSize: responsiveFontSize(1.83),
+        fontSize: sizeFont(1.83),
         fontWeight: '600',
         fontFamily: 'SVN-Gilroy-SemiBold',
     },

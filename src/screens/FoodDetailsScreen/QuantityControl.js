@@ -1,10 +1,10 @@
-import React from 'react'
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size'
-import minus from '../../assets/minus.png'
-import plus from '../../assets/plus.png'
-import PropTypes from 'prop-types'
-import { blackColor, orangeColor } from '../../string/ColorTheme'
+import React from 'react';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size';
+import minus from '../../assets/minus.png';
+import plus from '../../assets/plus.png';
+import PropTypes from 'prop-types';
+import { blackColor, orangeColor } from '../../string/ColorTheme';
 const QuantityControl = ({ number, onPressPlus, onPressMinus, style }) => {
     return (
         <View style={[styles.container, style]}>
@@ -14,7 +14,7 @@ const QuantityControl = ({ number, onPressPlus, onPressMinus, style }) => {
                 <Image
                     source={minus}
                     style={[styles.imgBtn,
-                    { tintColor: number === 1 ? '#898B9A' : orangeColor}]} />
+                    { tintColor: number === 1 ? '#898B9A' : orangeColor }]} />
             </TouchableOpacity>
             <Text style={styles.textNumber}>{number}</Text>
             <TouchableOpacity
@@ -24,21 +24,21 @@ const QuantityControl = ({ number, onPressPlus, onPressMinus, style }) => {
                     source={plus} />
             </TouchableOpacity>
         </View>
-    )
-}
+    );
+};
 
 QuantityControl.propTypes = {
     onPressPlus: PropTypes.func.isRequired,
     onPressMinus: PropTypes.func.isRequired,
     number: PropTypes.number,
     style: PropTypes.object,
-}
+};
 
 QuantityControl.defaultProps = {
     number: 1,
-}
+};
 
-export default QuantityControl
+export default QuantityControl;
 
 const styles = StyleSheet.create({
     container: {
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     },
     textNumber: {
         fontFamily: 'SVN-Gilroy-Bold',
-        fontSize: sizeFont(5),
+        fontSize: sizeFont(2.08),
         color: blackColor
     }
-})
+});

@@ -1,7 +1,7 @@
-import React, { forwardRef } from 'react'
-import { StyleSheet, TextInput } from 'react-native'
-import { blackColor, grayColor } from '../../string/ColorTheme'
-import { sizeFont, sizeWidth } from '../../Utils/Size'
+import React, { forwardRef } from 'react';
+import { StyleSheet, TextInput } from 'react-native';
+import { blackColor, grayColor } from '../../string/ColorTheme';
+import { sizeFont, sizeWidth } from '../../Utils/Size';
 
 const OTPInput = forwardRef((props, ref) => {
     // console.log(props)
@@ -15,10 +15,10 @@ const OTPInput = forwardRef((props, ref) => {
             onChangeText={(text) => props.onChangeValue(text)}
             style={styles.textInputOPT}>
         </TextInput>
-    )
-})
+    );
+});
 
-export default OTPInput
+export default OTPInput;
 
 const styles = StyleSheet.create({
     textInputOPT: {
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
         borderWidth: 0.5,
         borderColor: '#CFD0D7',
         fontFamily: 'SVN-Gilroy-Bold',
-        fontSize: sizeFont(5),
+        fontSize: sizeFont(2.09),
         color: blackColor
     }
-})
+});

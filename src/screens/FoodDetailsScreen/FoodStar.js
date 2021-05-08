@@ -1,9 +1,9 @@
-import React from 'react'
-import { Image, StyleSheet, Text, View } from 'react-native'
+import React from 'react';
+import { Image, StyleSheet, Text, View } from 'react-native';
 import star from '../../assets/star.png';
 import { orangeColor } from '../../string/ColorTheme';
 import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 const FoodStar = ({ rateNumber }) => {
     return (
@@ -13,17 +13,17 @@ const FoodStar = ({ rateNumber }) => {
                 source={star} />
             <Text style={styles.textRate}>
                 {rateNumber <= 5 && rateNumber >= 0
-                ? rateNumber : 'error'}
+                    ? rateNumber : 'error'}
             </Text>
         </View>
-    )
-}
+    );
+};
 
 FoodStar.propTypes = {
     rateNumber: PropTypes.number.isRequired,
-}
+};
 
-export default FoodStar
+export default FoodStar;
 
 const styles = StyleSheet.create({
     container: {
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     textRate: {
         color: 'white',
         fontFamily: 'SVN-Gilroy-Medium',
-        fontSize: sizeFont(3.5),
+        fontSize: sizeFont(1.5625),
         //backgroundColor: 'skyblue'
     }
-})
+});

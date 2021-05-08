@@ -4,7 +4,7 @@ import { Image, LogBox, Modal, ScrollView, StyleSheet, Text, TouchableOpacity, V
 import { responsiveFontSize } from 'react-native-responsive-dimensions';
 import close from '../../assets/close.png';
 import { blackColor } from '../../string/ColorTheme';
-import { sizeHeight, sizeWidth } from '../../Utils/Size';
+import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size';
 import Button from '../LoginScreen/Button';
 import ItemPicker from './ItemPicker';
 import ItemRateStar from './ItemRateStar';
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
         fontFamily: 'SVN-Gilroy-Bold',
         fontWeight: '700',
         color: blackColor,
-        fontSize: responsiveFontSize(2.09)
+        fontSize: sizeFont(2.09)
     },
     btnClose: {
         width: sizeWidth(8.53),

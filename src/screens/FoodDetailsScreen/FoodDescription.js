@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
-import { Text, StyleSheet, View, Image, TouchableOpacity } from 'react-native'
-import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size'
-import fire from '../../assets/fire.png'
-import heart from '../../assets/heart.png'
-import { grayColor } from '../../string/ColorTheme'
-import PropTypes from 'prop-types'
+import React, { Component } from 'react';
+import { Text, StyleSheet, View, Image, TouchableOpacity } from 'react-native';
+import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size';
+import fire from '../../assets/fire.png';
+import heart from '../../assets/heart.png';
+import { grayColor } from '../../string/ColorTheme';
+import PropTypes from 'prop-types';
 
 export default class FoodDescription extends Component {
     render() {
@@ -40,7 +40,7 @@ export default class FoodDescription extends Component {
                     </Text>
                 </View>
             </View>
-        )
+        );
     }
 }
 
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
         borderRadius: sizeWidth(4),
-        
+
     },
     viewCalories: {
         //height: sizeHeight(45),
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
         //backgroundColor: 'green'
     },
     textCalories: {
-        fontSize: sizeFont(3),
+        fontSize: sizeFont(1.30),
         fontWeight: '500',
         fontFamily: 'SVN-Gilroy-Regular',
         color: '#757D85'
@@ -110,14 +110,14 @@ const styles = StyleSheet.create({
     textNameFood: {
         fontFamily: 'SVN-Gilroy-Bold',
         fontWeight: '600',
-        fontSize: sizeFont(6),
+        fontSize: sizeFont(3.125),
         color: '#111A2C'
     },
     textDescriptionFood: {
         color: '#525C67',
         fontFamily: 'SVN-Gilroy-Regular',
-        fontSize: sizeFont(3.5),
+        fontSize: sizeFont(1.5625),
         lineHeight: sizeHeight(2.5),
         marginTop: sizeHeight(1)
     }
-})
+});

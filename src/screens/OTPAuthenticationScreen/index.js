@@ -3,8 +3,8 @@ import { Text, StyleSheet, View, Image, TextInput } from 'react-native';
 import { blackColor, grayColor } from '../../string/ColorTheme';
 import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size';
 import Button from '../LoginScreen/Button';
+import HeaderText from '../LoginScreen/HeaderText';
 import QuestionSign from '../LoginScreen/QuestionSign';
-import HeaderText from '../RegisterHomework/HeaderText';
 import OTPInput from './OTPInput';
 
 
@@ -98,6 +98,10 @@ export default class OPTAuthenticationScreen extends Component {
         clearInterval(this.interval);
     }
 
+    onPressContinue = () => {
+        this.props.navigation.navigate('PasswordReset');
+    };
+
     reSendButton = () => {
         alert("Resend OTP");
         this.setState({
@@ -124,7 +128,7 @@ export default class OPTAuthenticationScreen extends Component {
                 <View style={styles.headerView}>
                     <Image style={styles.imgLogo} source={require('../../assets/logo-eatme.png')} />
                     <HeaderText
-                        lineHeight={sizeHeight(2.5)}
+                        style={styles.textHeaderLight}
                         textBold={"OTP Authentication"}
                         textLight={`An authentication code have been sent to ${email}`} />
                 </View>
@@ -155,6 +159,7 @@ export default class OPTAuthenticationScreen extends Component {
                     questionSign={"Didn't receive code? "} />
                 <View style={styles.viewFooter}>
                     <Button
+                        onPress={this.onPressContinue}
                         style={styles.buttonContinue}
                         buttonSign={'Continue'} />
                     <QuestionSign
@@ -163,7 +168,6 @@ export default class OPTAuthenticationScreen extends Component {
                         alternativeButtonSign={"Term and Conditions"}
                     />
                 </View>
-
             </View>
         );
     }
@@ -180,6 +184,9 @@ const styles = StyleSheet.create({
         marginTop: sizeHeight(4),
         //marginBottom: sizeHeight(4),
         //backgroundColor: 'skyblue'
+    },
+    textHeaderLight: {
+        width: sizeWidth(70.4)
     },
     imgLogo: {
         width: sizeWidth(50),
@@ -206,7 +213,7 @@ const styles = StyleSheet.create({
         borderWidth: 0.5,
         borderColor: '#CFD0D7',
         fontFamily: 'SVN-Gilroy-Bold',
-        fontSize: sizeFont(5),
+        fontSize: sizeFont(2.09),
         color: blackColor
     },
     buttonContinue: {

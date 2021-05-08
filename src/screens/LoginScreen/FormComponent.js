@@ -21,10 +21,13 @@ const FormComponent = ({
     buttonRightImage,
     buttonFunction,
     borderColor,
-    tintColorRightImage
+    tintColorRightImage,
+    style,
+    styleTextInput,
+    textInputProps
 }) => {
     return (
-        <View style={styles.formComponentView}>
+        <View style={[styles.formComponentView, style]}>
             <View style={styles.viewNameFormAndNoti}>
                 <Text style={styles.textNameForm}>{nameTextInput}</Text>
                 {notification != null &&
@@ -34,12 +37,13 @@ const FormComponent = ({
                 borderColor: borderColor ? borderColor : 'transparent'
             }]}>
                 <TextInput
+                    {...textInputProps}
                     autoCompleteType={'off'}
                     autoCorrect={false}
                     keyboardType={keyboardType}
                     secureTextEntry={secure}
                     placeholder={placeholder}
-                    style={styles.textInput}
+                    style={[styles.textInput, styleTextInput]}
                     value={valueInput}
                     onChangeText={text => onChangeValue(text)}
                 />
@@ -95,11 +99,11 @@ const styles = StyleSheet.create({
     },
     textNameForm: {
         color: '#898B9A',
-        fontSize: sizeFont(3.5),
+        fontSize: sizeFont(1.83),
         fontFamily: 'SVN-Gilroy-Medium',
     },
     textFormNoti: {
-        fontSize: sizeFont(3.5),
+        fontSize: sizeFont(1.83),
         color: '#F96B44',
         fontWeight: '500',
         fontFamily: 'SVN-Gilroy-Regular',
@@ -115,7 +119,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     textInput: {
-        fontSize: sizeFont(3.5),
+        fontSize: sizeFont(1.83),
         width: sizeWidth(75),
         fontWeight: '500',
         color: '#111A2C',

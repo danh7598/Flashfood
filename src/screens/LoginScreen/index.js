@@ -16,9 +16,9 @@ import SaveAndForgotComponent from './SaveAndForgotComponent';
 import HeaderText from './HeaderText';
 import Button from './Button';
 import QuestionSign from './QuestionSign';
-import { sizeHeight, sizeWidth } from '../../Utils/Size';
+import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size';
 import { validateEmailLogin } from '../../Utils/Validate';
-import { blueColor, orangeColor, trueGreenColor } from '../../string/ColorTheme';
+import { blackColor, blueColor, orangeColor, trueGreenColor } from '../../string/ColorTheme';
 import right_mark_icon from '../../assets/right_mark_icon.png';
 import cancel_icon from '../../assets/cancel_icon.png';
 import logo_eatme from '../../assets/logo-eatme.png';
@@ -92,7 +92,7 @@ export default class LoginScreen extends Component {
   };
   //On press the forgot button
   onPressForgot = () => {
-    alert('Forgot password');
+    this.props.navigation.navigate('PasswordRecovery');
   };
 
   onPressFacebookLogin = () => {
@@ -194,6 +194,7 @@ export default class LoginScreen extends Component {
           <View>
             <Button
               onPress={this.onPressLogin}
+              textStyle={styles.btnSignIn}
               buttonSign={"Sign In"} />
             <QuestionSign
               onPress={this.onPressQuestionSign}
@@ -204,11 +205,12 @@ export default class LoginScreen extends Component {
             <Button
               onPress={this.onPressFacebookLogin}
               btnBackgroundColor={blueColor}
+              textStyle={styles.btnFacebook}
               imgSrc={require('../../assets/facebook.png')}
               buttonSign={"Continue With Facebook"} />
             <Button
               onPress={this.onPressGoogleLogin}
-              textColor={'#111A2C'}
+              textStyle={styles.btnGoogle}
               btnBackgroundColor={'#F5F5F8'}
               imgSrc={require('../../assets/google.png')}
               buttonSign={"Continue With Google"} />
@@ -248,5 +250,16 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginTop: sizeHeight(3),
     marginBottom: sizeHeight(4)
+  },
+  btnSignIn: {
+    color: 'white'
+  },
+  btnFacebook: {
+    fontSize: sizeFont(1.83),
+    color: 'white',
+  },
+  btnGoogle: {
+    fontSize: sizeFont(1.83),
+    color: blackColor
   }
 });

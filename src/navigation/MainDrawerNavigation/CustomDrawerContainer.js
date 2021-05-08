@@ -7,7 +7,6 @@ import {
     DrawerItem,
 } from '@react-navigation/drawer';
 import close from '../../assets/close.png';
-import { responsiveFontSize, responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions';
 import { orangeColor } from '../../string/ColorTheme';
 import face_woman from '../../assets/face_woman.jpeg';
 import logout from '../../assets/logout.png';
@@ -20,6 +19,7 @@ import profile from '../../assets/Profile.png';
 import help from '../../assets/Help.png';
 import coupon from '../../assets/Coupon.png';
 import setting from '../../assets/Setting.png';
+import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size';
 const ItemDrawer = ({ style, onPress, title, icon }) => {
     return (
         <TouchableOpacity
@@ -84,7 +84,7 @@ const CustomDrawerContainer = (props) => {
                         key={item}
                         icon={icon}
                         title={item}
-                        style={[styles.viewItem, { marginTop: index === 0 ? responsiveHeight(4.92) : responsiveHeight(1.97) }]} />
+                        style={[styles.viewItem, { marginTop: index === 0 ? sizeHeight(4.92) : sizeHeight(1.97) }]} />
                 );
             })}
             <View style={styles.viewLine} />
@@ -113,7 +113,7 @@ const CustomDrawerContainer = (props) => {
                         key={item}
                         icon={icon}
                         title={item}
-                        style={[styles.viewItem, { marginTop: index === 4 ? responsiveHeight(3.97) : responsiveHeight(1.97) }]} />
+                        style={[styles.viewItem, { marginTop: index === 4 ? sizeHeight(3.97) : sizeHeight(1.97) }]} />
                 );
             })}
             <ItemDrawer
@@ -135,72 +135,72 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     imageIcon: {
-        width: responsiveWidth(4.2),
-        height: responsiveWidth(4.2),
+        width: sizeWidth(4.2),
+        height: sizeWidth(4.2),
         tintColor: 'white'
         //backgroundColor: 'skyblue'
     },
     btnClose: {
         //alignItems: 'center',
         // justifyContent: 'center',
-        paddingTop: responsiveHeight(3.94),
-        paddingLeft: responsiveWidth(4),
+        paddingTop: sizeHeight(3.94),
+        paddingLeft: sizeWidth(4),
         //backgroundColor: 'skyblue',
     },
     viewAvatar: {
-        height: responsiveHeight(5.91),
-        width: responsiveWidth(45),
+        height: sizeHeight(5.91),
+        width: sizeWidth(45),
         // backgroundColor: 'skyblue',
-        marginLeft: responsiveWidth(4),
-        marginTop: responsiveHeight(3.94),
+        marginLeft: sizeWidth(4),
+        marginTop: sizeHeight(3.94),
         flexDirection: 'row',
     },
     imgAvatar: {
-        height: responsiveHeight(5.91),
-        width: responsiveHeight(5.94),
-        borderRadius: responsiveWidth(2.13)
+        height: sizeHeight(5.91),
+        width: sizeHeight(5.94),
+        borderRadius: sizeWidth(2.13)
     },
     viewTextAvatar: {
-        marginLeft: responsiveWidth(3.2)
+        marginLeft: sizeWidth(3.2)
     },
     textName: {
         fontFamily: 'SVN-Gilroy-SemiBold',
         fontWeight: '600',
         color: 'white',
-        fontSize: responsiveFontSize(2.09),
+        fontSize: sizeFont(2.09),
     },
     textViewProfile: {
         fontFamily: 'SVN-Gilroy-Regular',
         fontWeight: '400',
         color: 'white',
-        fontSize: responsiveFontSize(1.56),
+        fontSize: sizeFont(1.56),
     },
     viewItem: {
-        marginLeft: responsiveWidth(4),
+        marginLeft: sizeWidth(4),
         flexDirection: 'row',
         alignItems: 'center',
         // backgroundColor: 'skyblue',
-        height: responsiveHeight(4.55),
+        height: sizeHeight(4.55),
     },
     textItem: {
         fontFamily: 'SVN-Gilroy-SemiBold',
         fontWeight: '600',
         color: 'white',
-        fontSize: responsiveFontSize(1.83),
-        marginLeft: responsiveWidth(4.2)
+        fontSize: sizeFont(1.83),
+        marginLeft: sizeWidth(4.2)
     },
     viewLine: {
-        width: responsiveWidth(49.33),
+        width: sizeWidth(49.33),
         height: 1,
         backgroundColor: 'white',
         opacity: 0.2,
-        marginTop: responsiveHeight(3.94),
+        marginTop: sizeHeight(3.94),
         alignSelf: 'center'
     },
     btnLogout: {
         position: 'absolute',
-        marginLeft: responsiveWidth(4.5),
+        marginLeft: sizeWidth(4.5),
 
-        bottom: responsiveHeight(5.89)
+        bottom: sizeHeight(5.89)
     }
 });

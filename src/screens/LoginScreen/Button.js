@@ -14,7 +14,7 @@ class Button extends Component {
                 }, this.props.style]}>
                 {this.props.imgSrc &&
                     <Image style={styles.imgBtn} source={this.props.imgSrc} />}
-                <Text style={[styles.textButton, { color: this.props.textColor }, this.props.textStyle]}>
+                <Text style={[styles.textButton, this.props.textStyle]}>
                     {this.props.buttonSign}
                 </Text>
             </TouchableOpacity>
@@ -51,8 +51,9 @@ const styles = StyleSheet.create({
         marginRight: sizeWidth(3),
     },
     textButton: {
-        fontSize: sizeFont(4),
-        fontFamily: 'SVN-Gilroy-Bold'
+        fontSize: sizeFont(2.08),
+        fontFamily: 'SVN-Gilroy-Bold',
+        color: 'white'
     }
 
 });

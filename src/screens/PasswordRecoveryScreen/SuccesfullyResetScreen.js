@@ -18,7 +18,7 @@ export default class SuccesfullyResetScreen extends Component {
     }
 
     onPressContinue = () => {
-        alert('Press Continue');
+        this.props.navigation.navigate('Login');
     };
 
     render() {

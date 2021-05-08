@@ -1,7 +1,7 @@
-import React from 'react'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import { orangeColor } from '../../string/ColorTheme'
-import { sizeFont, sizeWidth } from '../../Utils/Size'
+import React from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { orangeColor } from '../../string/ColorTheme';
+import { sizeFont, sizeWidth } from '../../Utils/Size';
 
 const HeaderList = ({ title }) => {
     return (
@@ -11,10 +11,10 @@ const HeaderList = ({ title }) => {
                 <Text style={styles.textButtonShowAll}>Show all</Text>
             </TouchableOpacity>
         </View>
-    )
-}
+    );
+};
 
-export default HeaderList
+export default HeaderList;
 
 const styles = StyleSheet.create({
     container: {
@@ -24,14 +24,14 @@ const styles = StyleSheet.create({
         width: sizeWidth(92)
     },
     textTitle: {
-        fontSize: sizeFont(3.5),
+        fontSize: sizeFont(2.08),
         fontFamily: 'SVN-Gilroy-Bold',
         //fontWeight: '600'
     },
     textButtonShowAll: {
-        fontSize: sizeFont(3.5),
+        fontSize: sizeFont(1.82),
         fontFamily: 'SVN-Gilroy-SemiBold',
         fontWeight: '600',
         color: orangeColor
     }
-})
+});

@@ -21,10 +21,6 @@ export default class PasswordRecoveryScreen extends Component {
         };
     }
 
-    onPressSendEmail = () => {
-
-    };
-
     //Function onChangeText on TextInput email
     onChangeEmail = (text) => {
         this.setState({
@@ -59,6 +55,7 @@ export default class PasswordRecoveryScreen extends Component {
                 const response = await forgotPasswordByEmail(this.state.emailValue);
                 if (response.success) {
                     alert(response.message);
+                    this.props.navigation.navigate('OTPAuthentication');
                 } else {
                     alert(response.message);
                 }

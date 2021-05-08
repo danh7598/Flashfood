@@ -4,9 +4,9 @@ import HeaderBar from '../../common/HeaderBar';
 import back from '../../assets/back.png';
 import ItemCard from './ItemCard';
 import { dataCard } from './dataCard';
-import { sizeHeight, sizeWidth } from '../../Utils/Size';
+import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size';
 import { blackColor } from '../../string/ColorTheme';
-import { responsiveFontSize } from 'react-native-responsive-dimensions';
+
 import Button from '../LoginScreen/Button';
 
 const MyCardScreen = ({ navigation }) => {
@@ -35,6 +35,7 @@ const MyCardScreen = ({ navigation }) => {
                 }}
                 ListFooterComponent={
                     <Button
+                        onPress={() => { navigation.navigate('AddNewCard'); }}
                         style={styles.buttonAdd}
                         buttonSign={"Add"}
                     />}
@@ -87,7 +88,7 @@ const styles = StyleSheet.create({
         fontFamily: 'SVN-Gilroy-SemiBold',
         fontWeight: '600',
         color: blackColor,
-        fontSize: responsiveFontSize(2.09),
+        fontSize: sizeFont(2.09),
         marginBottom: sizeHeight(1.97),
 
     },

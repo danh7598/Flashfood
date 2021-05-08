@@ -36,7 +36,7 @@ export default class PasswordResetScreen extends Component {
     };
 
     onPressReset = () => {
-        alert('Press Reset Password');
+        this.props.navigation.navigate('ResetSuccess');
     };
 
     render() {

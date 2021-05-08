@@ -5,9 +5,8 @@ import back from '../../assets/back.png';
 import ItemNotification from './ItemNotification';
 import { dataNotification } from '../../string/FakeData';
 import { blackColor, orangeColor } from '../../string/ColorTheme';
-import { responsiveFontSize } from 'react-native-responsive-dimensions';
 import CheckBox from '@react-native-community/checkbox';
-import { sizeHeight, sizeWidth } from '../../Utils/Size';
+import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size';
 
 
 const convertDateToString = (date) => {
@@ -111,7 +110,7 @@ const styles = StyleSheet.create({
         fontFamily: 'SVN-Gilroy-SemiBold',
         fontWeight: '600',
         color: blackColor,
-        fontSize: responsiveFontSize(1.83) //14px
+        fontSize: sizeFont(1.83) //14px
     },
     footerComponent: {
         height: sizeHeight(2.95)

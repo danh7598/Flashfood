@@ -3,7 +3,7 @@ import { Platform, StyleSheet, Text, KeyboardAvoidingView, View, Image } from 'r
 //import LogoComponent from '../Login/LogoComponent';
 import FormComponent from '../LoginScreen/FormComponent';
 // import ButtonSignAndSocial from '../Login/ButtonSignAndSocial';
-import { sizeHeight, sizeWidth } from '../../Utils/Size';
+import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size';
 import HeaderText from '../LoginScreen/HeaderText';
 import Button from '../LoginScreen/Button';
 import QuestionSign from '../LoginScreen/QuestionSign';
@@ -14,6 +14,7 @@ import eye from '../../assets/eye.png';
 import right_mark_icon from '../../assets/right_mark_icon.png';
 import eye_close from '../../assets/eye_close.png';
 import { registerWithEmail } from '../../Utils/api';
+import { blackColor } from '../../string/ColorTheme';
 const orangeColor = '#F96B44';
 const grayColor = '';
 const blueColor = '#0064C0';
@@ -132,7 +133,7 @@ export default class RegisterScreen extends Component {
     };
 
     onPressQuestionSign = () => {
-        alert('Press Question Sign Up');
+        this.props.navigation.navigate('Login');
     };
 
     render() {
@@ -184,6 +185,7 @@ export default class RegisterScreen extends Component {
                 <View style={styles.viewFooterButton}>
                     <View>
                         <Button
+                            textStyle={styles.btnSignUp}
                             onPress={this.onPressSignUp}
                             buttonSign={"Sign Up"} />
                         <QuestionSign
@@ -194,13 +196,14 @@ export default class RegisterScreen extends Component {
                     <View>
                         <Button
                             onPress={this.onPressFacebookLogin}
+                            textStyle={styles.btnFacebook}
                             btnBackgroundColor={blueColor}
                             imgSrc={require('../../assets/facebook.png')}
                             buttonSign={"Continue With Facebook"} />
                         <Button
                             onPress={this.onPressGoogleLogin}
                             marginBottom={0}
-                            textColor={'#111A2C'}
+                            textStyle={styles.btnGoogle}
                             btnBackgroundColor={'#F5F5F8'}
                             imgSrc={require('../../assets/google.png')}
                             buttonSign={"Continue With Google"} />
@@ -238,5 +241,16 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         marginTop: sizeHeight(2),
         marginBottom: sizeHeight(2)
+    },
+    btnSignUp: {
+        color: 'white'
+    },
+    btnFacebook: {
+        fontSize: sizeFont(1.83),
+        color: 'white',
+    },
+    btnGoogle: {
+        fontSize: sizeFont(1.83),
+        color: blackColor
     }
 });

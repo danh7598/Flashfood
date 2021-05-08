@@ -8,10 +8,12 @@ import fire_calories from '../../assets/fire_calories.png';
 import PropTypes from 'prop-types';
 import HeaderList from './HeaderList';
 
-const ItemPopular = ({ calories, favoured, image, name, description, price, changeFavorite }) => {
+const ItemPopular = ({ calories, favoured, image, name, description, price, changeFavorite, onPress }) => {
     //console.log(sizeHeight(25))
     return (
-        <TouchableOpacity style={styles.container}>
+        <TouchableOpacity
+            onPress={onPress}
+            style={styles.container}>
             <View style={styles.viewTopLine}>
                 <View style={styles.viewCalories}>
                     <Image
@@ -56,7 +58,9 @@ ItemPopular.defaultProps = {
 };
 
 class ListPopular extends Component {
-
+    onPressItem = () => {
+        this.props.navigation.navigate('FoodDetails');
+    };
     render() {
         // console.log(this.props.data)
         return (
@@ -70,6 +74,7 @@ class ListPopular extends Component {
                     renderItem={({ item, index }) => (
                         <ItemPopular
                             name={item.name}
+                            onPress={this.onPressItem}
                             description={item.description}
                             price={item.price}
                             calories={item.calories}
@@ -133,7 +138,7 @@ const styles = StyleSheet.create({
     },
     textCalories: {
         marginLeft: sizeWidth(1),
-        fontSize: sizeFont(2.5),
+        fontSize: sizeFont(1.30),
         fontFamily: 'SVN-Gilroy-Regular',
         fontWeight: '500',
         color: '#757D85'
@@ -150,21 +155,21 @@ const styles = StyleSheet.create({
         marginTop: sizeHeight(1)
     },
     textName: {
-        fontSize: sizeFont(3.5),
+        fontSize: sizeFont(1.82),
         fontFamily: 'SVN-Gilroy-Bold',
         fontWeight: '600',
         color: blackColor,
         lineHeight: sizeHeight(2.5)
     },
     textDescription: {
-        fontSize: sizeFont(2.5),
+        fontSize: sizeFont(1.30),
         fontFamily: 'SVN-Gilroy-Medium',
         fontWeight: '500',
         color: '#757D85',
         lineHeight: sizeHeight(2.5)
     },
     textPrice: {
-        fontSize: sizeFont(4),
+        fontSize: sizeFont(2.08),
         fontFamily: 'SVN-Gilroy-Bold',
         fontWeight: '700',
         color: blackColor,

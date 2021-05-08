@@ -1,12 +1,11 @@
 import React from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-import { responsiveFontSize } from 'react-native-responsive-dimensions';
 import { blackColor, orangeColor } from '../../string/ColorTheme';
-import { sizeHeight, sizeWidth } from '../../Utils/Size';
+import { sizeHeight, sizeWidth, sizeFont } from '../../Utils/Size';
 
 const ItemCard = ({ isSelected, title, imageSource, onSelect }) => {
-    // console.log(responsiveFontSize(2.09));
+    // console.log(sizeFont(2.09));
     return (
         <TouchableOpacity onPress={onSelect}>
             <View style={[styles.container, { borderColor: isSelected ? orangeColor : 'rgba(245, 245, 248, 1)' }]}>
@@ -69,7 +68,7 @@ const styles = StyleSheet.create({
         fontFamily: 'SVN-Gilroy-SemiBold',
         fontWeight: '600',
         color: blackColor,
-        fontSize: responsiveFontSize(2.09)
+        fontSize: sizeFont(2.09)
     },
     viewSelect: {
         width: sizeWidth(4.2),

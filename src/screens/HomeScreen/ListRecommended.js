@@ -1,15 +1,15 @@
-import React, { Component } from 'react'
-import { FlatList, Image, StyleSheet, Text, View } from 'react-native'
-import { blackColor, grayColor } from '../../string/ColorTheme'
-import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size'
-import fire_calories from '../../assets/fire_calories.png'
+import React, { Component } from 'react';
+import { FlatList, Image, StyleSheet, Text, View } from 'react-native';
+import { blackColor, grayColor } from '../../string/ColorTheme';
+import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size';
+import fire_calories from '../../assets/fire_calories.png';
 import HeaderList from './HeaderList';
 
 const ItemRecommended = ({ name, image, calories, price, description }) => {
     return (
         <View style={styles.container}>
             <Image style={styles.imgMain}
-                source={{uri: image}} />
+                source={{ uri: image }} />
             <View style={styles.viewDescription}>
                 <View style={styles.viewCalories}>
                     <Image
@@ -28,8 +28,8 @@ const ItemRecommended = ({ name, image, calories, price, description }) => {
                 </View>
             </View>
         </View>
-    )
-}
+    );
+};
 
 class ListRecommended extends Component {
     render() {
@@ -47,15 +47,15 @@ class ListRecommended extends Component {
                             description={item.description}
                             price={item.price}
                             calories={item.calories}
-                            image={item.imageUrl}/>
+                            image={item.imageUrl} />
                     )}
                     keyExtractor={(item) => item.id.toString()} />
             </View>
-        )
+        );
     }
 }
 
-export default ListRecommended
+export default ListRecommended;
 
 const styles = StyleSheet.create({
     container: {
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     listRecommended: {
         marginTop: sizeHeight(2),
         paddingLeft: sizeWidth(4)
-    },  
+    },
     imgMain: {
         width: sizeWidth(32),
         height: sizeHeight(12),
@@ -97,21 +97,21 @@ const styles = StyleSheet.create({
         marginTop: sizeHeight(1),
     },
     textName: {
-        fontSize: sizeFont(3.5),
+        fontSize: sizeFont(1.82),
         fontFamily: 'SVN-Gilroy-Bold',
         fontWeight: '600',
         color: blackColor,
         lineHeight: sizeHeight(2.5)
     },
     textDescription: {
-        fontSize: sizeFont(2.5),
+        fontSize: sizeFont(1.30),
         fontFamily: 'SVN-Gilroy-Medium',
         fontWeight: '500',
         color: '#757D85',
         lineHeight: sizeHeight(2.5)
     },
     textPrice: {
-        fontSize: sizeFont(4),
+        fontSize: sizeFont(2.08),
         fontFamily: 'SVN-Gilroy-Bold',
         fontWeight: '700',
         color: blackColor,
@@ -130,9 +130,9 @@ const styles = StyleSheet.create({
     },
     textCalories: {
         marginLeft: sizeWidth(1),
-        fontSize: sizeFont(2.5),
+        fontSize: sizeFont(1.30),
         fontFamily: 'SVN-Gilroy-Regular',
         fontWeight: '500',
         color: '#757D85'
     },
-})
+});

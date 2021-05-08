@@ -9,9 +9,9 @@ import {
 import PropTypes from 'prop-types';
 import { sizeFont, sizeWidth } from '../../Utils/Size';
 
-const orangeColor = '#F96B44'
-const grayColor = '#898B9A'
-const blueColor = ''
+const orangeColor = '#F96B44';
+const grayColor = '#898B9A';
+const blueColor = '';
 
 class SaveAndForgotComponent extends Component {
     render() {
@@ -40,9 +40,9 @@ SaveAndForgotComponent.propTypes = {
     switchValue: PropTypes.bool.isRequired,
     onPressSwitch: PropTypes.func.isRequired,
     onPressForgot: PropTypes.func.isRequired
-}
+};
 
-export default SaveAndForgotComponent
+export default SaveAndForgotComponent;
 const styles = StyleSheet.create({
     viewSaveAndForgot: {
         flexDirection: 'row',
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     },
     textSaveAndForgot: {
         color: grayColor,
-        fontSize: sizeFont(3.5),
+        fontSize: sizeFont(1.83),
         fontFamily: 'SVN-Gilroy-Medium',
     },
 

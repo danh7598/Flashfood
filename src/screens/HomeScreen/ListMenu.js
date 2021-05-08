@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
         marginBottom: sizeHeight(2)
     },
     textMenu: {
-        fontSize: sizeFont(3.5),
+        fontSize: sizeFont(1.82),
         fontFamily: 'SVN-Gilroy-Bold',
         //marginRight: sizeWidth(8)
     },
@@ -129,21 +129,21 @@ const styles = StyleSheet.create({
         paddingLeft: sizeWidth(4)
     },
     textName: {
-        fontSize: sizeFont(3.5),
+        fontSize: sizeFont(1.82),
         fontFamily: 'SVN-Gilroy-Bold',
         fontWeight: '600',
         color: blackColor,
         lineHeight: sizeHeight(2.5)
     },
     textDescription: {
-        fontSize: sizeFont(2.5),
+        fontSize: sizeFont(1.30),
         fontFamily: 'SVN-Gilroy-Medium',
         fontWeight: '500',
         color: '#757D85',
         lineHeight: sizeHeight(2.5)
     },
     textPrice: {
-        fontSize: sizeFont(4),
+        fontSize: sizeFont(2.08),
         fontFamily: 'SVN-Gilroy-Bold',
         fontWeight: '700',
         color: blackColor,
@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
     },
     textCalories: {
         marginLeft: sizeWidth(1),
-        fontSize: sizeFont(2.5),
+        fontSize: sizeFont(1.30),
         fontFamily: 'SVN-Gilroy-Regular',
         fontWeight: '500',
         color: '#757D85'

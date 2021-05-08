@@ -122,9 +122,7 @@ export default class HomeScreen extends Component {
         return (
             <View
                 style={[styles.container, styles,
-                {
-                    backgroundColor: this.state.filterModal ? 'rgba(0,0,0,0.5)' : null,
-                }]}>
+                { backgroundColor: this.state.filterModal ? 'rgba(0,0,0,0.5)' : null, }]}>
                 <HeaderBar
                     title={'HOME'}
                     rightBtn
@@ -152,6 +150,7 @@ export default class HomeScreen extends Component {
                         indexCategory={this.state.indexCategory}
                         onPressCategory={this.onPressCategory} />
                     <ListPopular
+                        navigation={this.props.navigation}
                         data={this.state.dataPopular}
                     />
                     <ListRecommended
@@ -168,7 +167,7 @@ export default class HomeScreen extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingBottom: sizeHeight(1),
+        // paddingBottom: sizeHeight(1),
         // backgroundColor: '#E5E5E5'
     },
     styleScrollView: {

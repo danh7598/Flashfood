@@ -1,10 +1,10 @@
-import React from 'react'
-import { Image, StyleSheet, Text, View } from 'react-native'
-import { orangeColor } from '../../string/ColorTheme'
-import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size'
-import FiveStarRate from './FiveStarRate'
+import React from 'react';
+import { Image, StyleSheet, Text, View } from 'react-native';
+import { orangeColor } from '../../string/ColorTheme';
+import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size';
+import FiveStarRate from './FiveStarRate';
 import logo_restaurant from '../../assets/logo_restaurant.png';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 const MiniShopDescription = ({ avatar, nameShop, distance, rateNumber }) => {
     return (
         <View style={styles.container}>
@@ -30,24 +30,24 @@ const MiniShopDescription = ({ avatar, nameShop, distance, rateNumber }) => {
                     numberRate={rateNumber} />
             </View>
         </View>
-    )
-}
+    );
+};
 
 MiniShopDescription.propTypes = {
     avatarShop: PropTypes.node,
     distance: PropTypes.string,
     name: PropTypes.string,
     rateNumber: PropTypes.number,
-}
+};
 
 MiniShopDescription.defaultProps = {
     avatar: logo_restaurant,
     name: 'Totoya Food',
     distance: '1.2 Km',
     rateNumber: 5,
-}
+};
 
-export default MiniShopDescription
+export default MiniShopDescription;
 
 const styles = StyleSheet.create({
     container: {
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     },
     textNameShop: {
         fontFamily: 'SVN-Gilroy-Bold',
-        fontSize: sizeFont(4),
+        fontSize: sizeFont(1.83),
     },
     viewNameShop: {
         marginLeft: sizeWidth(4)
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     textDistance: {
         color: '#898B9A',
         fontFamily: 'SVN-Gilroy-Regular',
-        fontSize: sizeFont(4)
+        fontSize: sizeFont(1.83)
     },
-    
-})
+
+});

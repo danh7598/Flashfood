@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { responsiveFontSize } from 'react-native-responsive-dimensions';
 import { blackColor } from '../../string/ColorTheme';
 import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size';
 import Button from '../LoginScreen/Button';
@@ -77,14 +76,14 @@ const styles = StyleSheet.create({
         // marginTop: 2,
     },
     textSubtotal: {
-        fontSize: responsiveFontSize(1.83),
+        fontSize: sizeFont(1.83),
         fontFamily: 'SVN-Gilroy-SemiBold',
         fontWeight: '600',
         lineHeight: sizeHeight(2.05),
         color: blackColor
     },
     textNumberSubtotal: {
-        fontSize: responsiveFontSize(2.09),
+        fontSize: sizeFont(2.09),
         fontFamily: 'SVN-Gilroy-Bold',
         fontWeight: '700',
         // lineHeight: sizeHeight(2.5),
@@ -118,13 +117,13 @@ const styles = StyleSheet.create({
         //backgroundColor: 'tomato'
     },
     textTotal: {
-        fontSize: responsiveFontSize(2.09),
+        fontSize: sizeFont(2.09),
         fontFamily: 'SVN-Gilroy-Bold',
         // lineHeight: sizeHeight(2.5),
         color: blackColor
     },
     textNumberTotal: {
-        fontSize: responsiveFontSize(2.61),
+        fontSize: sizeFont(2.61),
         fontFamily: 'SVN-Gilroy-Bold',
         color: blackColor
     },

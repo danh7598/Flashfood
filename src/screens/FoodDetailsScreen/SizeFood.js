@@ -1,10 +1,10 @@
-import React from 'react'
-import { StyleSheet, TouchableOpacity, Text, View } from 'react-native'
-import { blackColor, grayColor, orangeColor } from '../../string/ColorTheme'
-import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size'
-import PropTypes from 'prop-types'
+import React from 'react';
+import { StyleSheet, TouchableOpacity, Text, View } from 'react-native';
+import { blackColor, grayColor, orangeColor } from '../../string/ColorTheme';
+import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size';
+import PropTypes from 'prop-types';
 
-const SizeItem = ({size, backgroundColor, textColor, borderWidth, onItemSelected }) => {
+const SizeItem = ({ size, backgroundColor, textColor, borderWidth, onItemSelected }) => {
     //Props onItemSelected được truyền vào onPress của TouchableOpacity
     //Khi nhấn vào nút Touchable, thì hàm xử lý ở parent là onSelected được gọi
     //onSelected(index) được truyền vào tham số index
@@ -18,19 +18,19 @@ const SizeItem = ({size, backgroundColor, textColor, borderWidth, onItemSelected
             }]}>
             <Text style={[styles.textSizeItem, { color: textColor }]}>{size}"</Text>
         </TouchableOpacity>
-    )
-}
+    );
+};
 
 SizeItem.propTypes = {
     backgroundColor: PropTypes.string,
     onItemSelected: PropTypes.func,
     textColor: PropTypes.string,
     borderWidth: PropTypes.number,
-}
+};
 SizeItem.defaultProps = {
     textColor: '#BBBDC1',
     borderWidth: 1
-}
+};
 
 const SizeFood = ({ sizeArray, selectedIndex, onSelected }) => {
     //Component SizeFood, bao gồm một tiêu đề là Size: 
@@ -43,28 +43,28 @@ const SizeFood = ({ sizeArray, selectedIndex, onSelected }) => {
             <Text style={styles.textSize}>Sizes:</Text>
             <View style={styles.viewListItem}>
                 {sizeArray.map((item, index) => {
-                    
-                        return (
-                            <SizeItem
-                                //Muốn truyền tham số index vào hàm thay đổi selectedIndex của parent view,
-                                //thì ta viết cấu trúc function, trong function thì gọi hàm trên (chính là props onSelected)
-                                //và truyền tham số index vào
-                                onItemSelected={() => {
-                                    onSelected(index, item.price)
-                                }}
-                                textColor={selectedIndex === index ? 'white' : '#BBBDC1'}
-                                backgroundColor={selectedIndex === index ? orangeColor : 'transparent'}
-                                borderWidth={selectedIndex === index ? 0 : 1}
-                                key={index.toString()}
-                                size={item.size} />
-                        )
+
+                    return (
+                        <SizeItem
+                            //Muốn truyền tham số index vào hàm thay đổi selectedIndex của parent view,
+                            //thì ta viết cấu trúc function, trong function thì gọi hàm trên (chính là props onSelected)
+                            //và truyền tham số index vào
+                            onItemSelected={() => {
+                                onSelected(index, item.price);
+                            }}
+                            textColor={selectedIndex === index ? 'white' : '#BBBDC1'}
+                            backgroundColor={selectedIndex === index ? orangeColor : 'transparent'}
+                            borderWidth={selectedIndex === index ? 0 : 1}
+                            key={index.toString()}
+                            size={item.size} />
+                    );
                 })}
             </View>
         </View>
-    )
-}
+    );
+};
 
-export default SizeFood
+export default SizeFood;
 
 const styles = StyleSheet.create({
     container: {
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     textSize: {
         color: blackColor,
         fontFamily: 'SVN-Gilroy-Bold',
-        fontSize: sizeFont(4),
+        fontSize: sizeFont(1.83),
     },
     viewItem: {
         width: sizeWidth(12),
@@ -97,6 +97,6 @@ const styles = StyleSheet.create({
     },
     textSizeItem: {
         fontFamily: 'SVN-Gilroy-Bold',
-        fontSize: sizeFont(4),
+        fontSize: sizeFont(1.83),
     }
-})
+});

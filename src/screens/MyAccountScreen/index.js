@@ -1,9 +1,9 @@
 import React from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
-import { responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions';
 import HeaderBar from '../../common/HeaderBar';
 import back from '../../assets/back.png';
 import ItemAccount from './ItemAccount';
+import { sizeHeight, sizeWidth } from '../../Utils/Size';
 
 const dataUser = [
     {
@@ -107,23 +107,23 @@ const styles = StyleSheet.create({
     imgHeaderBarRight: {
         width: '100%',
         height: '100%',
-        borderRadius: responsiveWidth(2)
+        borderRadius: sizeWidth(2)
     },
     styleViewFlatlist: {
-        marginTop: responsiveHeight(1.97)
+        marginTop: sizeHeight(1.97)
     },
     viewGroupItem: {
         //backgroundColor: 'skyblue',
-        marginTop: responsiveHeight(1.97),
-        marginHorizontal: responsiveWidth(4),
-        borderRadius: responsiveWidth(4.2),
+        marginTop: sizeHeight(1.97),
+        marginHorizontal: sizeWidth(4),
+        borderRadius: sizeWidth(4.2),
         borderWidth: 1,
         borderColor: 'rgba(245, 245, 248, 1)',
         backgroundColor: '#FBFBFB'
     },
     separator: {
         alignSelf: 'center',
-        width: responsiveWidth(78.6),
+        width: sizeWidth(78.6),
         height: 1,
         backgroundColor: '#DDDDDD'
     }

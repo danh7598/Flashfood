@@ -1,8 +1,8 @@
-import React from 'react'
-import { Image, StyleSheet, Text, View } from 'react-native'
-import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size'
+import React from 'react';
+import { Image, StyleSheet, Text, View } from 'react-native';
+import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size';
 import clock from '../../assets/clock.png';
-import { blackColor } from '../../string/ColorTheme'
+import { blackColor } from '../../string/ColorTheme';
 
 const ShippingDuration = ({ textDuration }) => {
     return (
@@ -12,10 +12,10 @@ const ShippingDuration = ({ textDuration }) => {
                 source={clock} />
             <Text style={styles.textDuration}>{textDuration}</Text>
         </View>
-    )
-}
+    );
+};
 
-export default ShippingDuration
+export default ShippingDuration;
 
 const styles = StyleSheet.create({
     container: {
@@ -35,6 +35,6 @@ const styles = StyleSheet.create({
     textDuration: {
         color: blackColor,
         fontFamily: 'SVN-Gilroy-Bold',
-        fontSize: sizeFont(3.5),
+        fontSize: sizeFont(1.5625),
     }
-})
+});

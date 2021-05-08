@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size'
-import FormInput from '../RegisterHomework/FormInput'
-import HeaderText from '../RegisterHomework/HeaderText'
-import LogoComponent from '../RegisterHomework/LogoComponent'
-import QuestionSign from '../RegisterHomework/QuestionSign'
-import SignButton from '../RegisterHomework/SignButton'
-import SocialButton from '../RegisterHomework/SocialButton'
+import React, { Component } from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size';
+import FormInput from '../RegisterHomework/FormInput';
+import HeaderText from '../RegisterHomework/HeaderText';
+import LogoComponent from '../RegisterHomework/LogoComponent';
+import QuestionSign from '../RegisterHomework/QuestionSign';
+import SignButton from '../RegisterHomework/SignButton';
+import SocialButton from '../RegisterHomework/SocialButton';
 
 export default class LoginHomework extends Component {
     render() {
@@ -22,16 +22,17 @@ export default class LoginHomework extends Component {
                 </View>
                 <SignButton
                     signText={'Log in'} />
-                <TouchableOpacity style={styles.forgotButton}>
+                <TouchableOpacity
+                    style={styles.forgotButton}>
                     <Text style={styles.textForgotButton}>
                         Forgot Password?
-                        </Text>
+                    </Text>
                 </TouchableOpacity>
                 <QuestionSign
                     questionTextButton={'Sign Up'}
                     questionText={"Don't have an account? "} />
             </View>
-        )
+        );
     }
 }
 const styles = StyleSheet.create({
@@ -54,4 +55,4 @@ const styles = StyleSheet.create({
         paddingHorizontal: sizeWidth(8),
         marginTop: sizeWidth(6)
     }
-})
+});

@@ -16,5 +16,5 @@ export const sizeHeight = (size) => {
 };
 
 export const sizeFont = (size) => {
-    return size * vw;
+    return size * vh;
 };

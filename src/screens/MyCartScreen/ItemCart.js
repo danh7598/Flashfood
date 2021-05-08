@@ -56,13 +56,13 @@ const styles = StyleSheet.create({
     },
     textName: {
         fontFamily: 'SVN-Gilroy-Medium',
-        fontSize: sizeFont(4),
+        fontSize: sizeFont(1.82),
         color: blackColor,
         lineHeight: sizeHeight(2.5)
     },
     textPrice: {
         fontFamily: 'SVN-Gilroy-Bold',
-        fontSize: sizeFont(4),
+        fontSize: sizeFont(1.82),
         color: orangeColor,
         lineHeight: sizeHeight(2.5)
     },

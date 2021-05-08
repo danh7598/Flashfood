@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { responsiveFontSize } from 'react-native-responsive-dimensions';
 import { blackColor, grayColor, orangeColor } from '../../string/ColorTheme';
-import { sizeHeight, sizeWidth } from '../../Utils/Size';
+import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size';
 
 const ItemPicker = ({ title, data, selectedIndex, selectMultipleItem }) => {
     const [indexSelected, setIndexSelected] = useState([0]);
@@ -34,6 +33,7 @@ const ItemPicker = ({ title, data, selectedIndex, selectMultipleItem }) => {
             <Text style={styles.textTitle}>{title}</Text>
             <FlatList
                 data={data}
+                showsVerticalScrollIndicator={false}
                 contentContainerStyle={styles.flatList}
                 ItemSeparatorComponent={() => <View style={styles.separator} />}
                 keyExtractor={(item, index) => index.toString()}
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
         fontFamily: 'SVN-Gilroy-SemiBold',
         fontWeight: '600',
         color: blackColor,
-        fontSize: responsiveFontSize(1.83)
+        fontSize: sizeFont(1.82)
     },
     flatList: {
         marginTop: sizeHeight(1.97)
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
         backgroundColor: grayColor
     },
     textItem: {
-        fontSize: responsiveFontSize(1.83),
+        fontSize: sizeFont(1.82),
         fontWeight: '600',
         fontFamily: 'SVN-Gilroy-SemiBold',
     }

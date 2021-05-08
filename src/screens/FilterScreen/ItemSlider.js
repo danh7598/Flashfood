@@ -1,9 +1,8 @@
 import React, { useCallback, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { responsiveFontSize } from 'react-native-responsive-dimensions';
 import RangeSlider from 'rn-range-slider';
 import { blackColor, grayColor, orangeColor } from '../../string/ColorTheme';
-import { sizeHeight, sizeWidth } from '../../Utils/Size';
+import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size';
 
 
 const ThumbSlider = () => {
@@ -85,7 +84,7 @@ const styles = StyleSheet.create({
         fontFamily: 'SVN-Gilroy-SemiBold',
         fontWeight: '600',
         color: blackColor,
-        fontSize: responsiveFontSize(1.83)
+        fontSize: sizeFont(1.83)
     },
     viewSlider: {
         marginTop: sizeHeight(1.97),
@@ -131,7 +130,7 @@ const styles = StyleSheet.create({
     },
     textLabel: {
         color: '#525C67',
-        fontSize: responsiveFontSize(1.83),
+        fontSize: sizeFont(1.83),
         fontFamily: 'SVN-Gilroy-Medium',
         fontWeight: '500'
     }
