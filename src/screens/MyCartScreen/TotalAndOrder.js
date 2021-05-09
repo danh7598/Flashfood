@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { blackColor } from '../../string/ColorTheme';
 import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size';
 import Button from '../LoginScreen/Button';
-
+import PropTypes from 'prop-types';
 const TotalAndOrder = ({ subtotal, fee, }) => {
     return (
         <View style={styles.container}>
@@ -40,6 +40,15 @@ const TotalAndOrder = ({ subtotal, fee, }) => {
     );
 };
 
+TotalAndOrder.propTypes = {
+    fee: PropTypes.number,
+    subtotal: PropTypes.number
+};
+
+TotalAndOrder.defaultProps = {
+    fee: 0,
+    subtotal: 0
+};
 export default TotalAndOrder;
 
 const styles = StyleSheet.create({
