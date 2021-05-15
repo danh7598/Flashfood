@@ -13,6 +13,7 @@ import OnboardingStackNavigator from './OnBoardingStackNavigator';
 import LoginStackNavigator from './LoginStackNavigator';
 import CheckOutScreen from '../screens/CheckoutScreen';
 import SuccessfullyPayment from '../screens/CheckoutScreen/SuccessfullyPayment';
+import DeliveryStatusScreen from '../screens/DeliveryStatusScreen/DeliveryStatusScreen';
 
 const MainStack = createStackNavigator();
 
@@ -28,14 +29,17 @@ const MyTheme = {
 const MainStackNavigator = () => {
     return (
         <MainStack.Navigator
-            initialRouteName={'SuccessPayment'}
+            initialRouteName={'MyCart'}
             headerMode={'none'}>
             <MainStack.Screen name={'Onboarding'} component={OnboardingStackNavigator} />
             <MainStack.Screen name={'HomeDrawer'} component={MainDrawerNavigation} />
             <MainStack.Screen name={'FoodDetails'} component={FoodDetailsScreen} />
             <MainStack.Screen name={'LoginStack'} component={LoginStackNavigator} />
+
             <MainStack.Screen name={'Checkout'} component={CheckOutScreen} />
             <MainStack.Screen name={'SuccessPayment'} component={SuccessfullyPayment} />
+            <MainStack.Screen name={'DeliveryStatus'} component={DeliveryStatusScreen} />
+
 
 
             <MainStack.Screen name={'MyCart'} component={MyCartScreen} />

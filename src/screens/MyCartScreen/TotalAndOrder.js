@@ -64,14 +64,14 @@ const styles = StyleSheet.create({
         // borderColor: '#898B9A',
         paddingTop: sizeHeight(2),
         backgroundColor: 'white',
-        // shadowColor: '#000000',
-        // shadowOffset: {
-        //     width: 0,
-        //     height: -2
-        // },
-        // shadowRadius: 20,
-        // shadowOpacity: 1.0,
-        elevation: 10,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
 
 
         //backgroundColor: 'skyblue'
