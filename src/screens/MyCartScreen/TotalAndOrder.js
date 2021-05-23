@@ -29,7 +29,7 @@ const TotalAndOrder = ({ subtotal, fee, }) => {
                     Total
                 </Text>
                 <Text style={styles.textNumberTotal}>
-                    $ {(subtotal - fee).toFixed(2)}
+                    $ {(subtotal + fee).toFixed(2)}
                 </Text>
             </View>
             <Button
@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: 0,
         width: sizeWidth(100),
+
         //marginBottom: sizeHeight(2),
         // borderWidth: 0.5,
         // borderColor: '#898B9A',

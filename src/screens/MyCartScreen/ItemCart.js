@@ -8,11 +8,10 @@ import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size';
 
 const ItemCart = ({ image, name, price, quantity, onPressPlus, onPressMinus }) => {
     return (
-
         <View style={styles.container}>
             <Image
                 style={styles.imgMain}
-                source={image} />
+                source={{ uri: image }} />
             <View style={styles.viewText}>
                 <Text style={styles.textName}>
                     {name}

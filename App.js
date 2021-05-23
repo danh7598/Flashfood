@@ -3,11 +3,26 @@ import React, { Component } from 'react';
 import { StyleSheet, SafeAreaView, View, LogBox, } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import Constants from 'expo-constants';
-
-//import Login from './Login'
+import { Provider } from 'react-redux';
+import { store } from './src/redux/AppRedux';
+import firebase from 'firebase/app';
 import * as Font from 'expo-font';
 import AppNavigator from './src/navigation/AppNavigator';
 
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCX9Iy_oXU69u8dKwmcynRGzDyw_GJ7tto",
+  authDomain: "flashfood-d6f53.firebaseapp.com",
+  projectId: "flashfood-d6f53",
+  storageBucket: "flashfood-d6f53.appspot.com",
+  messagingSenderId: "605149532808",
+  appId: "1:605149532808:web:eb5a6817a9d3c0369f053d",
+  measurementId: "G-RPFX5RRRHB"
+};
+// Initialize Firebase
+if (firebase.apps.length === 0) {
+  firebase.initializeApp(firebaseConfig);
+}
 
 export default class App extends Component {
   constructor(props) {
@@ -35,14 +50,17 @@ export default class App extends Component {
     // console.log(Constants.statusBarHeight,);
     if (this.state.fontsLoaded) {
       return (
-        <SafeAreaView style={styles.container}>
-          {/* thuộc tính translucent giúp làm mờ StatusBar, dẫn đến thấy các component nằm dưới StatusBar
+        <Provider store={store}>
+          <SafeAreaView style={styles.container}>
+            {/* thuộc tính translucent giúp làm mờ StatusBar, dẫn đến thấy các component nằm dưới StatusBar
               Chỉnh false để ẩn đi các component nằm dưới statusbar
               Khi translucent false thì StatusBar chuyển thành màu đen, phải để style="light" mới hiện chữ
              */}
-          <StatusBar style={'auto'} transparent={true} />
-          <AppNavigator />
-        </SafeAreaView>
+            <StatusBar style={'auto'} transparent={true} />
+            <AppNavigator />
+          </SafeAreaView>
+        </Provider>
+
 
       );
     } else {

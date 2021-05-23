@@ -5,6 +5,7 @@ import backImg from '../../assets/back.png';
 import add_to_cart from '../../assets/add_to_cart.png';
 import FoodDescription from './FoodDescription';
 import vegetable_biryani from '../../assets/vegetable_biryani.png';
+import hamburger_popular from '../../assets/hamburger_popular.png';
 import FoodStar from './FoodStar';
 import { sizeHeight, sizeWidth } from '../../Utils/Size';
 import ShippingDuration from './ShippingDuration';
@@ -15,6 +16,9 @@ import logo_restaurant from '../../assets/logo_restaurant.png';
 import QuantityControl from './QuantityControl';
 import ButtonBuyNow from './ButtonBuyNow';
 import { grayColor } from '../../string/ColorTheme';
+import { connect } from 'react-redux';
+import { actionAddFoodDetail } from '../../redux/FoodDetail/FoodDetailAction';
+import { actionAddItemCart } from '../../redux/MyCart/MyCartAction';
 
 const foodPrice = [
     {
@@ -34,17 +38,23 @@ const foodPrice = [
         price: 19.99
     }
 ];
-export default class FoodDetailsScreen extends Component {
+class FoodDetailsScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
             sizeSelected: -1,
             quantity: 1,
-            currentPrice: 0
+            currentPrice: 0,
+            sizeMessage: ''
         };
+
     }
     onPressLeftBtn = () => {
-        alert('Press back');
+        this.props.navigation.goBack();
+    };
+
+    onPressGoToCart = () => {
+        this.props.navigation.navigate('MyCart');
     };
 
     // Hàm thay đổi lựa chọn size của đồ ăn
@@ -54,7 +64,8 @@ export default class FoodDetailsScreen extends Component {
         //console.log(price)
         this.setState({
             sizeSelected: index,
-            currentPrice: price
+            currentPrice: price,
+            sizeMessage: ''
         });
     };
 
@@ -74,25 +85,49 @@ export default class FoodDetailsScreen extends Component {
         });
     };
 
+    onPressBuyNow = (item) => {
+        // console.log("ABC");
+        // console.log(item);
+        // {
+        //     name: "Chef's Burger",
+        //     price: 15.99,
+        //     size: '12',
+        //     quantity: this.state.quantity,
+        //     image: hamburger_popular
+        // }
+        if (this.state.sizeSelected == -1) {
+            this.setState({
+                sizeMessage: "Please select size!"
+            });
+            return;
+        };
+        this.props.addToCart({
+            ...item,
+            quantity: this.state.quantity,
+            size: foodPrice[this.state.sizeSelected].size
+        });
+    };
 
     componentDidMount() {
-        this.interval = setInterval(
-            () => this.setState((prevState) => ({ time_remain: prevState.timer - 1 })),
-            1000
-        );
+        // this.interval = setInterval(
+        //     () => this.setState((prevState) => ({ time_remain: prevState.timer - 1 })),
+        //     1000
+        // );
     }
 
     componentDidUpdate() {
-        if (this.state.timer === 1) {
-            clearInterval(this.interval);
-        }
+        // if (this.state.timer === 1) {
+        //     clearInterval(this.interval);
+        // }
     }
 
     componentWillUnmount() {
-        clearInterval(this.interval);
+        // clearInterval(this.interval);
     }
 
     render() {
+        const itemFoodDetail = this.props.route.params;
+        // console.log(itemFoodDetail);
         return (
             <View style={styles.container}>
                 <HeaderBar
@@ -101,17 +136,21 @@ export default class FoodDetailsScreen extends Component {
                     leftBtnSource={backImg}
                     rightBtnSource={add_to_cart}
                     backgroundColorRightBtn={'rgba(255, 108, 68, 0.2)'}
-                    onPressLeftBtn={this.onPressLeftBtn} />
+                    onPressLeftBtn={this.onPressLeftBtn}
+                    onPressRightBtn={this.onPressGoToCart}
+                />
                 <FoodDescription
-                    textNameFood={'Vegetable Biryani'}
+                    calories={itemFoodDetail.calories}
+                    textNameFood={itemFoodDetail.name}
                     textDescriptionFood={'A popular spice and vegetables mixed favoured rice dish which is typical prepared by layering the biryani gravy and basmati rice in flat bottom vessel'}
-                    imgFoodCenterSource={vegetable_biryani} />
+                    imgFoodCenterSource={itemFoodDetail.imageUrl} />
                 <View style={styles.viewRating}>
                     <FoodStar rateNumber={4.5} />
                     <ShippingDuration textDuration={'30 Mins'} />
                     <ShippingPrice textPrice={0} />
                 </View>
                 <SizeFood
+                    message={this.state.sizeMessage}
                     sizeArray={foodPrice}
                     onSelected={this.onSizeSelected}
                     selectedIndex={this.state.sizeSelected} />
@@ -127,6 +166,7 @@ export default class FoodDetailsScreen extends Component {
                         onPressPlus={this.onPressPlusQuantity}
                         number={this.state.quantity} />
                     <ButtonBuyNow
+                        onPress={() => this.onPressBuyNow(itemFoodDetail)}
                         textButton={"Buy Now"}
                         price={"$" + (this.state.currentPrice * this.state.quantity).toFixed(2)}
                     />
@@ -135,6 +175,23 @@ export default class FoodDetailsScreen extends Component {
         );
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        dataCart: state.myCartReducer.dataCart
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addToCart: (foodItem) => {
+            dispatch(actionAddItemCart(foodItem));
+        },
+
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(FoodDetailsScreen);
 
 const styles = StyleSheet.create({
     container: {

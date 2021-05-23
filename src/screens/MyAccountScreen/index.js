@@ -4,50 +4,67 @@ import HeaderBar from '../../common/HeaderBar';
 import back from '../../assets/back.png';
 import ItemAccount from './ItemAccount';
 import { sizeHeight, sizeWidth } from '../../Utils/Size';
+import firebase from 'firebase/app';
+import "firebase/auth";
 
-const dataUser = [
+let dataUser = [
     {
         title: 'Full Name',
-        value: 'Arma Dimunji'
+        value: ''
     },
     {
         title: 'Phone Number',
-        value: '332-559-8972'
+        value: ''
     },
     {
         title: 'User Id',
-        value: '1010 999'
+        value: ''
     },
 ];
 
-const dataDetail = [
+let dataDetail = [
     {
         title: 'Id Card',
         value: ''
     },
     {
         title: 'Date of Birth',
-        value: '07/05/1998'
+        value: ''
     },
     {
         title: 'Gender',
-        value: 'Male'
+        value: ''
     },
     {
         title: 'Joined',
-        value: 'November 2019'
+        value: ''
     },
     {
         title: 'Email',
-        value: 'duy2@gmail.com'
+        value: ''
     },
     {
         title: 'Address',
-        value: '300 Post Street San Francisco, CA'
+        value: ''
     },
 ];
 
 const MyAccountScreen = ({ navigation }) => {
+
+    var user = firebase.auth().currentUser;
+    var name, email, photoUrl, uid, emailVerified;
+
+    if (user != null) {
+        dataUser[0].value = user.displayName; //Full Name
+        dataDetail[4].value = user.email; //email
+        photoUrl = user.photoURL;
+        emailVerified = user.emailVerified;
+        dataUser[2].value = user.uid; //ID User
+    }
+
+
+
+
     const pressBack = () => {
         navigation.goBack();
     };

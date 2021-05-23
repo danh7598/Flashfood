@@ -10,7 +10,7 @@ const ItemAccount = ({ title, value }) => {
             <Text style={styles.textTitle}>{title}</Text>
             <Text
                 numberOfLines={1}
-                style={[styles.textValue, { color: value === '' ? '#757D85' : blackColor }]}>{value === '' ? 'Not updated' : value}</Text>
+                style={[styles.textValue, { color: value === '' ? '#757D85' : blackColor }]}>{value === '' || value === null ? 'Not updated' : value}</Text>
         </View>
     );
 };

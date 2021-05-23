@@ -112,6 +112,7 @@ export default class HomeScreen extends Component {
         this.handleUpdateCategory();
         this.handleUpdatePopularItems();
         this.handleUpdateRecommendedItems();
+
     }
 
     render() {
@@ -154,6 +155,7 @@ export default class HomeScreen extends Component {
                         data={this.state.dataPopular}
                     />
                     <ListRecommended
+                        navigation={this.props.navigation}
                         data={this.state.dataRecommended} />
                     <ListMenu
                         onSelected={this.onSelectedMenu}

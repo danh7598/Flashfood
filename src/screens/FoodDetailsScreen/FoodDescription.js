@@ -16,11 +16,10 @@ export default class FoodDescription extends Component {
                             <Image
                                 style={styles.imgCalories}
                                 source={fire} />
-                            <Text style={styles.textCalories}>78 Calories</Text>
+                            <Text style={styles.textCalories}>{this.props.calories} Calories</Text>
                         </View>
-
                         <Image
-                            source={this.props.imgFoodCenterSource}
+                            source={{ uri: this.props.imgFoodCenterSource }}
                             style={styles.imgFoodCenter} />
                     </View>
                     <TouchableOpacity style={styles.btnFavorite}>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, TouchableOpacity, Text, View, Image } from 'react-native';
+import { StyleSheet, TouchableOpacity, Text, View, Image, ActivityIndicator } from 'react-native';
 import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size';
 import PropTypes from 'prop-types';
 const orangeColor = '#F96B44';
@@ -17,6 +17,7 @@ class Button extends Component {
                 <Text style={[styles.textButton, this.props.textStyle]}>
                     {this.props.buttonSign}
                 </Text>
+                {this.props.isLoading && <ActivityIndicator size="small" color={styles.textButton.color} />}
             </TouchableOpacity>
         );
     }
@@ -53,7 +54,8 @@ const styles = StyleSheet.create({
     textButton: {
         fontSize: sizeFont(2.08),
         fontFamily: 'SVN-Gilroy-Bold',
-        color: 'white'
+        color: 'white',
+        marginRight: sizeWidth(4)
     }
 
 });

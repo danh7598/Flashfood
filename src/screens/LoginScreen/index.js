@@ -27,7 +27,12 @@ import eye from '../../assets/eye.png';
 import eye_close from '../../assets/eye_close.png';
 import { emailNotification } from '../../string/NotificationInput';
 import { loginWithEmailAndPassword } from '../../Utils/api';
-export default class LoginScreen extends Component {
+import { connect } from 'react-redux';
+
+import firebase from 'firebase/app';
+import "firebase/auth";
+import { actionLogin, actionSetloading } from '../../redux/Authentication/AuthenticationActions';
+class LoginScreen extends Component {
   constructor(props) {
     super(props);
     this.state = ({
@@ -37,7 +42,6 @@ export default class LoginScreen extends Component {
       notificationEmail: 0, //0: dont show noti, 1: show error noti, 2: ok noti
       hidePassword: true,
       btnShowPassword: eye,
-      loading: true,
       bodyLogin: ''
 
     });
@@ -103,39 +107,51 @@ export default class LoginScreen extends Component {
     alert('Press Google Login');
   };
 
+
   onPressLogin = () => {
-    this.setState({ loading: true }, async () => {
-      try {
-        const loginInfo = await loginWithEmailAndPassword(this.state.emailValue,
-          this.state.passwordValue);
-        console.log(loginInfo);
-        if (!loginInfo.ok) {
-          this.setState({
-            loading: false,
-            bodyLogin: 'Login Failed',
-            passwordValue: ''
-          });
-        } else {
-          this.setState({
-            loading: false,
-            bodyLogin: 'Login Successfully'
-          }, () => {
-            this.props.navigation.navigate('Home');
-          });
-        }
-        alert(this.state.bodyLogin);
+    this.props.setLoading(true);
+    this.props.loginWithEmailAndPassword({ email: this.state.emailValue, password: this.state.passwordValue });
+    // this.setState({ loading: true }, () => {
+    //   let email = this.state.emailValue;
+    //   let password = this.state.passwordValue;
 
-
-      }
-      catch (e) {
-        this.setState({
-          loading: false
-        }, () => {
-          console.log(e);
-        });
-      }
-    });
+    // });
   };
+
+  //Using API
+  // onPressLogin = () => {
+  //   this.setState({ loading: true }, async () => {
+  //     try {
+  //       const loginInfo = await loginWithEmailAndPassword(this.state.emailValue,
+  //         this.state.passwordValue);
+  //       console.log(loginInfo);
+  //       if (!loginInfo.ok) {
+  //         this.setState({
+  //           loading: false,
+  //           bodyLogin: 'Login Failed',
+  //           passwordValue: ''
+  //         });
+  //       } else {
+  //         this.setState({
+  //           loading: false,
+  //           bodyLogin: 'Login Successfully'
+  //         }, () => {
+  //           this.props.navigation.navigate('Home');
+  //         });
+  //       }
+  //       alert(this.state.bodyLogin);
+
+
+  //     }
+  //     catch (e) {
+  //       this.setState({
+  //         loading: false
+  //       }, () => {
+  //         console.log(e);
+  //       });
+  //     }
+  //   });
+  // };
 
   onPressQuestionSign = () => {
     this.props.navigation.navigate('Register');
@@ -148,6 +164,10 @@ export default class LoginScreen extends Component {
 
   render() {
     // console.log(emailNotification)
+    // console.log(this.props.userCredential);
+    if (this.props.userCredential) {
+      this.props.navigation.navigate('HomeDrawer');
+    }
     return (
       <View style={styles.container}>
         {/* Header View bao gồm logo và headerText */}
@@ -193,6 +213,7 @@ export default class LoginScreen extends Component {
         <View style={styles.viewFooterButton}>
           <View>
             <Button
+              isLoading={this.props.loading}
               onPress={this.onPressLogin}
               textStyle={styles.btnSignIn}
               buttonSign={"Sign In"} />
@@ -220,6 +241,27 @@ export default class LoginScreen extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    loading: state.authenticationReducer.loading,
+    userCredential: state.authenticationReducer.userCredential
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setLoading: (state) => {
+      dispatch(actionSetloading(state));
+    },
+    loginWithEmailAndPassword: (info) => {
+      dispatch(actionLogin(info));
+    }
+  };
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen);
 
 const styles = StyleSheet.create({
   container: {

@@ -6,6 +6,8 @@ import {
     DrawerItemList,
     DrawerItem,
 } from '@react-navigation/drawer';
+import firebase from 'firebase/app';
+import "firebase/auth";
 import close from '../../assets/close.png';
 import { orangeColor } from '../../string/ColorTheme';
 import face_woman from '../../assets/face_woman.jpeg';
@@ -31,6 +33,7 @@ const ItemDrawer = ({ style, onPress, title, icon }) => {
         </TouchableOpacity>
     );
 };
+
 const CustomDrawerContainer = (props) => {
     // console.log(JSON.stringify(props.navigation));
     const nameRoutes = props.state.routeNames;
@@ -38,6 +41,18 @@ const CustomDrawerContainer = (props) => {
     const onPress = (name) => () => {
         props.navigation.navigate(name);
     };
+
+
+    var user = firebase.auth().currentUser;
+    var name, email, photoUrl, uid, emailVerified;
+
+    if (user != null) {
+        name = user.displayName;
+        email = user.email;
+        photoUrl = user.photoURL;
+        emailVerified = user.emailVerified;
+        uid = user.uid;
+    }
 
     return (
         <View style={styles.viewDrawer}>
@@ -56,9 +71,9 @@ const CustomDrawerContainer = (props) => {
                 style={styles.viewAvatar}>
                 <Image
                     style={styles.imgAvatar}
-                    source={face_woman} />
+                    source={photoUrl ? photoUrl : face_woman} />
                 <View style={styles.viewTextAvatar}>
-                    <Text style={styles.textName}>Arman Nijum</Text>
+                    <Text style={styles.textName}>{name ? name : email}</Text>
                     <Text style={styles.textViewProfile}>View your profile</Text>
                 </View>
             </TouchableOpacity>

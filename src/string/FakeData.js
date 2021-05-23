@@ -56,12 +56,14 @@ export const dataCart = [
     {
         name: "Chef's Burger",
         price: 15.99,
+        size: '12',
         quantity: 2,
         image: hamburger_popular
     },
     {
         name: 'Noodels',
         price: 10.99,
+        size: '12',
         quantity: 1,
         image: hamburger_popular
 
@@ -69,12 +71,14 @@ export const dataCart = [
     {
         name: "Sandwich",
         price: 15.99,
+        size: '12',
         quantity: 3,
         image: hamburger_popular
     },
     {
         name: "Sandwich",
         price: 15.99,
+        size: '12',
         quantity: 3,
         image: hamburger_popular
     },

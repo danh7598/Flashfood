@@ -58,8 +58,9 @@ ItemPopular.defaultProps = {
 };
 
 class ListPopular extends Component {
-    onPressItem = () => {
-        this.props.navigation.navigate('FoodDetails');
+    onPressItem = (item, index) => {
+        // console.log(index);
+        this.props.navigation.navigate('FoodDetails', item);
     };
     render() {
         // console.log(this.props.data)
@@ -74,7 +75,7 @@ class ListPopular extends Component {
                     renderItem={({ item, index }) => (
                         <ItemPopular
                             name={item.name}
-                            onPress={this.onPressItem}
+                            onPress={() => this.onPressItem(item, index)}
                             description={item.description}
                             price={item.price}
                             calories={item.calories}

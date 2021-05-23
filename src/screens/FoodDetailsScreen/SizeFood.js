@@ -3,6 +3,7 @@ import { StyleSheet, TouchableOpacity, Text, View } from 'react-native';
 import { blackColor, grayColor, orangeColor } from '../../string/ColorTheme';
 import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size';
 import PropTypes from 'prop-types';
+import { enableExpoCliLogging } from 'expo/build/logs/Logs';
 
 const SizeItem = ({ size, backgroundColor, textColor, borderWidth, onItemSelected }) => {
     //Props onItemSelected được truyền vào onPress của TouchableOpacity
@@ -32,34 +33,39 @@ SizeItem.defaultProps = {
     borderWidth: 1
 };
 
-const SizeFood = ({ sizeArray, selectedIndex, onSelected }) => {
+const SizeFood = ({ message, sizeArray, selectedIndex, onSelected }) => {
     //Component SizeFood, bao gồm một tiêu đề là Size: 
     //và một list các ô hiển thị size ví dụ[12"]
     //Có 3 props là sizeArray: chứa mảng lưu các kích cỡ của đồ ăn
     //selectedIndex: chỉ số phần tử của mảng trên đang được lựa
     //onSelected: Hàm nhận khi nhấn vào một TouchableOpacity, thuộc SizeItem
+    // console.log(message);
     return (
         <View style={styles.container}>
-            <Text style={styles.textSize}>Sizes:</Text>
-            <View style={styles.viewListItem}>
-                {sizeArray.map((item, index) => {
-
-                    return (
-                        <SizeItem
-                            //Muốn truyền tham số index vào hàm thay đổi selectedIndex của parent view,
-                            //thì ta viết cấu trúc function, trong function thì gọi hàm trên (chính là props onSelected)
-                            //và truyền tham số index vào
-                            onItemSelected={() => {
-                                onSelected(index, item.price);
-                            }}
-                            textColor={selectedIndex === index ? 'white' : '#BBBDC1'}
-                            backgroundColor={selectedIndex === index ? orangeColor : 'transparent'}
-                            borderWidth={selectedIndex === index ? 0 : 1}
-                            key={index.toString()}
-                            size={item.size} />
-                    );
-                })}
+            <View style={styles.viewRowSize}>
+                <Text style={styles.textSize}>Sizes:</Text>
+                <View style={styles.viewListItem}>
+                    {sizeArray.map((item, index) => {
+                        return (
+                            <SizeItem
+                                //Muốn truyền tham số index vào hàm thay đổi selectedIndex của parent view,
+                                //thì ta viết cấu trúc function, trong function thì gọi hàm trên (chính là props onSelected)
+                                //và truyền tham số index vào
+                                onItemSelected={() => {
+                                    onSelected(index, item.price);
+                                }}
+                                textColor={selectedIndex === index ? 'white' : '#BBBDC1'}
+                                backgroundColor={selectedIndex === index ? orangeColor : 'transparent'}
+                                borderWidth={selectedIndex === index ? 0 : 1}
+                                key={index.toString()}
+                                size={item.size} />
+                        );
+                    })}
+                </View>
             </View>
+            {message != '' && <View style={styles.viewMessage}>
+                <Text style={styles.textMessage}>{message}</Text>
+            </View>}
         </View>
     );
 };
@@ -69,11 +75,13 @@ export default SizeFood;
 const styles = StyleSheet.create({
     container: {
         paddingTop: sizeHeight(1),
-        paddingBottom: sizeHeight(3),
-        //backgroundColor: 'skyblue',
-        flexDirection: 'row',
-        alignItems: 'center',
+        paddingBottom: sizeHeight(2.5),
+        // backgroundColor: 'tomato',
         paddingHorizontal: sizeWidth(4)
+    },
+    viewRowSize: {
+        flexDirection: 'row',
+        alignItems: 'center'
     },
     textSize: {
         color: blackColor,
@@ -87,6 +95,17 @@ const styles = StyleSheet.create({
         borderColor: '#BBBDC1',
         alignItems: 'center',
         justifyContent: 'center'
+    },
+    viewMessage: {
+        // backgroundColor: 'skyblue',
+        alignSelf: 'center',
+        // marginBottom: sizeHeight(1.5)
+        marginTop: sizeHeight(1.2)
+    },
+    textMessage: {
+        fontSize: sizeFont(1.83),
+        fontFamily: 'SVN-Gilroy-Medium',
+        color: orangeColor
     },
     viewListItem: {
         flexDirection: 'row',

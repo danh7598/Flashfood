@@ -29,7 +29,7 @@ const MyTheme = {
 const MainStackNavigator = () => {
     return (
         <MainStack.Navigator
-            initialRouteName={'MyCart'}
+            initialRouteName={'LoginStack'}
             headerMode={'none'}>
             <MainStack.Screen name={'Onboarding'} component={OnboardingStackNavigator} />
             <MainStack.Screen name={'HomeDrawer'} component={MainDrawerNavigation} />

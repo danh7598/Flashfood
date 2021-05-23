@@ -9,7 +9,7 @@ export const getCategoryItems = async () => {
 export const getPopularItems = async () => {
     const response = await fetch('https://training.softech.cloud/api/products/popular');
     const json = await response.json();
-    //console.log(json.products);
+    // console.log(json.products);
     return json.products;
 };
 

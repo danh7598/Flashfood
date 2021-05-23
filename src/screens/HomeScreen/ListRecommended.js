@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import { FlatList, Image, StyleSheet, Text, View } from 'react-native';
+import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { blackColor, grayColor } from '../../string/ColorTheme';
 import { sizeFont, sizeHeight, sizeWidth } from '../../Utils/Size';
 import fire_calories from '../../assets/fire_calories.png';
 import HeaderList from './HeaderList';
 
-const ItemRecommended = ({ name, image, calories, price, description }) => {
+const ItemRecommended = ({ name, image, calories, price, description, onPress }) => {
     return (
-        <View style={styles.container}>
+        <TouchableOpacity
+            onPress={onPress}
+            style={styles.container}>
             <Image style={styles.imgMain}
                 source={{ uri: image }} />
             <View style={styles.viewDescription}>
@@ -27,11 +29,17 @@ const ItemRecommended = ({ name, image, calories, price, description }) => {
                     <Text style={styles.textPrice}>${price}</Text>
                 </View>
             </View>
-        </View>
+        </TouchableOpacity>
     );
 };
 
 class ListRecommended extends Component {
+
+    onPressItem = (item, index) => {
+        // console.log(index);
+        this.props.navigation.navigate('FoodDetails', item);
+    };
+
     render() {
         return (
             <View style={styles.viewListRecommended}>
@@ -43,6 +51,7 @@ class ListRecommended extends Component {
                     data={this.props.data}
                     renderItem={({ item, index }) => (
                         <ItemRecommended
+                            onPress={() => this.onPressItem(item, index)}
                             name={item.name}
                             description={item.description}
                             price={item.price}
